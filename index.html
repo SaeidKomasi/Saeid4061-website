@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAEID4061 • GREY LION</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <div id="page-wrapper">
@@ -20,59 +20,79 @@
             </div>
             <div class="header-right">
                 <div class="flag-row">
-                    <span class="flag-chip">🇪🇺 EU</span>
-                    <span class="flag-chip">🇮🇷 IR</span>
-                    <span class="flag-chip">🇵🇱 PL</span>
+                    <span class="flag-chip">EU</span>
+                    <span class="flag-chip">IR</span>
+                    <span class="flag-chip">PL</span>
                 </div>
-                <img src="saeid4061-logo.jpg" alt="Grey Lion Logo" class="logo">
+                <img src="saeid4061-logo.jpg" alt="Grey Lion Logo" class="logo" />
             </div>
         </header>
 
-        <!-- TOP CONTROL BAR -->
-        <section class="control-bar">
-            <div class="control-left">
-                <label for="language-select" class="control-label" data-i18n="language_label">Language</label>
-                <select id="language-select"></select>
-            </div>
-            <div class="control-center">
-                <button id="personal-tab" class="tab-button active" data-target="personal-section" data-i18n="tab_personal">
-                    Personal
-                </button>
-                <button id="company-tab" class="tab-button" data-target="company-section" data-i18n="tab_company">
-                    Company
-                </button>
+        <!-- HERO (روی عکس کامیون) -->
+        <section class="hero">
+            <div class="hero-overlay">
+                <div class="hero-topbar">
+                    <div class="control-left">
+                        <label for="language-select" class="control-label" data-i18n="language_label">
+                            Language
+                        </label>
+                        <select id="language-select"></select>
+                    </div>
+
+                    <div class="control-center">
+                        <button
+                            id="personal-tab"
+                            class="tab-button"
+                            data-target="personal-section"
+                            data-i18n="tab_personal"
+                        >
+                            Personal
+                        </button>
+                        <button
+                            id="company-tab"
+                            class="tab-button active"
+                            data-target="company-section"
+                            data-i18n="tab_company"
+                        >
+                            Company
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- PERSONAL SECTION (ساده، فعلاً فقط معرفی کوتاه) -->
-        <main id="personal-section" class="content-section visible">
+        <!-- PERSONAL SECTION -->
+        <main id="personal-section" class="content-section">
             <div class="card-block">
                 <h2 data-i18n="personal_title">Personal Contact</h2>
                 <p data-i18n="personal_desc">
-                    For direct contact with CEO &amp; Founder, you can use the same email, Telegram and WhatsApp shown below.
+                    For direct contact with CEO &amp; Founder, you can use the same email,
+                    Telegram and WhatsApp shown in the company section.
                 </p>
             </div>
         </main>
 
-        <!-- COMPANY SECTION -->
-        <main id="company-section" class="content-section">
+        <!-- COMPANY SECTION (پیش‌فرض: نمایش داده شود) -->
+        <main id="company-section" class="content-section visible">
             <!-- CONTACT BUTTONS -->
             <section class="contact-row">
                 <div class="contact-card email">
                     <a href="mailto:saeedkomasy@gmail.com">
-                        <span data-i18n="email_label">Email</span><br>
+                        <span data-i18n="email_label">Email</span><br />
                         <strong>SAEEDKOMASY@GMAIL.COM</strong>
                     </a>
                 </div>
+
                 <div class="contact-card telegram">
                     <a href="https://t.me/saeidkomasi" target="_blank">
-                        <span data-i18n="telegram_label">Telegram</span><br>
+                        <span data-i18n="telegram_label">Telegram</span><br />
                         <strong>@saeidkomasi</strong>
                     </a>
                 </div>
+
                 <div class="contact-card whatsapp">
                     <a href="https://wa.me/48737004848" target="_blank">
-                        <span data-i18n="whatsapp_label">WhatsApp</span><br>
+                        <span data-i18n="whatsapp_label">WhatsApp</span><br />
                         <strong>+48 737 004 848</strong>
                     </a>
                 </div>
@@ -102,7 +122,9 @@
                         ul. Kolejowa 31B, lok. 23B, 21-500 Biała Podlaska, Poland
                     </div>
 
-                    <div class="label" data-i18n="correspondence_address_label">Correspondence address</div>
+                    <div class="label" data-i18n="correspondence_address_label">
+                        Correspondence address
+                    </div>
                     <div class="value">
                         Orzechowa 32/1, 21-500 Biała Podlaska, Poland
                     </div>
