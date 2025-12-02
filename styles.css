@@ -1,8 +1,9 @@
+به من
+
 * {
     box-sizing: border-box;
 }
 
-/* بک‌گراند: فقط کامیون (روز/شب) */
 body {
     margin: 0;
     padding: 0;
@@ -17,7 +18,7 @@ body {
     background: rgba(0, 0, 0, 0.45);
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 
 .header {
     display: flex;
@@ -72,7 +73,7 @@ body {
     border-radius: 8px;
 }
 
-/* ===== HERO BAR ===== */
+/* HERO BAR */
 
 .hero {
     position: relative;
@@ -102,7 +103,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* ===== LANGUAGE & TABS ===== */
+/* LANGUAGE + TABS */
 
 .control-left {
     display: flex;
@@ -142,7 +143,7 @@ body {
     border-color: #00c853;
 }
 
-/* ===== CONTENT SECTIONS ===== */
+/* CONTENT SECTIONS */
 
 .content-section {
     display: none;
@@ -171,7 +172,7 @@ body {
     line-height: 1.6;
 }
 
-/* ===== CONTACT BUTTONS ===== */
+/* CONTACT BUTTONS */
 
 .contact-row {
     max-width: 900px;
@@ -202,7 +203,6 @@ body {
     font-size: 20px;
 }
 
-/* رنگ‌بندی ایکن‌ها / کارت‌ها */
 .contact-card.email {
     background: #ef6c00;
 }
@@ -215,7 +215,7 @@ body {
     background: #1b5e20;
 }
 
-/* ===== COMPANY INFO ===== */
+/* COMPANY INFO */
 
 .company-info {
     max-width: 900px;
@@ -251,7 +251,7 @@ body {
     font-weight: 400;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 
 @media (max-width: 700px) {
     .header {
