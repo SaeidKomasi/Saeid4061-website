@@ -24,9 +24,7 @@ const languageList = [
     { code: "kk", label: "Қазақша" }
 ];
 
-// ===== ترجمه‌ها =====
-// برای ساده شدن، متن کامل فقط برای فارسی، انگلیسی و لهستانی است
-// بقیه زبان‌ها اگر ترجمه نداشته باشند، خودکار از انگلیسی استفاده می‌کنند
+// ===== ترجمه‌ها (کامل برای fa/en/pl، بقیه از انگلیسی می‌افتند) =====
 const translations = {
     en: {
         tagline: "International Road Transport – Europe • Middle East • Central Asia",
@@ -34,7 +32,8 @@ const translations = {
         tab_personal: "Personal",
         tab_company: "Company",
         personal_title: "Personal Contact",
-        personal_desc: "For direct contact with the CEO & Founder, you can use the same email, Telegram and WhatsApp shown in the company section.",
+        personal_desc:
+            "For direct contact with the CEO & Founder, you can use the same email, Telegram and WhatsApp shown in the company section.",
         company_header: "Company details",
         company_label: "Company",
         krs_label: "KRS",
@@ -52,7 +51,8 @@ const translations = {
         tab_personal: "شخصی",
         tab_company: "شرکت",
         personal_title: "تماس شخصی",
-        personal_desc: "برای ارتباط مستقیم با مدیرعامل و بنیان‌گذار، می‌توانید از همان ایمیل، تلگرام و واتساپ بخش شرکت استفاده کنید.",
+        personal_desc:
+            "برای ارتباط مستقیم با مدیرعامل و بنیان‌گذار می‌توانید از همان ایمیل، تلگرام و واتساپ بخش شرکت استفاده کنید.",
         company_header: "مشخصات رسمی شرکت",
         company_label: "شرکت",
         krs_label: "شماره KRS",
@@ -65,12 +65,14 @@ const translations = {
         whatsapp_label: "واتساپ"
     },
     pl: {
-        tagline: "Międzynarodowy transport drogowy – Europa • Bliski Wschód • Azja Centralna",
+        tagline:
+            "Międzynarodowy transport drogowy – Europa • Bliski Wschód • Azja Centralna",
         language_label: "Język",
         tab_personal: "Osobiste",
         tab_company: "Firma",
         personal_title: "Kontakt osobisty",
-        personal_desc: "Do bezpośredniego kontaktu z CEO & Founder możesz użyć tego samego e-maila, Telegrama i WhatsAppa jak w sekcji firmowej.",
+        personal_desc:
+            "Do bezpośredniego kontaktu z CEO & Founder możesz użyć tego samego e-maila, Telegrama i WhatsAppa jak w sekcji firmowej.",
         company_header: "Dane spółki",
         company_label: "Spółka",
         krs_label: "KRS",
@@ -84,49 +86,39 @@ const translations = {
     }
 };
 
-// ===== کمکی: گرفتن ترجمه با fallback =====
 function t(key, lang) {
     const langData = translations[lang] || {};
     const enData = translations["en"] || {};
     return langData[key] || enData[key] || "";
 }
 
-// ===== تنظیم زبان روی صفحه =====
 function applyLanguage(lang) {
     const elements = document.querySelectorAll("[data-i18n]");
-    elements.forEach(el => {
+    elements.forEach((el) => {
         const key = el.getAttribute("data-i18n");
         el.textContent = t(key, lang);
     });
 }
 
-// ===== پر کردن منوی زبان =====
 function initLanguageSelect() {
     const select = document.getElementById("language-select");
     if (!select) return;
 
-    // پاک‌سازی
     select.innerHTML = "";
 
-    languageList.forEach(item => {
+    languageList.forEach((item) => {
         const opt = document.createElement("option");
         opt.value = item.code;
         opt.textContent = item.label;
         select.appendChild(opt);
     });
 
-    // زبان پیش‌فرض: localStorage یا مرورگر
     let defaultLang =
         localStorage.getItem("saeid4061_lang") ||
         (navigator.language || "en").toLowerCase();
 
-    // مچ کردن کد
-    const found = languageList.find(l => defaultLang.startsWith(l.code));
-    if (found) {
-        defaultLang = found.code;
-    } else {
-        defaultLang = "en";
-    }
+    const found = languageList.find((l) => defaultLang.startsWith(l.code));
+    defaultLang = found ? found.code : "en";
 
     select.value = defaultLang;
     applyLanguage(defaultLang);
@@ -138,7 +130,6 @@ function initLanguageSelect() {
     });
 }
 
-// ===== تب‌های Personal / Company =====
 function initTabs() {
     const personalBtn = document.getElementById("personal-tab");
     const companyBtn = document.getElementById("company-tab");
@@ -164,28 +155,25 @@ function initTabs() {
     personalBtn.addEventListener("click", () => showSection("personal"));
     companyBtn.addEventListener("click", () => showSection("company"));
 
-    // پیش‌فرض: Company (چون مهم‌تره)
+    // پیش‌فرض: Company
     showSection("company");
 }
 
-// ===== بک‌گراند روز / شب =====
+// بک‌گراند روز / شب (فقط عکس را عوض می‌کند)
 function setBackground() {
     const hour = new Date().getHours();
     const body = document.body;
 
     if (hour >= 6 && hour < 18) {
         body.style.backgroundImage = "url('assets/bg-day.jpg')";
-        body.style.backgroundColor = "#0b3d91";
     } else {
         body.style.backgroundImage = "url('assets/bg-night.jpg')";
-        body.style.backgroundColor = "#001528";
     }
 }
 
-// ===== شروع =====
 document.addEventListener("DOMContentLoaded", () => {
     setBackground();
-    setInterval(setBackground, 60 * 60 * 1000); // هر ۱ ساعت یک‌بار
+    setInterval(setBackground, 60 * 60 * 1000);
 
     initLanguageSelect();
     initTabs();
