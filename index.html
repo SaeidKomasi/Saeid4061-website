@@ -1,45 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
   <meta charset="UTF-8" />
   <title>SAEID4061 · GREY LION</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <!-- نوار بالای آبی مثل ZMPD / IRU -->
+
+  <!-- HEADER -->
   <header class="top-bar">
+
     <div class="logo-area">
+      <!-- لوگوی متنی اولیه؛ بعداً می‌تونی با <img> عوضش کنی -->
       <div class="logo-circle">GL</div>
-      <div class="brand-text">
+
+      <div class="brand">
         <div class="brand-name">SAEID4061 · GREY LION</div>
-        <div class="brand-sub">International Road Transport</div>
+        <div class="brand-sub">International Road Transport & Logistics</div>
       </div>
     </div>
 
-    <div class="right-area">
+    <div class="right-side">
+
       <div class="flags">
         <span class="flag">🇵🇱</span>
         <span class="flag">🇮🇷</span>
       </div>
 
-      <div class="language-switcher">
+      <div class="language">
         <select id="languageSelect"></select>
       </div>
+
+      <div class="contact-links">
+        <a href="https://t.me/Saeid4061" target="_blank" rel="noopener" class="btn-link tg">Telegram</a>
+        <a href="https://wa.me/48881004737" target="_blank" rel="noopener" class="btn-link wa">WhatsApp</a>
+      </div>
+
     </div>
+
   </header>
 
-  <!-- بخش اصلی صفحه اول -->
+  <!-- HERO -->
   <main class="hero">
     <section class="hero-card">
+
       <h1 id="heroTitle"></h1>
       <p id="heroSubtitle" class="hero-subtitle"></p>
 
       <p id="heroIntro" class="hero-intro">
-        SAEID4061 SP. Z O.O. is a Polish international transport company.
-        We operate road freight between Europe, the Middle East and Central Asia
-        and handle all transport documents (SENT, CMR, TIR, EPD, EORI) under one
-        management.
+        SAEID4061 SP. Z O.O. is an international transport company registered in Poland.
+        We specialize in road freight between Europe, the Middle East and Central Asia
+        and handle all transport documents (CMR, TIR, SENT, EPD, EORI) under one management.
       </p>
 
       <div class="hero-buttons">
@@ -50,29 +63,50 @@
       <p class="languages-info" id="languagesInfo">
         Website available in 22 languages.
       </p>
+
     </section>
   </main>
 
-  <!-- سکشن‌های بعدی فقط اسکلت هستند، بعداً پرشون می‌کنیم -->
+  <!-- COMPANY SECTION -->
   <section id="company" class="section">
     <h2>Company / کمپانی</h2>
     <p>
-      This section will contain company profile, fleet, documents and memberships
-      (ZMPD, IRU, etc.). We will fill it later.
+      This section will contain company profile, fleet, routes, memberships (e.g. ZMPD, IRU),
+      and full document handling for international road freight: CMR, TIR, SENT, EPD, EORI, customs, etc.
     </p>
   </section>
 
+  <!-- PERSONAL SECTION -->
   <section id="personal" class="section">
     <h2>Personal / شخصی</h2>
     <p>
-      This section will contain personal story, mission, and contact details.
+      This section will contain personal mission, story, projects, social responsibility plans
+      and direct contact with Saeid Komasi.
     </p>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>
-      © <span id="year"></span> SAEID4061 SP. Z O.O. · International Transport · All rights reserved.
-    </p>
+    <div class="footer-inner">
+
+      <div class="footer-left">
+        <div class="footer-title">SAEID4061 · GREY LION</div>
+        <div class="footer-sub">International Road Transport & Logistics</div>
+
+        <div class="footer-links">
+          <a href="https://t.me/Saeid4061" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://wa.me/48881004737" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:saeedkomasy@gmail.com">Email</a>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="copy">
+          © <span id="year"></span> SAEID4061 SP. Z O.O. · All Rights Reserved
+        </div>
+      </div>
+
+    </div>
   </footer>
 
   <script src="main.js"></script>
