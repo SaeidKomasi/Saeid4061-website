@@ -1,73 +1,216 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f9ff;
-  color: #333;
+root {
+  --blue-main: #005bab;
+  --blue-dark: #003f78;
+  --grey-bg: #f5f5f5;
+  --text-main: #222222;
+  --radius-lg: 16px;
 }
 
-/* Header */
-header {
-  background-color: #0057b8;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--grey-bg);
+  color: var(--text-main);
+}
+
+/* هدر */
+
+.site-header {
+  background-color: var(--blue-main);
   color: white;
-  padding: 10px 20px;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-header img {
-  height: 40px;
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-nav a {
-  margin: 0 10px;
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.title-block h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+
+.flags-and-lang {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.flags {
+  display: flex;
+  gap: 6px;
+}
+
+.flag-btn {
+  font-size: 20px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+.flag-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#language-select {
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+}
+
+/* لایه اصلی */
+
+.main-layout {
+  max-width: 960px;
+  margin: 16px auto;
+  padding: 0 12px 40px;
+}
+
+/* تب‌ها */
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: white;
+  color: var(--blue-main);
+}
+
+.tab-btn.active {
+  background-color: var(--blue-main);
   color: white;
-  text-decoration: none;
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* محتوا */
+
+#content-area {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Language Selector */
-.language-selector {
-  margin: 20px auto;
-  max-width: 600px;
+#main-heading,
+#personal-heading {
+  font-size: 20px;
+  margin-top: 0;
+  color: var(--blue-main);
+}
+
+#main-description,
+#personal-description {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* بلوک مشخصات شرکت */
+
+.company-info {
+  background-color: var(--blue-main);
+  color: white;
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.company-info h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.company-contact {
+  margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 8px;
 }
 
-.language-btn {
-  padding: 8px 12px;
+.company-contact a {
   background-color: white;
-  border: 2px solid #0057b8;
-  color: #0057b8;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.2s;
+  color: var(--blue-main);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.language-btn:hover {
-  background-color: #0057b8;
+.company-contact a:hover {
+  background-color: var(--blue-dark);
   color: white;
 }
 
-/* Page Title */
-h1 {
-  text-align: center;
-  color: #0057b8;
-  font-size: 28px;
-  margin-top: 20px;
+/* سایر */
+
+.hidden {
+  display: none;
 }
 
-/* Footer */
-footer {
+.site-footer {
   text-align: center;
-  padding: 20px;
-  background-color: #003f82;
-  color: white;
-  margin-top: 40px;
+  font-size: 12px;
+  color: #555;
+  padding: 12px 8px 20px;
+}
+
+/* واکنش‌گرا موبایل */
+
+@media (max-width: 600px) {
+  .site-header {
+    align-items: flex-start;
+  }
+
+  .flags-and-lang {
+    align-items: flex-start;
+    margin-top: 12px;
+  }
+
+  .title-block h1 {
+    font-size: 18px;
+  }
+
+  .company-info {
+    font-size: 13px;
+  }
 }
