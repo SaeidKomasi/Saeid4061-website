@@ -1,226 +1,344 @@
 
-const languageList = [
-  { code: "en", label: "English" },
-  { code: "fa", label: "فارسی" },
-  { code: "pl", label: "Polski" },
-  { code: "de", label: "Deutsch" },
-  { code: "fr", label: "Français" },
-  { code: "tr", label: "Türkçe" },
-  { code: "ru", label: "Русский" }
-];
-
-// ترجمه‌ها (می‌تونیم بعداً زبان‌های بیشتری اضافه کنیم)
-const translations = {
-  en: {
-    personalTitle: "Personal Contact",
-    personalText:
-      "For direct contact with CEO & Founder, you can use the same email, Telegram and WhatsApp shown below. Messages are answered personally or via trusted assistant.",
-    companyTitle: "Company Information",
-    companyText:
-      "International road transport company registered in Poland. Safe and reliable cargo transport on corridors between Europe, Middle East and Central Asia.",
-    emailLabel: "Email",
-    telegramLabel: "Telegram",
-    whatsappLabel: "WhatsApp",
-    companyNameLabel: "Company",
-    krsLabel: "KRS",
-    regonLabel: "REGON",
-    nipLabel: "NIP",
-    regSeatLabel: "Registered seat",
-    corrAddressLabel: "Correspondence address",
-    companyContactNote:
-      "For business enquiries you can use the same contact details as in the personal tab."
-  },
-  fa: {
-    personalTitle: "اطلاعات تماس شخصی",
-    personalText:
-      "برای تماس مستقیم با مدیرعامل و بنیان‌گذار، می‌توانید از همین ایمیل، تلگرام و واتساپ استفاده کنید. پیام‌ها به‌صورت شخصی یا توسط دستیار مورد اعتماد پاسخ داده می‌شوند.",
-    companyTitle: "اطلاعات شرکت",
-    companyText:
-      "شرکت حمل‌ونقل بین‌المللی جاده‌ای ثبت‌شده در لهستان. حمل ایمن و قابل‌اعتماد بار در کریدورهای بین اروپا، خاورمیانه و آسیای مرکزی.",
-    emailLabel: "ایمیل",
-    telegramLabel: "تلگرام",
-    whatsappLabel: "واتساپ",
-    companyNameLabel: "شرکت",
-    krsLabel: "شماره KRS",
-    regonLabel: "REGON",
-    nipLabel: "NIP",
-    regSeatLabel: "نشانی ثبتی",
-    corrAddressLabel: "نشانی مکاتبات",
-    companyContactNote:
-      "برای امور کاری می‌توانید از همان راه‌های تماس تب شخصی استفاده کنید."
-  },
-  pl: {
-    personalTitle: "Kontakt osobisty",
-    personalText:
-      "W celu bezpośredniego kontaktu z CEO & Founder można korzystać z tego samego adresu e-mail, Telegramu i WhatsAppa jak poniżej. Wiadomości są obsługiwane osobiście lub przez zaufanego asystenta.",
-    companyTitle: "Dane spółki",
-    companyText:
-      "Międzynarodowa spółka transportu drogowego zarejestrowana w Polsce. Bezpieczny i niezawodny przewóz ładunków na korytarzach między Europą, Bliskim Wschodem i Azją Centralną.",
-    emailLabel: "E-mail",
-    telegramLabel: "Telegram",
-    whatsappLabel: "WhatsApp",
-    companyNameLabel: "Spółka",
-    krsLabel: "KRS",
-    regonLabel: "REGON",
-    nipLabel: "NIP",
-    regSeatLabel: "Siedziba rejestrowa",
-    corrAddressLabel: "Adres do korespondencji",
-    companyContactNote:
-      "W sprawach biznesowych można używać tych samych danych kontaktowych jak w zakładce Personal."
-  },
-  de: {
-    personalTitle: "Persönlicher Kontakt",
-    personalText:
-      "Für den direkten Kontakt mit dem CEO & Founder können Sie dieselbe E-Mail, Telegram und WhatsApp unten verwenden.",
-    companyTitle: "Firmendaten",
-    companyText:
-      "Internationales Straßentransportunternehmen mit Sitz in Polen. Sicherer und zuverlässiger Transport zwischen Europa, Nahost und Zentralasien.",
-    emailLabel: "E-Mail",
-    telegramLabel: "Telegram",
-    whatsappLabel: "WhatsApp",
-    companyNameLabel: "Gesellschaft",
-    krsLabel: "KRS",
-    regonLabel: "REGON",
-    nipLabel: "NIP",
-    regSeatLabel: "Sitz der Gesellschaft",
-    corrAddressLabel: "Korrespondenzadresse",
-    companyContactNote:
-      "Für geschäftliche Anfragen nutzen Sie bitte dieselben Kontaktdaten wie im Personal-Bereich."
-  },
-  fr: {
-    personalTitle: "Contact personnel",
-    personalText:
-      "Pour un contact direct avec le CEO & Founder, vous pouvez utiliser le même e-mail, Telegram et WhatsApp indiqués ci-dessous.",
-    companyTitle: "Informations sur l’entreprise",
-    companyText:
-      "Société de transport routier international enregistrée en Pologne. Transport sûr et fiable entre l’Europe, le Moyen-Orient et l’Asie centrale.",
-    emailLabel: "E-mail",
-    telegramLabel: "Telegram",
-    whatsappLabel: "WhatsApp",
-    companyNameLabel: "Société",
-    krsLabel: "KRS",
-    regonLabel: "REGON",
-    nipLabel: "NIP",
-    regSeatLabel: "Siège social",
-    corrAddressLabel: "Adresse de correspondance",
-    companyContactNote:
-      "Pour les demandes commerciales, utilisez les mêmes coordonnées que dans l’onglet Personnel."
-  },
-  tr: {
-    personalTitle: "Kişisel İletişim",
-    personalText:
-      "CEO & Founder ile doğrudan iletişim için aşağıdaki aynı e-posta, Telegram ve WhatsApp bilgilerini kullanabilirsiniz.",
-    companyTitle: "Şirket Bilgileri",
-    companyText:
-      "Polonya’da tescilli uluslararası karayolu taşıma şirketi. Avrupa, Orta Doğu ve Orta Asya koridorlarında güvenilir taşıma.",
-    emailLabel: "E-posta",
-    telegramLabel: "Telegram",
-    whatsappLabel: "WhatsApp",
-    companyNameLabel: "Şirket",
-    krsLabel: "KRS",
-    regonLabel: "REGON",
-    nipLabel: "NIP",
-    regSeatLabel: "Kayıtlı adres",
-    corrAddressLabel: "Yazışma adresi",
-    companyContactNote:
-      "Ticari talepler için, Kişisel sekmesindeki aynı iletişim bilgilerini kullanabilirsiniz."
-  },
-  ru: {
-    personalTitle: "Личный контакт",
-    personalText:
-      "Для прямой связи с CEO & Founder можно использовать тот же e-mail, Telegram и WhatsApp, указанные ниже.",
-    companyTitle: "Информация о компании",
-    companyText:
-      "Международная автотранспортная компания, зарегистрированная в Польше. Надежные перевозки между Европой, Ближним Востоком и Центральной Азией.",
-    emailLabel: "E-mail",
-    telegramLabel: "Telegram",
-    whatsappLabel: "WhatsApp",
-    companyNameLabel: "Компания",
-    krsLabel: "KRS",
-    regonLabel: "REGON",
-    nipLabel: "NIP",
-    regSeatLabel: "Юридический адрес",
-    corrAddressLabel: "Почтовый адрес",
-    companyContactNote:
-      "Для деловых вопросов используйте те же контакты, что и во вкладке Personal."
-  }
-};
-
-// ---------- DOM ----------
-const languageSelect = document.getElementById("language-select");
-const personalTab = document.getElementById("personal-tab");
-const companyTab = document.getElementById("company-tab");
-
-const personalSection = document.getElementById("personal-section");
-const companySection = document.getElementById("company-section");
-
-// عناصر متن
-const personalTitleEl = document.getElementById("personal-title");
-const personalTextEl = document.getElementById("personal-text");
-const companyTitleEl = document.getElementById("company-title");
-const companyTextEl = document.getElementById("company-text");
-
-const emailLabelEl = document.getElementById("email-label");
-const telegramLabelEl = document.getElementById("telegram-label");
-const whatsappLabelEl = document.getElementById("whatsapp-label");
-
-const companyNameLabelEl = document.getElementById("company-name-label");
-const krsLabelEl = document.getElementById("krs-label");
-const regonLabelEl = document.getElementById("regon-label");
-const nipLabelEl = document.getElementById("nip-label");
-const regSeatLabelEl = document.getElementById("reg-seat-label");
-const corrAddressLabelEl = document.getElementById("corr-address-label");
-const companyContactNoteEl = document.getElementById("company-contact-note");
-
-// ---------- پر کردن سلکت زبان ----------
-languageList.forEach((lang) => {
-  const opt = document.createElement("option");
-  opt.value = lang.code;
-  opt.textContent = lang.label;
-  languageSelect.appendChild(opt);
-});
-
-// زبان پیش‌فرض
-languageSelect.value = "fa";
-applyLanguage("fa");
-
-// ---------- تغییر زبان ----------
-languageSelect.addEventListener("change", (e) => {
-  applyLanguage(e.target.value);
-});
-
-function applyLanguage(code) {
-  const t = translations[code] || translations.en;
-
-  personalTitleEl.textContent = t.personalTitle;
-  personalTextEl.textContent = t.personalText;
-  companyTitleEl.textContent = t.companyTitle;
-  companyTextEl.textContent = t.companyText;
-
-  emailLabelEl.textContent = t.emailLabel;
-  telegramLabelEl.textContent = t.telegramLabel;
-  whatsappLabelEl.textContent = t.whatsappLabel;
-
-  companyNameLabelEl.textContent = t.companyNameLabel + ":";
-  krsLabelEl.textContent = t.krsLabel + ":";
-  regonLabelEl.textContent = t.regonLabel + ":";
-  nipLabelEl.textContent = t.nipLabel + ":";
-  regSeatLabelEl.textContent = t.regSeatLabel + ":";
-  corrAddressLabelEl.textContent = t.corrAddressLabel + ":";
-  companyContactNoteEl.textContent = t.companyContactNote;
+/* ریست ساده */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-// ---------- تب‌های پرسنال / شرکت ----------
-personalTab.addEventListener("click", () => {
-  personalTab.classList.add("active");
-  companyTab.classList.remove("active");
-  personalSection.classList.add("visible");
-  companySection.classList.remove("visible");
-});
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
 
-companyTab.addEventListener("click", () => {
-  companyTab.classList.add("active");
-  personalTab.classList.remove("active");
-  companySection.classList.add("visible");
-  personalSection.classList.remove("visible");
-});
+/* پس‌زمینه کلی صفحه (روز / شب) */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    background-color: #012147;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* روز */
+.page-wrapper.day {
+    background-image: url("assets/bg-day.jpg");
+}
+
+/* شب */
+.page-wrapper.night {
+    background-image: url("assets/bg-night.jpg");
+}
+
+/* لایه‌ی تیره روی بک‌گراند */
+.page-wrapper::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: -1;
+}
+
+/* ---------- HEADER ---------- */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 22px;
+    background: rgba(0, 68, 149, 0.96);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.header-left {
+    max-width: 60%;
+}
+
+.header-name {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.header-role {
+    font-size: 13px;
+    margin-top: 2px;
+    opacity: 0.85;
+}
+
+.header-company {
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.header-subtitle {
+    font-size: 11px;
+    margin-top: 4px;
+    opacity: 0.9;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.badge-row {
+    display: flex;
+    gap: 4px;
+}
+
+.badge {
+    padding: 3px 7px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 10px;
+}
+
+.header-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    background: #000;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    padding: 22px 14px 10px;
+}
+
+.hero-overlay {
+    max-width: 980px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 18px;
+    padding: 14px 16px 18px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* زبان و تب‌ها */
+.top-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.language-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.language-label {
+    font-size: 12px;
+}
+
+#languageSelect {
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: none;
+    font-size: 12px;
+}
+
+/* TABS */
+.tab-box {
+    display: flex;
+    gap: 6px;
+}
+
+.tab-button {
+    padding: 5px 14px;
+    border-radius: 999px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.tab-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.tab-button.active {
+    background: #03b35b;
+}
+
+/* ---------- CONTACT BUTTONS ---------- */
+
+.contact-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.contact-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 12px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 11px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.contact-label {
+    font-size: 10px;
+    opacity: 0.9;
+}
+
+.contact-value {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 2px;
+    word-break: break-all;
+}
+
+/* رنگ‌های مخصوص هر دکمه */
+.contact-btn.email {
+    background: linear-gradient(135deg, #ff7a3c, #ff4b2b);
+}
+
+.contact-btn.telegram {
+    background: linear-gradient(135deg, #0088cc, #005f9f);
+}
+
+.contact-btn.phone {
+    background: linear-gradient(135deg, #1ab64b, #038b33);
+}
+
+/* ---------- CONTENT ---------- */
+
+.content {
+    flex: 1;
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    max-width: 980px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 18px;
+    padding: 14px 16px 18px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+    font-size: 13px;
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    padding-bottom: 6px;
+}
+
+/* COMPANY GRID */
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 24px;
+}
+
+.field {
+    margin-bottom: 6px;
+}
+
+.field-label {
+    font-size: 11px;
+    opacity: 0.8;
+    display: block;
+}
+
+.field-value {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 8px 10px 12px;
+    font-size: 10px;
+    opacity: 0.85;
+}
+
+/* HIDDEN */
+.hidden {
+    display: none;
+}
+
+/* ---------- RTL SUPPORT ---------- */
+
+body[dir="rtl"] .header {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .header-left {
+    text-align: right;
+}
+
+body[dir="rtl"] .header-right {
+    align-items: flex-start;
+}
+
+body[dir="rtl"] .top-controls {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .language-box {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .tab-box {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .company-grid {
+    direction: rtl;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .header-right {
+        align-items: flex-start;
+    }
+
+    .contact-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .company-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-overlay,
+    .card {
+        padding: 12px 12px 14px;
+    }
+}
