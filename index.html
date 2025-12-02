@@ -1,151 +1,280 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SAEID4061 • GREY LION</title>
-    <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-    <div id="page-wrapper">
-        <!-- HEADER -->
-        <header class="header">
-            <div class="header-left">
-                <h1 class="site-title">SAEID KOMASI</h1>
-                <p class="site-subtitle">CEO &amp; Founder</p>
-                <p class="site-company">SAEID4061 Sp. z o.o.</p>
-                <p class="site-tagline" data-i18n="tagline">
-                    International Road Transport – Europe • Middle East • Central Asia
-                </p>
-            </div>
-            <div class="header-right">
-                <div class="flag-row">
-                    <span class="flag-chip">EU</span>
-                    <span class="flag-chip">IR</span>
-                    <span class="flag-chip">PL</span>
-                </div>
-                <!-- فقط همین یکی img داریم -->
-                <img src="saeid4061-logo.jpg" alt="Grey Lion Logo" class="logo" />
-            </div>
-        </header>
+* {
+    box-sizing: border-box;
+}
 
-        <!-- HERO نوار روی بک‌گراند کامیون -->
-        <section class="hero">
-            <div class="hero-overlay">
-                <div class="hero-topbar">
-                    <div class="control-left">
-                        <label for="language-select" class="control-label" data-i18n="language_label">
-                            Language
-                        </label>
-                        <select id="language-select"></select>
-                    </div>
+/* بک‌گراند: فقط کامیون (روز/شب) */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background: #0b3d91 url("assets/bg-day.jpg") center/cover fixed no-repeat;
+}
 
-                    <div class="control-center">
-                        <button
-                            id="personal-tab"
-                            class="tab-button"
-                            data-target="personal-section"
-                            data-i18n="tab_personal"
-                        >
-                            Personal
-                        </button>
-                        <button
-                            id="company-tab"
-                            class="tab-button active"
-                            data-target="company-section"
-                            data-i18n="tab_company"
-                        >
-                            Company
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+#page-wrapper {
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+}
 
-        <!-- بخش شخصی -->
-        <main id="personal-section" class="content-section">
-            <div class="card-block">
-                <h2 data-i18n="personal_title">Personal Contact</h2>
-                <p data-i18n="personal_desc">
-                    For direct contact with CEO &amp; Founder, you can use the same email,
-                    Telegram and WhatsApp shown in the company section.
-                </p>
-            </div>
-        </main>
+/* ===== HEADER ===== */
 
-        <!-- بخش شرکت (پیش‌فرض فعال) -->
-        <main id="company-section" class="content-section visible">
-            <!-- دکمه‌های تماس -->
-            <section class="contact-row">
-                <div class="contact-card email">
-                    <a href="mailto:saeedkomasy@gmail.com">
-                        <span class="icon">✉️</span>
-                        <div class="contact-text">
-                            <span data-i18n="email_label">Email</span>
-                            <strong>SAEEDKOMASY@GMAIL.COM</strong>
-                        </div>
-                    </a>
-                </div>
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 5%;
+    background: rgba(0, 51, 102, 0.96);
+    color: #ffffff;
+}
 
-                <div class="contact-card telegram">
-                    <a href="https://t.me/saeidkomasi" target="_blank">
-                        <span class="icon">📨</span>
-                        <div class="contact-text">
-                            <span data-i18n="telegram_label">Telegram</span>
-                            <strong>@saeidkomasi</strong>
-                        </div>
-                    </a>
-                </div>
+.header-left h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+}
 
-                <div class="contact-card whatsapp">
-                    <a href="https://wa.me/48737004848" target="_blank">
-                        <span class="icon">📱</span>
-                        <div class="contact-text">
-                            <span data-i18n="whatsapp_label">WhatsApp</span>
-                            <strong>+48 737 004 848</strong>
-                        </div>
-                    </a>
-                </div>
-            </section>
+.header-left p {
+    margin: 2px 0;
+    font-size: 14px;
+}
 
-            <!-- اطلاعات شرکت -->
-            <section class="company-info">
-                <h2 data-i18n="company_header">Company details</h2>
+.site-tagline {
+    margin-top: 8px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+}
 
-                <p class="company-name"><strong>SAEID4061 Sp. z o.o.</strong></p>
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
 
-                <div class="company-grid">
-                    <div class="label" data-i18n="company_label">Company</div>
-                    <div class="value">SAEID4061 Sp. z o.o.</div>
+.flag-row {
+    display: flex;
+    gap: 6px;
+}
 
-                    <div class="label" data-i18n="krs_label">KRS</div>
-                    <div class="value">0001065392</div>
+.flag-chip {
+    background: #ffffff;
+    color: #003366;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+}
 
-                    <div class="label" data-i18n="regon_label">REGON</div>
-                    <div class="value">526744160</div>
+.logo {
+    width: 64px;
+    height: auto;
+    border-radius: 8px;
+}
 
-                    <div class="label" data-i18n="nip_label">NIP</div>
-                    <div class="value">5372677546</div>
+/* ===== HERO BAR ===== */
 
-                    <div class="label" data-i18n="registered_seat_label">Registered seat</div>
-                    <div class="value">
-                        ul. Kolejowa 31B, lok. 23B, 21-500 Biała Podlaska, Poland
-                    </div>
+.hero {
+    position: relative;
+    min-height: 110px;
+}
 
-                    <div class="label" data-i18n="correspondence_address_label">
-                        Correspondence address
-                    </div>
-                    <div class="value">
-                        Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                    </div>
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.2)
+    );
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 12px 5%;
+}
 
-                    <div class="label" data-i18n="email_label">Email</div>
-                    <div class="value">SAEEDKOMASY@GMAIL.COM</div>
-                </div>
-            </section>
-        </main>
-    </div>
+.hero-topbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
 
-    <script src="main.js"></script>
-</body>
-</html>
+/* ===== LANGUAGE & TABS ===== */
+
+.control-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-label {
+    font-size: 13px;
+}
+
+#language-select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 13px;
+}
+
+.control-center {
+    display: flex;
+    gap: 8px;
+}
+
+.tab-button {
+    padding: 6px 14px;
+    border-radius: 16px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-button.active {
+    background: #00c853;
+    border-color: #00c853;
+}
+
+/* ===== CONTENT SECTIONS ===== */
+
+.content-section {
+    display: none;
+    padding: 25px 5% 40px 5%;
+}
+
+.content-section.visible {
+    display: block;
+}
+
+.card-block {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 14px;
+    padding: 20px 18px;
+}
+
+.card-block h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.card-block p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ===== CONTACT BUTTONS ===== */
+
+.contact-row {
+    max-width: 900px;
+    margin: 0 auto 25px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.contact-card {
+    flex: 1 1 260px;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.contact-card a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact-card .icon {
+    font-size: 20px;
+}
+
+/* رنگ‌بندی ایکن‌ها / کارت‌ها */
+.contact-card.email {
+    background: #ef6c00;
+}
+
+.contact-card.telegram {
+    background: #01579b;
+}
+
+.contact-card.whatsapp {
+    background: #1b5e20;
+}
+
+/* ===== COMPANY INFO ===== */
+
+.company-info {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 14px;
+    padding: 18px 16px 26px 16px;
+    font-size: 13px;
+}
+
+.company-info h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.company-name {
+    margin: 6px 0 12px 0;
+    font-size: 15px;
+}
+
+.company-grid {
+    display: grid;
+    grid-template-columns: 140px auto;
+    column-gap: 10px;
+    row-gap: 6px;
+}
+
+.company-grid .label {
+    font-weight: 600;
+}
+
+.company-grid .value {
+    font-weight: 400;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 700px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .header-right {
+        align-items: flex-start;
+    }
+
+    .company-grid {
+        grid-template-columns: 120px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .company-grid .label {
+        margin-top: 8px;
+    }
+}
