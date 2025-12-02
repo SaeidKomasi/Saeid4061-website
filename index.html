@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SAEID4061 · GREY LION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- نوار بالای آبی مثل ZMPD / IRU -->
+  <header class="top-bar">
+    <div class="logo-area">
+      <div class="logo-circle">GL</div>
+      <div class="brand-text">
+        <div class="brand-name">SAEID4061 · GREY LION</div>
+        <div class="brand-sub">International Road Transport</div>
+      </div>
+    </div>
+
+    <div class="right-area">
+      <div class="flags">
+        <span class="flag">🇵🇱</span>
+        <span class="flag">🇮🇷</span>
+      </div>
+
+      <div class="language-switcher">
+        <select id="languageSelect"></select>
+      </div>
+    </div>
+  </header>
+
+  <!-- بخش اصلی صفحه اول -->
+  <main class="hero">
+    <section class="hero-card">
+      <h1 id="heroTitle"></h1>
+      <p id="heroSubtitle" class="hero-subtitle"></p>
+
+      <p id="heroIntro" class="hero-intro">
+        SAEID4061 SP. Z O.O. is a Polish international transport company.
+        We operate road freight between Europe, the Middle East and Central Asia
+        and handle all transport documents (SENT, CMR, TIR, EPD, EORI) under one
+        management.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#company" id="btnCompany" class="primary-btn"></a>
+        <a href="#personal" id="btnPersonal" class="secondary-btn"></a>
+      </div>
+
+      <p class="languages-info" id="languagesInfo">
+        Website available in 22 languages.
+      </p>
+    </section>
+  </main>
+
+  <!-- سکشن‌های بعدی فقط اسکلت هستند، بعداً پرشون می‌کنیم -->
+  <section id="company" class="section">
+    <h2>Company / کمپانی</h2>
+    <p>
+      This section will contain company profile, fleet, documents and memberships
+      (ZMPD, IRU, etc.). We will fill it later.
+    </p>
+  </section>
+
+  <section id="personal" class="section">
+    <h2>Personal / شخصی</h2>
+    <p>
+      This section will contain personal story, mission, and contact details.
+    </p>
+  </section>
+
+  <footer class="footer">
+    <p>
+      © <span id="year"></span> SAEID4061 SP. Z O.O. · International Transport · All rights reserved.
+    </p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
