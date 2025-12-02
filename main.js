@@ -1,26 +1,26 @@
 const languageList = [
-  { code: "fa", label: "فارسی" },
-  { code: "en", label: "English" },
-  { code: "es", label: "Español" }, // اسپانیایی
-  { code: "de", label: "Deutsch (DE)" }, // آلمانی
-  { code: "nl", label: "Nederlands" }, // هلندی
-  { code: "de-at", label: "Deutsch (AT)" }, // اتریش
-  { code: "hu", label: "Magyar" }, // مجاری
-  { code: "cs", label: "Čeština" }, // چک
-  { code: "pl", label: "Polski" }, // لهستانی
-  { code: "fr", label: "Français" }, // فرانسوی
-  { code: "ro", label: "Română" }, // رومانیایی
-  { code: "tr", label: "Türkçe" }, // ترکی استانبولی
-  { code: "mn", label: "Монгол" }, // مغولی
-  { code: "ru", label: "Русский" }, // روسی
-  { code: "ar", label: "العربية" }, // عربی
-  { code: "ka", label: "ქართული" }, // گرجی
-  { code: "az", label: "Azərbaycanca" }, // آذربایجانی
-  { code: "zh", label: "中文" }, // چینی
-  { code: "ja", label: "日本語" }, // ژاپنی
-  { code: "tk", label: "Türkmençe" }, // ترکمنی
-  { code: "tg", label: "Тоҷикӣ" }, // تاجیکی
-  { code: "kk", label: "Қазақша" } // قزاقی
+  { code: "fa", label: "فارسی" },            // Persian
+  { code: "en", label: "English" },          // English
+  { code: "es", label: "Español" },          // Spanish
+  { code: "de", label: "Deutsch" },          // German
+  { code: "nl", label: "Nederlands" },       // Dutch
+  { code: "de-at", label: "Deutsch (AT)" },  // Austrian German
+  { code: "hu", label: "Magyar" },           // Hungarian
+  { code: "cs", label: "Čeština" },          // Czech
+  { code: "pl", label: "Polski" },           // Polish
+  { code: "fr", label: "Français" },         // French
+  { code: "ro", label: "Română" },           // Romanian
+  { code: "tr", label: "Türkçe" },           // Turkish
+  { code: "mn", label: "Монгол" },           // Mongolian
+  { code: "ru", label: "Русский" },          // Russian
+  { code: "ar", label: "العربية" },          // Arabic
+  { code: "ka", label: "ქართული" },          // Georgian
+  { code: "az", label: "Azərbaycanca" },     // Azeri
+  { code: "zh", label: "中文" },             // Chinese
+  { code: "ja", label: "日本語" },           // Japanese
+  { code: "tk", label: "Türkmençe" },        // Turkmen
+  { code: "tg", label: "Тоҷикӣ" },          // Tajik
+  { code: "kk", label: "Қазақша" }          // Kazakh
 ];
 
 // ترجمه جملات اصلی برای هر زبان
@@ -28,138 +28,137 @@ const translations = {
   fa: {
     title: "حمل‌ونقل بین‌المللی جاده‌ای",
     subtitle: "اروپا – خاورمیانه – آسیای مرکزی",
-    company: "کمپانی · معرفی شرکت",
-    personal: "شخصی · ارتباط مستقیم"
+    company: "کمپانی",
+    personal: "شخصی"
   },
   en: {
     title: "International Road Transport",
     subtitle: "Europe – Middle East – Central Asia",
-    company: "Company profile",
-    personal: "Personal & contact"
+    company: "Company",
+    personal: "Personal"
   },
   es: {
     title: "Transporte internacional por carretera",
     subtitle: "Europa – Oriente Medio – Asia Central",
-    company: "Perfil de la empresa",
-    personal: "Personal y contacto"
+    company: "Compañía",
+    personal: "Personal"
   },
   de: {
     title: "Internationaler Straßentransport",
     subtitle: "Europa – Naher Osten – Zentralasien",
-    company: "Firmenprofil",
-    personal: "Persönlich & Kontakt"
+    company: "Unternehmen",
+    personal: "Persönlich"
   },
   "de-at": {
     title: "Internationaler Straßentransport",
     subtitle: "Europa – Naher Osten – Zentralasien",
     company: "Unternehmen (AT)",
-    personal: "Persönlich & Kontakt"
+    personal: "Persönlich"
   },
   nl: {
     title: "Internationaal wegtransport",
     subtitle: "Europa – Midden-Oosten – Centraal-Azië",
-    company: "Bedrijfsprofiel",
-    personal: "Persoonlijk & contact"
+    company: "Bedrijf",
+    personal: "Persoonlijk"
   },
   hu: {
     title: "Nemzetközi közúti szállítás",
     subtitle: "Európa – Közel-Kelet – Közép-Ázsia",
-    company: "Cégprofil",
-    personal: "Személyes & kapcsolat"
+    company: "Cég",
+    personal: "Személyes"
   },
   cs: {
     title: "Mezinárodní silniční doprava",
     subtitle: "Evropa – Blízký východ – Střední Asie",
-    company: "Profil společnosti",
-    personal: "Osobní & kontakt"
+    company: "Společnost",
+    personal: "Osobní"
   },
   pl: {
     title: "Międzynarodowy transport drogowy",
     subtitle: "Europa – Bliski Wschód – Azja Centralna",
-    company: "Profil firmy",
-    personal: "Osobisty i kontakt"
+    company: "Firma",
+    personal: "Osobisty"
   },
   fr: {
     title: "Transport routier international",
     subtitle: "Europe – Moyen-Orient – Asie centrale",
-    company: "Profil de l’entreprise",
-    personal: "Personnel & contact"
+    company: "Entreprise",
+    personal: "Personnel"
   },
   ro: {
     title: "Transport rutier internațional",
     subtitle: "Europa – Orientul Mijlociu – Asia Centrală",
-    company: "Profil companie",
-    personal: "Personal & contact"
+    company: "Companie",
+    personal: "Personal"
   },
   tr: {
     title: "Uluslararası karayolu taşımacılığı",
     subtitle: "Avrupa – Orta Doğu – Orta Asya",
-    company: "Şirket profili",
-    personal: "Kişisel & iletişim"
+    company: "Şirket",
+    personal: "Kişisel"
   },
   mn: {
     title: "Олон улсын авто замын тээвэр",
     subtitle: "Европ – Ойрх Дорнод – Төв Ази",
-    company: "Компанийн танилцуулга",
-    personal: "Хувийн & холбогдох"
+    company: "Компанийн",
+    personal: "Хувийн"
   },
   ru: {
     title: "Международные автомобильные перевозки",
     subtitle: "Европа – Ближний Восток – Центральная Азия",
-    company: "Профиль компании",
-    personal: "Лично и контакты"
+    company: "Компания",
+    personal: "Личное"
   },
   ar: {
     title: "النقل البري الدولي",
     subtitle: "أوروبا – الشرق الأوسط – آسيا الوسطى",
-    company: "ملف الشركة",
-    personal: "شخصي واتصال"
+    company: "الشركة",
+    personal: "شخصي"
   },
   ka: {
     title: "საერთაშორისო საგზაო გადაზიდვები",
     subtitle: "ევროპა – ახლო აღმოსავლეთი – ცენტრალური აზია",
-    company: "კომპანიის პროფილი",
-    personal: "პირადი & კონტაქტი"
+    company: "კომპანია",
+    personal: "პირადი"
   },
   az: {
     title: "Beynəlxalq avtomobil daşımaları",
     subtitle: "Avropa – Yaxın Şərq – Mərkəzi Asiya",
-    company: "Şirkət profili",
-    personal: "Şəxsi & əlaqə"
+    company: "Şirkət",
+    personal: "Şəxsi"
   },
   zh: {
     title: "国际公路运输",
     subtitle: "欧洲 – 中东 – 中亚",
-    company: "公司简介",
-    personal: "个人与联系"
+    company: "公司",
+    personal: "个人"
   },
   ja: {
     title: "国際道路輸送",
     subtitle: "ヨーロッパ – 中東 – 中央アジア",
-    company: "会社概要",
-    personal: "個人・連絡先"
+    company: "会社情報",
+    personal: "個人"
   },
   tk: {
     title: "Halkara ýol ulaglary",
-    subtitle: "Ewropa – Ýakyn Gündogar – Merkezi Aziýa",
-    company: "Kompaniýanyň profili",
-    personal: "Şahsy & habarlaşmak"
+    subtitle: "Ýewropa – Ýakyn Gündogar – Merkezi Aziýa",
+    company: "Kompaniýa",
+    personal: "Şahsy"
   },
   tg: {
     title: "Нақлиёти байналмилалии автомобилӣ",
     subtitle: "Аврупо – Шарқи Наздик – Осиёи Марказӣ",
-    company: "Профили ширкат",
-    personal: "Шахсӣ ва тамос"
+    company: "Ширкат",
+    personal: "Шахсӣ"
   },
   kk: {
     title: "Халықаралық автомобиль тасымалы",
     subtitle: "Еуропа – Таяу Шығыс – Орталық Азия",
-    company: "Компания профилі",
-    personal: "Жеке & байланыс"
+    company: "Компания",
+    personal: "Жеке"
   }
 };
 
-// مقدار پیش‌فرض
 const defaultLang = "fa";
 
 // پر کردن منوی انتخاب زبان
@@ -180,25 +179,35 @@ function initLanguageSelect() {
 
 // اعمال ترجمه روی صفحه
 function setLanguage(code) {
-  const data = translations[code] || translations[defaultLang];
+  const t = translations[code] || translations[defaultLang];
 
-  document.getElementById("heroTitle").textContent = data.title;
-  document.getElementById("heroSubtitle").textContent = data.subtitle;
-  document.getElementById("btnCompany").textContent = data.company;
-  document.getElementById("btnPersonal").textContent = data.personal;
+  document.getElementById("heroTitle").textContent = t.title;
+  document.getElementById("heroSubtitle").textContent = t.subtitle;
+  document.getElementById("btnCompany").textContent = t.company;
+  document.getElementById("btnPersonal").textContent = t.personal;
 
-  // متن پایین که می‌گه چند زبان داریم
+  // RTL برای فارسی و عربی
+  if (code === "fa" || code === "ar") {
+    document.body.dir = "rtl";
+  } else {
+    document.body.dir = "ltr";
+  }
+
+  // متن پایین صفحه درباره تعداد زبان‌ها
   const info = document.getElementById("languagesInfo");
-  info.textContent =
-    code === "fa"
-      ? "سایت در ۲۲ زبان در دسترس است."
-      : "Website available in 22 languages.";
+  if (code === "fa") {
+    info.textContent = "سایت در ۲۲ زبان در دسترس است.";
+  } else {
+    info.textContent = "Website available in 22 languages.";
+  }
 }
 
 // سال فوتر
 function setYear() {
-  document.getElementById("year").textContent =
-    new Date().getFullYear().toString();
+  const el = document.getElementById("year");
+  if (el) {
+    el.textContent = new Date().getFullYear().toString();
+  }
 }
 
 // شروع
