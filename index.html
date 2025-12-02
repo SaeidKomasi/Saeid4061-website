@@ -1,115 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>SAEID4061 · GREY LION</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="logo-title">
-      <img src="saeid4061-logo.jpg" alt="SAEID4061 Grey Lion Logo" class="logo" />
-      <div class="title-block">
-        <h1>SAEID4061 · GREY LION</h1>
-        <p class="subtitle" id="subtitle-text">
-          International Road Transport · Europe · Middle East · Central Asia
-        </p>
-      </div>
-    </div>
-
-    <div class="flags-and-lang">
-      <div class="flags">
-        <button class="flag-btn" data-lang="pl" title="Polski">
-          🇵🇱
-        </button>
-        <button class="flag-btn" data-lang="fa" title="فارسی">
-          🇮🇷
-        </button>
-        <button class="flag-btn" data-lang="en" title="English">
-          🇪🇺
-        </button>
-      </div>
-
-      <select id="language-select"></select>
-    </div>
-  </header>
-
-  <main class="main-layout">
-    <!-- تب‌ها: کمپانی / شخصی -->
-    <nav class="tabs">
-      <button class="tab-btn active" data-tab="company" id="tab-company"></button>
-      <button class="tab-btn" data-tab="personal" id="tab-personal"></button>
-    </nav>
-
-    <!-- محتوای اصلی -->
-    <section id="content-area">
-      <!-- بخش کمپانی -->
-      <section id="company-section">
-        <h2 id="main-heading"></h2>
-        <p id="main-description"></p>
-
-        <!-- بلوک مشخصات رسمی شرکت -->
-        <section class="company-info" id="company-info">
-          <h3 id="company-name-title"></h3>
-
-          <p>
-            <strong id="label-krs"></strong>
-            <span id="value-krs"></span>
-          </p>
-          <p>
-            <strong id="label-regon"></strong>
-            <span id="value-regon"></span>
-          </p>
-          <p>
-            <strong id="label-nip"></strong>
-            <span id="value-nip"></span>
-          </p>
-
-          <p>
-            <strong id="label-address"></strong><br />
-            <span id="value-address-line1"></span><br />
-            <span id="value-address-line2"></span><br />
-            <span id="value-address-line3"></span>
-          </p>
-
-          <p>
-            <strong id="label-management"></strong><br />
-            <span id="value-management-line1"></span><br />
-            <span id="value-management-line2"></span>
-          </p>
-
-          <p>
-            <strong id="label-capital"></strong>
-            <span id="value-capital"></span>
-          </p>
-
-          <div class="company-contact">
-            <a href="https://wa.me/48881004737" target="_blank" id="contact-whatsapp">
-              📱 WhatsApp
-            </a>
-            <a href="https://t.me/Saeid4061" target="_blank" id="contact-telegram">
-              💬 Telegram
-            </a>
-            <a href="mailto:saeedkomasy@gmail.com" id="contact-email">
-              📧 saeedkomasy@gmail.com
-            </a>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SAEID4061 · GREY LION – International Road Transport</title>
+    <meta
+      name="description"
+      content="SAEID4061 Sp. z o.o. – International road transport company based in Poland. Europe, Middle East, Central Asia."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <div class="header-left">
+        <img
+          src="./saeid4061-logo.jpg"
+          alt="SAEID4061 Grey Lion Logo"
+          class="logo"
+        />
+        <div class="header-titles">
+          <div class="brand-line">SAEID4061 · GREY LION</div>
+          <div class="brand-subline">
+            International Road Transport – Europe · Middle East · Central Asia
           </div>
-        </section>
-      </section>
+        </div>
+      </div>
 
-      <!-- بخش پرسونل / شخصی -->
-      <section id="personal-section" class="hidden">
-        <h2 id="personal-heading"></h2>
-        <p id="personal-description"></p>
-      </section>
+      <div class="header-right">
+        <div class="owner-name">SAEID KOMASI</div>
+        <div class="owner-role">CEO &amp; Founder</div>
+        <div class="owner-company">
+          SAEID4061 Sp. z o.o. – International Road Transport
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== LANGUAGE & MODE BAR ===== -->
+    <section class="top-controls">
+      <div class="flag-row">
+        <span class="flag" title="Poland">🇵🇱</span>
+        <span class="flag" title="Iran">🇮🇷</span>
+        <span class="flag" title="European Union">🇪🇺</span>
+      </div>
+
+      <div class="controls-right">
+        <div class="mode-switch">
+          <button id="mode-company" class="mode-btn active">
+            Company
+          </button>
+          <button id="mode-personal" class="mode-btn">
+            Personal
+          </button>
+        </div>
+
+        <div class="language-select">
+          <label for="language-select">Language:</label>
+          <select id="language-select"></select>
+        </div>
+      </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <p id="footer-text"></p>
-  </footer>
+    <!-- ===== HERO SECTION ===== -->
+    <main class="page-content">
+      <section class="hero">
+        <div class="hero-box">
+          <h1 id="hero-title"></h1>
+          <h2 id="hero-subtitle"></h2>
+          <p id="hero-text"></p>
+        </div>
 
-  <script src="main.js"></script>
-</body>
+        <div class="info-box">
+          <h3 id="company-info-title"></h3>
+          <ul id="company-info-list" class="company-list"></ul>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT SECTION ===== -->
+      <section class="contact-section">
+        <h3 id="contact-title"></h3>
+        <div class="contact-grid">
+          <a
+            class="contact-card whatsapp"
+            href="https://wa.me/48881004737"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="contact-icon">📱</div>
+            <div class="contact-body">
+              <div id="contact-whatsapp-label" class="contact-label"></div>
+              <div class="contact-value">+48 881 004 737</div>
+            </div>
+          </a>
+
+          <a
+            class="contact-card telegram"
+            href="https://t.me/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="contact-icon">📨</div>
+            <div class="contact-body">
+              <div id="contact-telegram-label" class="contact-label"></div>
+              <div class="contact-value">@Telegram</div>
+            </div>
+          </a>
+
+          <a
+            class="contact-card email"
+            href="mailto:SAEEDKOMASY@GMAIL.COM"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="contact-icon">✉️</div>
+            <div class="contact-body">
+              <div id="contact-email-label" class="contact-label"></div>
+              <div class="contact-value">SAEEDKOMASY@GMAIL.COM</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== LEGAL / COMPANY DATA ( ثابت از KRS ) ===== -->
+      <section class="legal-section">
+        <h3 id="legal-title"></h3>
+        <div class="legal-grid">
+          <div class="legal-item">
+            <span class="legal-label">Company:</span>
+            <span class="legal-value">SAEID4061 Sp. z o.o.</span>
+          </div>
+          <div class="legal-item">
+            <span class="legal-label">KRS:</span>
+            <span class="legal-value">0001065392</span>
+          </div>
+          <div class="legal-item">
+            <span class="legal-label">REGON:</span>
+            <span class="legal-value">526744160</span>
+          </div>
+          <div class="legal-item">
+            <span class="legal-label">NIP:</span>
+            <span class="legal-value">5372677546</span>
+          </div>
+          <div class="legal-item">
+            <span class="legal-label">Registered seat:</span>
+            <span class="legal-value">
+              ul. Kolejowa 31B, lok. 23B, 21-500 Biała Podlaska, Poland
+            </span>
+          </div>
+          <div class="legal-item">
+            <span class="legal-label">Correspondence address:</span>
+            <span class="legal-value">
+              Orzechowa 32/1, 21-500 Biała Podlaska, Poland
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> SAEID4061 Sp. z o.o. · GREY LION</span>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
 </html>
