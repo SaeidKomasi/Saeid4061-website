@@ -1,183 +1,115 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="fa">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SAEID4061 · GREY LION</title>
-
-  <!-- استایل اولیه -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- فونت ساده -->
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      color: #111;
-    }
-
-    header {
-      background-color: #005bac; /* آبی شرکتی مثل ZMPD */
-      color: white;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    header img {
-      height: 38px;
-    }
-
-    footer {
-      background: #222;
-      color: #bbb;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      margin-top: 40px;
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 30px 15px;
-    }
-
-    h1 {
-      color: #005bac;
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .selector {
-      margin: 20px auto;
-      text-align: center;
-    }
-
-    select {
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #aaa;
-      border-radius: 6px;
-    }
-
-    .switcher {
-      display: flex;
-      justify-content: center;
-      margin: 25px 0;
-      gap: 20px;
-    }
-
-    .switcher button {
-      padding: 10px 25px;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 6px;
-      background: #ddd;
-    }
-
-    .switcher button.active {
-      background: #005bac;
-      color: white;
-    }
-
-    section {
-      margin: 25px 0;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
-    }
-
-    .contact a {
-      display: block;
-      padding: 12px 15px;
-      background: #005bac;
-      color: white;
-      margin: 10px 0;
-      border-radius: 6px;
-      text-decoration: none;
-      text-align: center;
-      font-size: 17px;
-    }
-
-    .flag-bar {
-      text-align: center;
-      padding-top: 5px;
-    }
-    .flag-bar img {
-      width: 32px;
-      margin: 0 4px;
-      border-radius: 2px;
-      box-shadow: 0 0 2px rgba(0,0,0,0.3);
-    }
-  </style>
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="logo-title">
+      <img src="saeid4061-logo.jpg" alt="SAEID4061 Grey Lion Logo" class="logo" />
+      <div class="title-block">
+        <h1>SAEID4061 · GREY LION</h1>
+        <p class="subtitle" id="subtitle-text">
+          International Road Transport · Europe · Middle East · Central Asia
+        </p>
+      </div>
+    </div>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <img src="saeid4061-logo.jpg" alt="Logo" />
-    <h2 data-i18n="siteTitleTop"></h2>
-  </header>
+    <div class="flags-and-lang">
+      <div class="flags">
+        <button class="flag-btn" data-lang="pl" title="Polski">
+          🇵🇱
+        </button>
+        <button class="flag-btn" data-lang="fa" title="فارسی">
+          🇮🇷
+        </button>
+        <button class="flag-btn" data-lang="en" title="English">
+          🇪🇺
+        </button>
+      </div>
 
-  <!-- ===== FLAGS ===== -->
-  <div class="flag-bar">
-    <img src="https://flagcdn.com/pl.svg" alt="Poland">
-    <img src="https://flagcdn.com/ir.svg" alt="Iran">
-    <img src="https://flagcdn.com/eu.svg" alt="EU">
-  </div>
-
-  <!-- ===== MAIN ===== -->
-  <main>
-
-    <!-- عنوان -->
-    <h1 data-i18n="mainHeading"></h1>
-
-    <!-- توضیح -->
-    <p data-i18n="heroText"></p>
-
-    <!-- انتخاب زبان -->
-    <div class="selector">
       <select id="language-select"></select>
     </div>
+  </header>
 
-    <!-- دکمه‌ها -->
-    <div class="switcher">
-      <button id="btn-company" data-i18n="btnCompany"></button>
-      <button id="btn-personal" data-i18n="btnPersonal"></button>
-    </div>
+  <main class="main-layout">
+    <!-- تب‌ها: کمپانی / شخصی -->
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="company" id="tab-company"></button>
+      <button class="tab-btn" data-tab="personal" id="tab-personal"></button>
+    </nav>
 
-    <!-- ===== COMPANY ===== -->
-    <section id="view-company">
-      <h2 data-i18n="companyTitle"></h2>
-      <p data-i18n="companyText1"></p>
+    <!-- محتوای اصلی -->
+    <section id="content-area">
+      <!-- بخش کمپانی -->
+      <section id="company-section">
+        <h2 id="main-heading"></h2>
+        <p id="main-description"></p>
+
+        <!-- بلوک مشخصات رسمی شرکت -->
+        <section class="company-info" id="company-info">
+          <h3 id="company-name-title"></h3>
+
+          <p>
+            <strong id="label-krs"></strong>
+            <span id="value-krs"></span>
+          </p>
+          <p>
+            <strong id="label-regon"></strong>
+            <span id="value-regon"></span>
+          </p>
+          <p>
+            <strong id="label-nip"></strong>
+            <span id="value-nip"></span>
+          </p>
+
+          <p>
+            <strong id="label-address"></strong><br />
+            <span id="value-address-line1"></span><br />
+            <span id="value-address-line2"></span><br />
+            <span id="value-address-line3"></span>
+          </p>
+
+          <p>
+            <strong id="label-management"></strong><br />
+            <span id="value-management-line1"></span><br />
+            <span id="value-management-line2"></span>
+          </p>
+
+          <p>
+            <strong id="label-capital"></strong>
+            <span id="value-capital"></span>
+          </p>
+
+          <div class="company-contact">
+            <a href="https://wa.me/48881004737" target="_blank" id="contact-whatsapp">
+              📱 WhatsApp
+            </a>
+            <a href="https://t.me/Saeid4061" target="_blank" id="contact-telegram">
+              💬 Telegram
+            </a>
+            <a href="mailto:saeedkomasy@gmail.com" id="contact-email">
+              📧 saeedkomasy@gmail.com
+            </a>
+          </div>
+        </section>
+      </section>
+
+      <!-- بخش پرسونل / شخصی -->
+      <section id="personal-section" class="hidden">
+        <h2 id="personal-heading"></h2>
+        <p id="personal-description"></p>
+      </section>
     </section>
-
-    <!-- ===== PERSONAL ===== -->
-    <section id="view-personal">
-      <h2 data-i18n="personalTitle"></h2>
-      <p data-i18n="personalText1"></p>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section class="contact">
-      <h2 data-i18n="contactTitle"></h2>
-      <a id="whatsapp-link" data-i18n="contactWhatsApp"></a>
-      <a id="telegram-link" data-i18n="contactTelegram"></a>
-    </section>
-
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer data-i18n="footerText"></footer>
+  <footer class="site-footer">
+    <p id="footer-text"></p>
+  </footer>
 
-  <!-- فایل زبان و منطق سایت -->
   <script src="main.js"></script>
-
 </body>
 </html>
