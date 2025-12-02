@@ -1,4 +1,3 @@
-
 const languageList = [
     { code: "fa", label: "فارسی" },
     { code: "en", label: "English" },
@@ -24,7 +23,6 @@ const languageList = [
     { code: "kk", label: "Қазақша" }
 ];
 
-// ===== ترجمه‌ها (کامل برای fa/en/pl، بقیه از انگلیسی می‌افتند) =====
 const translations = {
     en: {
         tagline: "International Road Transport – Europe • Middle East • Central Asia",
@@ -93,8 +91,7 @@ function t(key, lang) {
 }
 
 function applyLanguage(lang) {
-    const elements = document.querySelectorAll("[data-i18n]");
-    elements.forEach((el) => {
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
         el.textContent = t(key, lang);
     });
@@ -105,7 +102,6 @@ function initLanguageSelect() {
     if (!select) return;
 
     select.innerHTML = "";
-
     languageList.forEach((item) => {
         const opt = document.createElement("option");
         opt.value = item.code;
@@ -135,7 +131,6 @@ function initTabs() {
     const companyBtn = document.getElementById("company-tab");
     const personalSection = document.getElementById("personal-section");
     const companySection = document.getElementById("company-section");
-
     if (!personalBtn || !companyBtn || !personalSection || !companySection) return;
 
     const showSection = (target) => {
@@ -155,15 +150,12 @@ function initTabs() {
     personalBtn.addEventListener("click", () => showSection("personal"));
     companyBtn.addEventListener("click", () => showSection("company"));
 
-    // پیش‌فرض: Company
     showSection("company");
 }
 
-// بک‌گراند روز / شب (فقط عکس را عوض می‌کند)
 function setBackground() {
     const hour = new Date().getHours();
     const body = document.body;
-
     if (hour >= 6 && hour < 18) {
         body.style.backgroundImage = "url('assets/bg-day.jpg')";
     } else {
@@ -174,7 +166,6 @@ function setBackground() {
 document.addEventListener("DOMContentLoaded", () => {
     setBackground();
     setInterval(setBackground, 60 * 60 * 1000);
-
     initLanguageSelect();
     initTabs();
 });
