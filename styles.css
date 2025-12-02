@@ -1,139 +1,250 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-  <meta charset="UTF-8" />
-  <title>SAEID4061 · GREY LION</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
 
-<body>
+/* BACKGROUND */
+body {
+  background: #050810;
+  color: #f5f7fb;
+}
 
-  <!-- HEADER -->
-  <header class="top-bar">
+/* HEADER */
+.top-bar {
+  width: 100%;
+  background: #0057a8; /* آبی شبیه ZMPD/IRU */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    <div class="logo-area">
-      <!-- لوگو تصویری؛ اسم فایل: saeid4061-logo.jpg -->
-      <img src="saeid4061-logo.jpg" alt="SAEID4061 Grey Lion logo" class="logo-img" />
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
 
-      <div class="brand">
-        <div class="brand-name">SAEID4061 · GREY LION</div>
-        <div class="brand-sub">International Road Transport & Logistics</div>
-      </div>
-    </div>
+.logo-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-    <div class="right-side">
+.brand-name {
+  font-size: 18px;
+  font-weight: 700;
+}
 
-      <div class="flags">
-        <span class="flag">🇵🇱</span>
-        <span class="flag">🇮🇷</span>
-      </div>
+.brand-sub {
+  font-size: 11px;
+  opacity: 0.85;
+}
 
-      <div class="language">
-        <select id="languageSelect"></select>
-      </div>
+.right-side {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
-      <div class="contact-links">
-        <a href="https://t.me/Saeid4061" target="_blank" rel="noopener" class="btn-link tg">Telegram</a>
-        <a href="https://wa.me/48881004737" target="_blank" rel="noopener" class="btn-link wa">WhatsApp</a>
-      </div>
+/* FLAGS */
+.flags .flag {
+  font-size: 20px;
+}
 
-    </div>
+/* LANGUAGE DROPDOWN */
+.language select {
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: none;
+  font-size: 12px;
+}
 
-  </header>
+/* CONTACT BUTTONS (TOP) */
+.contact-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-  <!-- HERO -->
-  <main class="hero">
-    <section class="hero-card">
+.btn-link {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid white;
+  color: white;
+}
 
-      <h1 id="heroTitle"></h1>
-      <p id="heroSubtitle" class="hero-subtitle"></p>
+.btn-link:hover {
+  background: white;
+  color: #0057a8;
+}
 
-      <p id="heroIntro" class="hero-intro">
-        SAEID4061 SP. Z O.O. is an international road transport company registered in Poland.
-        We specialize in long–distance freight between the European Union, the Middle East
-        and Central Asia and handle all transport documents (CMR, TIR, SENT, EPD, EORI) 
-        under one management.
-      </p>
+/* HERO */
+.hero {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
 
-      <div class="hero-buttons">
-        <a href="#company" id="btnCompany" class="primary-btn"></a>
-        <a href="#personal" id="btnPersonal" class="secondary-btn"></a>
-      </div>
+.hero-card {
+  background: radial-gradient(circle at top, #0b1b3d, #050810);
+  border-radius: 16px;
+  padding: 24px 20px;
+  max-width: 720px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(120, 169, 255, 0.25);
+  text-align: center;
+}
 
-      <p class="languages-info" id="languagesInfo">
-        Website available in 22 languages.
-      </p>
+.hero-card h1 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
 
-    </section>
-  </main>
+.hero-subtitle {
+  font-size: 15px;
+  color: #9ec5ff;
+  margin-bottom: 14px;
+}
 
-  <!-- COMPANY SECTION -->
-  <section id="company" class="section">
-    <h2>Company · SAEID4061 SP. Z O.O.</h2>
+.hero-intro {
+  font-size: 14px;
+  color: #d7e1ff;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
 
-    <p>
-      SAEID4061 SP. Z O.O. is a Polish international road transport company focused on
-      long–distance routes between the European Union, the Middle East and Central Asia.
-      We coordinate the full transport chain from loading point to final delivery.
-    </p>
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
 
-    <h3 class="section-subtitle">Main services / خدمات اصلی</h3>
-    <ul class="section-list">
-      <li>International road freight (FTL / partial loads)</li>
-      <li>CMR / TIR operations and customs transit</li>
-      <li>SENT / EPD / EORI documentation support</li>
-      <li>Transit corridor planning EU ↔ Turkey ↔ Caucasus ↔ Iran ↔ Central Asia</li>
-    </ul>
+.primary-btn,
+.secondary-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  flex: 1 1 50%;
+}
 
-    <h3 class="section-subtitle">Main corridors / مسیرها</h3>
-    <p class="section-text">
-      Poland · Germany · EU ports ↔ Turkey ↔ Georgia ↔ Azerbaijan ↔ Iran ↔ Iraq ↔
-      Kazakhstan · Uzbekistan · Turkmenistan · Mongolia and other countries in Central Asia.
-    </p>
-  </section>
+.primary-btn {
+  background: #ffb300;
+  color: #1b1200;
+}
 
-  <!-- PERSONAL SECTION -->
-  <section id="personal" class="section">
-    <h2>Personal · Saeid Komasi</h2>
+.secondary-btn {
+  background: transparent;
+  color: #ffb300;
+  border: 1px solid #ffb300;
+}
 
-    <p class="section-text">
-      Saeid Komasi is the founder of SAEID4061 SP. Z O.O. and the creator of several
-      mechanical and energy–related inventions. Alongside international transport activity,
-      he works on long–term projects in power generation, mechanical systems and social
-      initiatives for education and support of young people.
-    </p>
+.languages-info {
+  font-size: 12px;
+  opacity: 0.75;
+}
 
-    <p class="section-text">
-      For direct business contact, cooperation proposals or discussion about new projects,
-      please use Telegram or WhatsApp links above.
-    </p>
-  </section>
+/* SECTION عمومی */
+.section {
+  padding: 32px 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
+.section h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
 
-      <div class="footer-left">
-        <div class="footer-title">SAEID4061 · GREY LION</div>
-        <div class="footer-sub">International Road Transport & Logistics</div>
+.section-subtitle {
+  margin-top: 12px;
+  font-size: 16px;
+}
 
-        <div class="footer-links">
-          <a href="https://t.me/Saeid4061" target="_blank" rel="noopener">Telegram</a>
-          <a href="https://wa.me/48881004737" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="mailto:saeedkomasy@gmail.com">Email</a>
-        </div>
-      </div>
+.section-list {
+  margin-top: 8px;
+  margin-left: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+}
 
-      <div class="footer-right">
-        <div class="copy">
-          © <span id="year"></span> SAEID4061 SP. Z O.O. · All Rights Reserved
-        </div>
-      </div>
+.section-text {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d7e1ff;
+}
 
-    </div>
-  </footer>
+/* FOOTER */
+.footer {
+  width: 100%;
+  background: #003b6f;
+  color: white;
+  margin-top: 60px;
+  padding: 25px 20px;
+}
 
-  <script src="main.js"></script>
-</body>
-</html>
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.footer-sub {
+  font-size: 11px;
+  opacity: 0.8;
+  margin-top: 3px;
+}
+
+.footer-links a {
+  margin-right: 12px;
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.copy {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+
+  .brand-sub {
+    display: none;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hero-card h1 {
+    font-size: 20px;
+  }
+}
