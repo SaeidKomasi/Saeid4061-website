@@ -1,216 +1,392 @@
-root {
-  --blue-main: #005bab;
-  --blue-dark: #003f78;
-  --grey-bg: #f5f5f5;
-  --text-main: #222222;
-  --radius-lg: 16px;
-}
+/* ===== BASE ===== */
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  background-color: var(--grey-bg);
-  color: var(--text-main);
+  direction: rtl;
 }
 
-/* هدر */
+body {
+  color: #0f172a;
+  background-color: #e5e7eb;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-image 0.8s ease-in-out, filter 0.6s ease-in-out;
+}
+
+/* متن‌ها روی بک‌گراند خوانا باشند */
+header h1,
+header h2,
+header h3,
+p,
+span,
+a,
+button,
+h1,
+h2,
+h3 {
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== LAYOUT WRAPPER ===== */
+
+.page-content {
+  max-width: 1100px;
+  margin: 0 auto 4rem auto;
+  padding: 0 1.2rem;
+}
+
+/* ===== HEADER ===== */
 
 .site-header {
-  background-color: var(--blue-main);
-  color: white;
-  padding: 16px;
+  background: #0057a8; /* آبی شبیه ZMPD */
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.35);
 }
 
-.logo-title {
+.header-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  object-fit: cover;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  background-color: rgba(15, 23, 42, 0.7);
 }
 
-.title-block h1 {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 800;
-}
-
-.subtitle {
-  margin: 4px 0 0;
-  font-size: 13px;
-}
-
-.flags-and-lang {
+.header-titles {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  align-items: flex-end;
 }
 
-.flags {
+.brand-line {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  font-size: 1rem;
+}
+
+.brand-subline {
+  font-size: 0.78rem;
+  opacity: 0.9;
+}
+
+.header-right {
+  text-align: left;
   display: flex;
-  gap: 6px;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-size: 0.78rem;
 }
 
-.flag-btn {
-  font-size: 20px;
+.owner-name {
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.owner-role {
+  font-weight: 500;
+  font-size: 0.78rem;
+}
+
+.owner-company {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+/* ===== TOP CONTROLS ===== */
+
+.top-controls {
+  max-width: 1100px;
+  margin: 0.75rem auto 1.2rem auto;
+  padding: 0 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.flag-row {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.flag {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.25));
+}
+
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mode-switch {
+  display: inline-flex;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 999px;
+  padding: 0.12rem;
+}
+
+.mode-btn {
+  border: none;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  padding: 4px 6px;
-  cursor: pointer;
+  color: #e5e7eb;
 }
 
-.flag-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.mode-btn.active {
+  background: #22c55e;
+  color: #0f172a;
+  font-weight: 600;
 }
 
-#language-select {
-  padding: 4px 8px;
-  border-radius: 8px;
-  border: none;
-  font-size: 13px;
-}
-
-/* لایه اصلی */
-
-.main-layout {
-  max-width: 960px;
-  margin: 16px auto;
-  padding: 0 12px 40px;
-}
-
-/* تب‌ها */
-
-.tabs {
+.language-select {
   display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  background: rgba(15, 23, 42, 0.85);
+  color: #e5e7eb;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
 }
 
-.tab-btn {
-  flex: 1;
-  padding: 10px;
+.language-select label {
+  white-space: nowrap;
+}
+
+.language-select select {
   border-radius: 999px;
   border: none;
-  cursor: pointer;
-  font-weight: 600;
-  background-color: white;
-  color: var(--blue-main);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.8rem;
 }
 
-.tab-btn.active {
-  background-color: var(--blue-main);
-  color: white;
+/* ===== HERO ===== */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1.2rem;
+  margin-top: 1rem;
 }
 
-/* محتوا */
-
-#content-area {
-  background-color: white;
-  border-radius: var(--radius-lg);
-  padding: 18px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.hero-box,
+.info-box,
+.contact-section,
+.legal-section {
+  background: rgba(248, 250, 252, 0.96);
+  border-radius: 14px;
+  padding: 1.2rem 1.1rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(8px);
 }
 
-#main-heading,
-#personal-heading {
-  font-size: 20px;
-  margin-top: 0;
-  color: var(--blue-main);
+.hero-box h1 {
+  font-size: 1.4rem;
+  color: #0f172a;
+  margin-bottom: 0.35rem;
 }
 
-#main-description,
-#personal-description {
-  font-size: 14px;
+.hero-box h2 {
+  font-size: 1rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.hero-box p {
+  font-size: 0.85rem;
   line-height: 1.7;
+  color: #111827;
 }
 
-/* بلوک مشخصات شرکت */
+/* Info box */
 
-.company-info {
-  background-color: var(--blue-main);
-  color: white;
-  margin-top: 18px;
-  padding: 18px;
+.info-box h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.company-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.company-list li {
+  margin-bottom: 0.35rem;
+  position: relative;
+  padding-right: 1.1rem;
+}
+
+.company-list li::before {
+  content: "•";
+  position: absolute;
+  right: 0;
+  top: 0.1rem;
+  color: #0ea5e9;
+}
+
+/* ===== CONTACT ===== */
+
+.contact-section {
+  margin-top: 1.5rem;
+}
+
+.contact-section h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 0.8rem;
   border-radius: 12px;
-  font-size: 14px;
-  line-height: 1.7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-.company-info h3 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-size: 18px;
-}
-
-.company-contact {
-  margin-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.company-contact a {
-  background-color: white;
-  color: var(--blue-main);
   text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 13px;
+  color: inherit;
+  box-shadow: 0 6px 15px rgba(15, 23, 42, 0.18);
+  background: #0f172a;
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.32);
+  border-color: #22c55e;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+}
+
+.contact-label {
+  font-size: 0.82rem;
+  opacity: 0.9;
+}
+
+.contact-value {
+  font-size: 0.88rem;
   font-weight: 600;
 }
 
-.company-contact a:hover {
-  background-color: var(--blue-dark);
-  color: white;
+/* رنگ‌های خاص برای هر کارت */
+
+.contact-card.whatsapp {
+  background: radial-gradient(circle at top left, #22c55e, #15803d);
 }
 
-/* سایر */
-
-.hidden {
-  display: none;
+.contact-card.telegram {
+  background: radial-gradient(circle at top left, #0ea5e9, #0369a1);
 }
+
+.contact-card.email {
+  background: radial-gradient(circle at top left, #f97316, #c2410c);
+}
+
+/* ===== LEGAL ===== */
+
+.legal-section {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.legal-section h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
+.legal-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  gap: 0.4rem 0.75rem;
+}
+
+.legal-item {
+  display: contents;
+}
+
+.legal-label {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.legal-value {
+  color: #111827;
+}
+
+/* ===== FOOTER ===== */
 
 .site-footer {
   text-align: center;
-  font-size: 12px;
-  color: #555;
-  padding: 12px 8px 20px;
+  padding: 1rem 0.5rem 1.4rem 0.5rem;
+  font-size: 0.78rem;
+  color: #e5e7eb;
+  background: rgba(15, 23, 42, 0.92);
+  margin-top: 2rem;
 }
 
-/* واکنش‌گرا موبایل */
+/* ===== RESPONSIVE ===== */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .site-header {
+    flex-direction: column;
     align-items: flex-start;
   }
 
-  .flags-and-lang {
+  .header-right {
+    text-align: right;
     align-items: flex-start;
-    margin-top: 12px;
   }
 
-  .title-block h1 {
-    font-size: 18px;
+  .top-controls {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .company-info {
-    font-size: 13px;
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .page-content {
+    padding: 0 0.9rem;
   }
 }
