@@ -2,138 +2,70 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8" />
-  <title>SAEID4061 · GREY LION</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAEID4061 – International Transport</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
+  <script defer src="main.js"></script>
 </head>
-
 <body>
-
-  <!-- HEADER -->
-  <header class="top-bar">
-
-    <div class="logo-area">
-      <!-- لوگو تصویری؛ اسم فایل: saeid4061-logo.jpg -->
-      <img src="saeid4061-logo.jpg" alt="SAEID4061 Grey Lion logo" class="logo-img" />
-
-      <div class="brand">
-        <div class="brand-name">SAEID4061 · GREY LION</div>
-        <div class="brand-sub">International Road Transport & Logistics</div>
+  <!-- هدر با لوگو و پرچم‌ها -->
+  <header>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <img src="saeid4061-logo.jpg" alt="SAEID4061 Logo" />
+      <div>
+        <div style="font-weight:bold; font-size:18px;">SAEID4061 SP. Z O.O.</div>
+        <div style="font-size:13px;" data-i18n="siteTagline">
+          <!-- متن توسط جاوااسکریپت پر می‌شود -->
+        </div>
       </div>
     </div>
 
-    <div class="right-side">
-
-      <div class="flags">
-        <span class="flag">🇵🇱</span>
-        <span class="flag">🇮🇷</span>
-      </div>
-
-      <div class="language">
-        <select id="languageSelect"></select>
-      </div>
-
-      <div class="contact-links">
-        <a href="https://t.me/Saeid4061" target="_blank" rel="noopener" class="btn-link tg">Telegram</a>
-        <a href="https://wa.me/48881004737" target="_blank" rel="noopener" class="btn-link wa">WhatsApp</a>
-      </div>
-
+    <div style="text-align:right;">
+      <div style="font-size:20px;">🇵🇱 🇮🇷</div>
+      <div style="font-size:12px; margin-top:4px;">Poland – Iran</div>
     </div>
-
   </header>
 
-  <!-- HERO -->
-  <main class="hero">
-    <section class="hero-card">
+  <!-- انتخاب زبان -->
+  <section class="language-selector">
+    <div id="language-buttons">
+      <!-- دکمه‌های زبان توسط جاوااسکریپت ساخته می‌شود -->
+    </div>
+  </section>
 
-      <h1 id="heroTitle"></h1>
-      <p id="heroSubtitle" class="hero-subtitle"></p>
+  <!-- بخش معرفی سایت و دو گزینه اصلی -->
+  <main>
+    <h1 data-i18n="introTitle"></h1>
 
-      <p id="heroIntro" class="hero-intro">
-        SAEID4061 SP. Z O.O. is an international road transport company registered in Poland.
-        We specialize in long–distance freight between the European Union, the Middle East
-        and Central Asia and handle all transport documents (CMR, TIR, SENT, EPD, EORI) 
-        under one management.
-      </p>
+    <p style="max-width:800px; margin:0 auto 20px; text-align:center;" data-i18n="introText">
+      <!-- متن توسط جاوااسکریپت پر می‌شود -->
+    </p>
 
-      <div class="hero-buttons">
-        <a href="#company" id="btnCompany" class="primary-btn"></a>
-        <a href="#personal" id="btnPersonal" class="secondary-btn"></a>
+    <div style="display:flex; justify-content:center; gap:20px; margin:20px 0;">
+      <a href="#" class="language-btn" style="font-size:16px; padding:12px 24px;" data-i18n="companyButton"></a>
+      <a href="#" class="language-btn" style="font-size:16px; padding:12px 24px;" data-i18n="personalButton"></a>
+    </div>
+
+    <!-- بخش تماس و ارتباط -->
+    <section style="max-width:600px; margin:40px auto; text-align:center;">
+      <h2 data-i18n="contactTitle"></h2>
+      <p data-i18n="contactText"></p>
+
+      <div style="display:flex; justify-content:center; gap:30px; margin-top:15px; font-size:18px;">
+        <!-- تلگرام -->
+        <a href="https://t.me/Saeid4061" target="_blank" style="text-decoration:none; color:#0088cc;">
+          📨 Telegram
+        </a>
+        <!-- واتساپ -->
+        <a href="https://wa.me/48881004737" target="_blank" style="text-decoration:none; color:#25D366;">
+          💬 WhatsApp
+        </a>
       </div>
-
-      <p class="languages-info" id="languagesInfo">
-        Website available in 22 languages.
-      </p>
-
     </section>
   </main>
 
-  <!-- COMPANY SECTION -->
-  <section id="company" class="section">
-    <h2>Company · SAEID4061 SP. Z O.O.</h2>
-
-    <p>
-      SAEID4061 SP. Z O.O. is a Polish international road transport company focused on
-      long–distance routes between the European Union, the Middle East and Central Asia.
-      We coordinate the full transport chain from loading point to final delivery.
-    </p>
-
-    <h3 class="section-subtitle">Main services / خدمات اصلی</h3>
-    <ul class="section-list">
-      <li>International road freight (FTL / partial loads)</li>
-      <li>CMR / TIR operations and customs transit</li>
-      <li>SENT / EPD / EORI documentation support</li>
-      <li>Transit corridor planning EU ↔ Turkey ↔ Caucasus ↔ Iran ↔ Central Asia</li>
-    </ul>
-
-    <h3 class="section-subtitle">Main corridors / مسیرها</h3>
-    <p class="section-text">
-      Poland · Germany · EU ports ↔ Turkey ↔ Georgia ↔ Azerbaijan ↔ Iran ↔ Iraq ↔
-      Kazakhstan · Uzbekistan · Turkmenistan · Mongolia and other countries in Central Asia.
-    </p>
-  </section>
-
-  <!-- PERSONAL SECTION -->
-  <section id="personal" class="section">
-    <h2>Personal · Saeid Komasi</h2>
-
-    <p class="section-text">
-      Saeid Komasi is the founder of SAEID4061 SP. Z O.O. and the creator of several
-      mechanical and energy–related inventions. Alongside international transport activity,
-      he works on long–term projects in power generation, mechanical systems and social
-      initiatives for education and support of young people.
-    </p>
-
-    <p class="section-text">
-      For direct business contact, cooperation proposals or discussion about new projects,
-      please use Telegram or WhatsApp links above.
-    </p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-
-      <div class="footer-left">
-        <div class="footer-title">SAEID4061 · GREY LION</div>
-        <div class="footer-sub">International Road Transport & Logistics</div>
-
-        <div class="footer-links">
-          <a href="https://t.me/Saeid4061" target="_blank" rel="noopener">Telegram</a>
-          <a href="https://wa.me/48881004737" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="mailto:saeedkomasy@gmail.com">Email</a>
-        </div>
-      </div>
-
-      <div class="footer-right">
-        <div class="copy">
-          © <span id="year"></span> SAEID4061 SP. Z O.O. · All Rights Reserved
-        </div>
-      </div>
-
-    </div>
+  <footer>
+    <span data-i18n="footerText"></span>
   </footer>
-
-  <script src="main.js"></script>
 </body>
 </html>
