@@ -11,7 +11,7 @@
     <!-- HEADER -->
     <header class="site-header">
         <div class="header-left">
-            <!-- خالی می‌گذاریم که هدر وسط بماند -->
+            <img src="assets/saeid4061-logo.jpg" alt="Grey Lion logo" class="header-logo" />
         </div>
         <div class="header-center">
             <div class="route-badge">EU – IR – PL</div>
@@ -23,12 +23,21 @@
             </div>
         </div>
         <div class="header-right">
-            <img src="assets/saeid4061-logo.jpg" alt="Grey Lion logo" class="header-logo" />
+            <!-- خالی، برای بالانس هدر -->
         </div>
     </header>
 
     <!-- TOP CONTROLS -->
     <div class="top-controls">
+        <div class="mode-toggle">
+            <button id="btn-company" class="toggle-btn active" data-mode="company">
+                Company
+            </button>
+            <button id="btn-personal" class="toggle-btn" data-mode="personal">
+                Personal
+            </button>
+        </div>
+
         <div class="language-select">
             <label id="label-language" for="languageSelect">Language</label>
             <select id="languageSelect">
@@ -37,32 +46,23 @@
                 <option value="pl">Polski</option>
             </select>
         </div>
-
-        <div class="mode-toggle">
-            <button id="btn-personal" class="toggle-btn active" data-mode="personal">
-                Personal
-            </button>
-            <button id="btn-company" class="toggle-btn" data-mode="company">
-                Company
-            </button>
-        </div>
     </div>
 
     <!-- MAIN CONTENT -->
     <main class="content">
-        <!-- PERSONAL CARD -->
-        <section id="personal-card" class="card visible">
-            <h2 class="card-title" id="personal-title"></h2>
-            <div id="personal-content" class="card-text"></div>
-        </section>
-
         <!-- COMPANY CARD -->
-        <section id="company-card" class="card">
+        <section id="company-card" class="card visible">
             <h2 class="card-title" id="company-title"></h2>
             <div id="company-content" class="card-text"></div>
         </section>
 
-        <!-- CONTACT BUTTONS (مشترک بین هر دو حالت) -->
+        <!-- PERSONAL CARD -->
+        <section id="personal-card" class="card">
+            <h2 class="card-title" id="personal-title"></h2>
+            <div id="personal-content" class="card-text"></div>
+        </section>
+
+        <!-- CONTACT BUTTONS (مشترک) -->
         <div class="contact-buttons">
             <button class="contact-btn whatsapp" id="btn-whatsapp">
                 <span class="contact-main">+48 737 004 848</span>
