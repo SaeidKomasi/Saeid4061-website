@@ -1,11 +1,11 @@
-/* ریست ساده */
+/* RESET */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* پس‌زمینه فقط تصویر شب */
+/* BACKGROUND – فقط شب */
 body {
     font-family: Arial, sans-serif;
     color: #ffffff;
@@ -16,10 +16,9 @@ body {
     min-height: 100vh;
 }
 
-/* لایه تیره برای خوانایی متن */
 .page-wrapper {
     min-height: 100vh;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
 }
@@ -30,7 +29,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 16px 24px;
-    background: #00529b; /* آبی کامیونی قشنگ */
+    background: #00529b;
     border-bottom: 2px solid rgba(255, 255, 255, 0.25);
 }
 
@@ -126,7 +125,7 @@ body {
     font-weight: 600;
 }
 
-/* MAIN CONTENT */
+/* CONTENT */
 .content {
     padding: 16px;
     max-width: 900px;
@@ -135,51 +134,58 @@ body {
 }
 
 .card {
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(10, 10, 10, 0.82);
     border-radius: 12px;
-    padding: 16px 18px;
+    padding: 16px 18px 18px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
     margin-bottom: 16px;
 }
 
 .card h2 {
     font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.info-text {
+    font-size: 12px;
+    line-height: 1.7;
     margin-bottom: 12px;
 }
 
-/* CONTACT ROW */
+/* CONTACT ROW – عمودی پایین کارت */
 .contact-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 12px;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
 }
 
 .contact-btn {
-    flex: 1 1 220px;
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 10px;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 12px;
     border-radius: 999px;
     text-decoration: none;
     color: #ffffff;
     font-size: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    white-space: nowrap;
+    width: 100%;
+    max-width: 420px;
 }
 
-/* رنگ‌ها */
-.contact-btn.email {
-    background: #e67e22;
+.contact-btn.whatsapp {
+    background: #27ae60;
 }
 
 .contact-btn.telegram {
     background: #2980b9;
 }
 
-.contact-btn.whatsapp {
-    background: #27ae60;
+.contact-btn.email {
+    background: #e67e22;
 }
 
 .contact-btn .icon {
@@ -194,30 +200,28 @@ body {
     font-weight: 500;
 }
 
-/* متن زیر بخش شخصی */
-.info-text {
-    font-size: 12px;
-    line-height: 1.7;
-}
-
-/* COMPANY GRID */
+/* COMPANY GRID – فونت کلاسیک و بزرگ‌تر */
 .company-grid {
     display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 6px 12px;
-    font-size: 12px;
+    grid-template-columns: 160px 1fr;
+    gap: 8px 14px;
+    font-size: 14px;
+    font-family: "Times New Roman", Georgia, serif;
+    margin-bottom: 12px;
 }
 
 .company-grid .label {
-    font-weight: 600;
-    opacity: 0.9;
-}
-
-.company-grid .value {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     opacity: 0.95;
 }
 
-/* HIDDEN کلاس برای سوییچ تب‌ها */
+.company-grid .value {
+    opacity: 0.98;
+}
+
+/* UTILS */
 .hidden {
     display: none;
 }
@@ -232,7 +236,7 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* ریسپانسیو موبایل */
+/* RESPONSIVE */
 @media (max-width: 640px) {
     .header {
         flex-direction: column;
@@ -250,7 +254,7 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .contact-row {
-        flex-direction: column;
+    .contact-btn {
+        max-width: 100%;
     }
 }
