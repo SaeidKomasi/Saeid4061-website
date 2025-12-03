@@ -2,38 +2,35 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8" />
+    <title>SAEID KOMASI – International Road Transport</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SAEID KOMASI – Contact</title>
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="main.js"></script>
 </head>
-<body class="rtl">
+<body class="rtl lang-fa">
 <div class="page-wrapper">
-
     <!-- HEADER -->
     <header class="site-header">
         <div class="header-left">
-            <div class="route-badge">EU • IR • PL</div>
+            <!-- خالی می‌گذاریم که هدر وسط بماند -->
         </div>
-
         <div class="header-center">
+            <div class="route-badge">EU – IR – PL</div>
             <h1 class="header-name">SAEID KOMASI</h1>
             <div class="header-role">CEO &amp; Founder</div>
             <div class="header-company">SAEID4061 Sp. z o.o.</div>
-            <div class="header-tagline" data-i18n="tagline">
-                International Road Transport – Europe – Middle East – Central Asia
+            <div class="header-tagline">
+                International Road Transport – Europe · Middle East · Central Asia
             </div>
         </div>
-
         <div class="header-right">
-            <img src="assets/saeid4061-logo.jpg" alt="Grey Lion logo" class="header-logo">
+            <img src="assets/saeid4061-logo.jpg" alt="Grey Lion logo" class="header-logo" />
         </div>
     </header>
 
     <!-- TOP CONTROLS -->
-    <nav class="top-controls">
+    <div class="top-controls">
         <div class="language-select">
-            <label for="languageSelect" data-i18n="languageLabel">زبان</label>
+            <label id="label-language" for="languageSelect">Language</label>
             <select id="languageSelect">
                 <option value="fa">فارسی</option>
                 <option value="en">English</option>
@@ -42,96 +39,54 @@
         </div>
 
         <div class="mode-toggle">
-            <button id="personalBtn" class="toggle-btn" data-i18n="personal">Personal</button>
-            <button id="companyBtn" class="toggle-btn active" data-i18n="company">Company</button>
+            <button id="btn-personal" class="toggle-btn active" data-mode="personal">
+                Personal
+            </button>
+            <button id="btn-company" class="toggle-btn" data-mode="company">
+                Company
+            </button>
         </div>
-    </nav>
+    </div>
 
     <!-- MAIN CONTENT -->
     <main class="content">
-
-        <!-- COMPANY SECTION -->
-        <section id="companySection" class="card visible">
-            <h2 class="card-title" data-i18n="companyTitle">Company details</h2>
-            <p class="card-text" data-i18n="companyIntro">
-                Official registration data of the company:
-            </p>
-
-            <div class="company-grid">
-                <div class="company-col">
-                    <div class="company-row">
-                        <span class="company-label" data-i18n="companyNameLabel">Company</span>
-                        <span class="company-value">SAEID4061 Sp. z o.o.</span>
-                    </div>
-                    <div class="company-row">
-                        <span class="company-label" data-i18n="krs">KRS</span>
-                        <span class="company-value">0001065392</span>
-                    </div>
-                    <div class="company-row">
-                        <span class="company-label" data-i18n="nip">NIP</span>
-                        <span class="company-value">5372677546</span>
-                    </div>
-                    <div class="company-row">
-                        <span class="company-label" data-i18n="regon">REGON</span>
-                        <span class="company-value">526744160</span>
-                    </div>
-                </div>
-
-                <div class="company-col">
-                    <div class="company-row">
-                        <span class="company-label" data-i18n="registeredSeat">Registered seat</span>
-                        <span class="company-value">
-                            ul. Kolejowa 31B, lok. 23B,<br>
-                            21-500 Biała Podlaska, Poland
-                        </span>
-                    </div>
-                    <div class="company-row">
-                        <span class="company-label" data-i18n="correspondenceAddress">Correspondence address</span>
-                        <span class="company-value">
-                            Orzechowa 32/1,<br>
-                            21-500 Biała Podlaska, Poland
-                        </span>
-                    </div>
-                </div>
-            </div>
+        <!-- PERSONAL CARD -->
+        <section id="personal-card" class="card visible">
+            <h2 class="card-title" id="personal-title"></h2>
+            <div id="personal-content" class="card-text"></div>
         </section>
 
-        <!-- PERSONAL SECTION -->
-        <section id="personalSection" class="card">
-            <h2 class="card-title" data-i18n="personalTitle">Personal contact</h2>
-            <p class="card-text" data-i18n="personalText">
-                For direct contact with CEO &amp; Founder, you can use the same WhatsApp, Telegram and Email shown below.
-            </p>
+        <!-- COMPANY CARD -->
+        <section id="company-card" class="card">
+            <h2 class="card-title" id="company-title"></h2>
+            <div id="company-content" class="card-text"></div>
         </section>
 
+        <!-- CONTACT BUTTONS (مشترک بین هر دو حالت) -->
+        <div class="contact-buttons">
+            <button class="contact-btn whatsapp" id="btn-whatsapp">
+                <span class="contact-main">+48 737 004 848</span>
+                <span class="contact-sub" id="whatsapp-label">WhatsApp / Phone</span>
+            </button>
+
+            <button class="contact-btn telegram" id="btn-telegram">
+                <span class="contact-main">@Saeid4061</span>
+                <span class="contact-sub" id="telegram-label">Telegram</span>
+            </button>
+
+            <button class="contact-btn email" id="btn-email">
+                <span class="contact-main">saeedkomasy@gmail.com</span>
+                <span class="contact-sub" id="email-label">Email</span>
+            </button>
+        </div>
     </main>
 
-    <!-- CONTACT BUTTONS (مشترک برای شخصی و شرکت) -->
-    <section class="contact-buttons">
-        <button class="contact-btn whatsapp"
-                onclick="window.open('https://wa.me/48737004848','_blank')">
-            <span class="contact-main">+48 737 004 848</span>
-            <span class="contact-sub" data-i18n="whatsappLabel">WhatsApp / Phone</span>
-        </button>
-
-        <button class="contact-btn telegram"
-                onclick="window.open('https://t.me/Saeid4061','_blank')">
-            <span class="contact-main">@Saeid4061</span>
-            <span class="contact-sub">Telegram</span>
-        </button>
-
-        <button class="contact-btn email"
-                onclick="window.location.href='mailto:saeedkomasy@gmail.com'">
-            <span class="contact-main">saeedkomasy@gmail.com</span>
-            <span class="contact-sub">Email</span>
-        </button>
-    </section>
-
     <!-- FOOTER -->
-    <footer class="site-footer">
+    <footer class="site-footer" id="footer-text">
         SAEID KOMASI – GREY LION 2025 ©
     </footer>
-
 </div>
+
+<script src="main.js"></script>
 </body>
 </html>
