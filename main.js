@@ -1,5 +1,4 @@
-
-// لیست زبان‌ها برای سلکت
+// لیست زبان‌ها
 const languageList = [
     { code: "fa", label: "فارسی" },
     { code: "en", label: "English" },
@@ -25,7 +24,7 @@ const languageList = [
     { code: "kk", label: "Қазақша" }
 ];
 
-// ترجمه‌ها (کامل برای انگلیسی / فارسی / لهستانی، بقیه بر اساس انگلیسی)
+// ترجمه‌ها
 const translations = {
     en: {
         languageLabel: "Language",
@@ -119,7 +118,6 @@ function initLanguageSelect() {
     const select = document.getElementById("languageSelect");
     if (!select) return;
 
-    // ساخت گزینه‌ها
     languageList.forEach(lang => {
         const opt = document.createElement("option");
         opt.value = lang.code;
@@ -127,7 +125,6 @@ function initLanguageSelect() {
         select.appendChild(opt);
     });
 
-    // زبان پیش‌فرض
     select.value = "fa";
     applyTranslations("fa");
 
@@ -165,15 +162,6 @@ function initTabs() {
     activate("company");
 }
 
-function initBackgroundByTime() {
-    const wrapper = document.getElementById("page-wrapper");
-    if (!wrapper) return;
-
-    const hour = new Date().getHours();
-    const isDay = hour >= 7 && hour < 19;
-    wrapper.classList.add(isDay ? "day" : "night");
-}
-
 function initYear() {
     const y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
@@ -182,6 +170,5 @@ function initYear() {
 document.addEventListener("DOMContentLoaded", () => {
     initLanguageSelect();
     initTabs();
-    initBackgroundByTime();
     initYear();
 });
