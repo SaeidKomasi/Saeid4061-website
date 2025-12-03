@@ -1,184 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SAEID KOMASI – Contact</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAEID KOMASI</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+
 <div class="page-wrapper">
 
     <!-- ===== HEADER ===== -->
     <header class="site-header">
         <div class="header-left">
-            <img src="saeid4061-logo.jpg" alt="Grey Lion logo" class="header-logo">
-            <div class="route-badge">
-                <span>EU · IR · PL</span>
-            </div>
+            <img src="saeid4061-logo.jpg" class="header-logo" alt="Grey Lion Logo">
         </div>
 
         <div class="header-center">
-            <div class="header-name" data-i18n="header.name">SAEID KOMASI</div>
-            <div class="header-role" data-i18n="header.role">CEO &amp; Founder</div>
-            <div class="header-company" data-i18n="header.companyLine">SAEID4061 Sp. z o.o.</div>
-            <div class="header-route" data-i18n="header.route">
-                International Road Transport – Europe · Middle East · Central Asia
-            </div>
+            <div class="headline">SAEID KOMASI</div>
+            <div class="subline">CEO & Founder</div>
+            <div class="company-name">SAEID4061 Sp. z o.o.</div>
         </div>
 
         <div class="header-right">
-            <span class="language-label" data-i18n="language.label">Language</span>
-            <select id="language-select" class="language-select">
+            <select id="langSelector" class="lang-select">
+                <option value="en">English</option>
                 <option value="fa">فارسی</option>
-                <option value="en" selected>English</option>
                 <option value="pl">Polski</option>
-                <option value="de">Deutsch</option>
-                <option value="fr">Français</option>
-                <option value="it">Italiano</option>
-                <option value="es">Español</option>
-                <option value="ru">Русский</option>
-                <option value="ar">العربية</option>
-                <option value="tr">Türkçe</option>
-                <option value="nl">Nederlands</option>
-                <option value="cs">Čeština</option>
-                <option value="sk">Slovenčina</option>
-                <option value="hu">Magyar</option>
-                <option value="ro">Română</option>
-                <option value="bg">Български</option>
-                <option value="el">Ελληνικά</option>
-                <option value="uk">Українська</option>
-                <option value="lt">Lietuvių</option>
-                <option value="lv">Latviešu</option>
-                <option value="et">Eesti</option>
-                <option value="sv">Svenska</option>
-                <option value="no">Norsk</option>
             </select>
         </div>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main class="content-wrapper">
-        <!-- Tabs -->
-        <div class="mode-tabs">
-            <button id="tab-company" class="mode-tab active" data-i18n="tabs.company">Company</button>
-            <button id="tab-personal" class="mode-tab" data-i18n="tabs.personal">Personal</button>
+    <!-- ===== TAB BUTTONS ===== -->
+    <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="company">Company</button>
+        <button class="tab-btn" data-tab="personal">Personal</button>
+    </div>
+
+
+    <!-- ===== COMPANY SECTION ===== -->
+    <section id="company" class="tab-content active">
+
+        <h2>Company details</h2>
+
+        <div class="company-box">
+            <p><strong>Company:</strong> SAEID4061 Sp. z o.o.</p>
+            <p><strong>KRS:</strong> 0001065392</p>
+            <p><strong>NIP:</strong> 5372677546</p>
+            <p><strong>REGON:</strong> 526744160</p>
+            <p><strong>Address:</strong> Orzechowa 32/1, 21-500 Biała Podlaska, Poland</p>
         </div>
 
-        <!-- COMPANY MODE -->
-        <section id="company-section" class="mode-section active">
-            <div class="card">
-                <div class="card-columns">
-                    <div class="card-column">
-                        <h2 class="card-title" data-i18n="section.company.leftTitle">Company details</h2>
+        <h3>Direct contact</h3>
 
-                        <div class="data-row">
-                            <span class="data-label" data-i18n="section.company.companyLabel">
-                                Company
-                            </span>
-                            <span class="data-value">SAEID4061 Sp. z o.o.</span>
-                        </div>
-                        <div class="data-row">
-                            <span class="data-label" data-i18n="section.company.krsLabel">
-                                KRS
-                            </span>
-                            <span class="data-value">0001065392</span>
-                        </div>
-                        <div class="data-row">
-                            <span class="data-label" data-i18n="section.company.nipLabel">
-                                NIP
-                            </span>
-                            <span class="data-value">5372677546</span>
-                        </div>
-                        <div class="data-row">
-                            <span class="data-label" data-i18n="section.company.regonLabel">
-                                REGON
-                            </span>
-                            <span class="data-value">526744160</span>
-                        </div>
-                    </div>
+        <div class="contact-box">
+            <a class="btn whatsapp" href="tel:+48848047348">WhatsApp / Phone</a>
+            <a class="btn telegram" href="https://t.me/Saeid4061">@Saeid4061</a>
+            <a class="btn email" href="mailto:saeidkomasy@gmail.com">saeidkomasy@gmail.com</a>
+        </div>
 
-                    <div class="card-column">
-                        <h2 class="card-title" data-i18n="section.company.rightTitle">
-                            Registered seat &amp; correspondence address
-                        </h2>
+    </section>
 
-                        <div class="data-row">
-                            <span class="data-label" data-i18n="section.company.registeredTitle">
-                                Registered seat
-                            </span>
-                            <span class="data-value">
-                                Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                            </span>
-                        </div>
-                        <div class="data-row">
-                            <span class="data-label" data-i18n="section.company.correspondenceTitle">
-                                Correspondence address
-                            </span>
-                            <span class="data-value">
-                                Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                            </span>
-                        </div>
-                    </div>
-                </div>
 
-                <p class="card-note" data-i18n="contacts.companyIntro">
-                    Direct contact / 24h for urgent transport inquiries.
-                </p>
+    <!-- ===== PERSONAL SECTION ===== -->
+    <section id="personal" class="tab-content">
 
-                <div class="contact-buttons">
-                    <a class="contact-btn whatsapp" href="https://wa.me/48737004848" target="_blank">
-                        <span class="contact-label" data-i18n="contacts.whatsapp">WhatsApp / Phone</span>
-                        <span class="contact-value">+48 737 004 848</span>
-                    </a>
-                    <a class="contact-btn telegram" href="https://t.me/Saeid4061" target="_blank">
-                        <span class="contact-label" data-i18n="contacts.telegram">Telegram</span>
-                        <span class="contact-value">@Saeid4061</span>
-                    </a>
-                    <a class="contact-btn email" href="mailto:saeedkomasy@gmail.com">
-                        <span class="contact-label" data-i18n="contacts.email">Email</span>
-                        <span class="contact-value">saeedkomasy@gmail.com</span>
-                    </a>
-                </div>
-            </div>
-        </section>
+        <h2>Personal contact</h2>
 
-        <!-- PERSONAL MODE -->
-        <section id="personal-section" class="mode-section">
-            <div class="card">
-                <h2 class="card-title" data-i18n="section.personal.title">Personal contact</h2>
-                <p class="card-text" data-i18n="section.personal.description">
-                    For direct contact with CEO &amp; Founder you can use the same WhatsApp, Telegram
-                    and email shown below. Messages in English, Polish and Persian are welcome.
-                </p>
+        <p>Direct communication with CEO & Founder</p>
 
-                <div class="contact-buttons">
-                    <a class="contact-btn whatsapp" href="https://wa.me/48737004848" target="_blank">
-                        <span class="contact-label" data-i18n="contacts.whatsapp">WhatsApp / Phone</span>
-                        <span class="contact-value">+48 737 004 848</span>
-                    </a>
-                    <a class="contact-btn telegram" href="https://t.me/Saeid4061" target="_blank">
-                        <span class="contact-label" data-i18n="contacts.telegram">Telegram</span>
-                        <span class="contact-value">@Saeid4061</span>
-                    </a>
-                    <a class="contact-btn email" href="mailto:saeedkomasy@gmail.com">
-                        <span class="contact-label" data-i18n="contacts.email">Email</span>
-                        <span class="contact-value">saeedkomasy@gmail.com</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
+        <div class="contact-box">
+            <a class="btn whatsapp" href="tel:+48848047348">WhatsApp / Phone</a>
+            <a class="btn telegram" href="https://t.me/Saeid4061">@Saeid4061</a>
+            <a class="btn email" href="mailto:saeidkomasy@gmail.com">saeidkomasy@gmail.com</a>
+        </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="site-footer">
-        <span>© SAEID KOMASI – GREY LION 2025</span>
-    </footer>
+    </section>
+
 </div>
 
-<!-- JS -->
 <script src="main.js"></script>
+
 </body>
 </html>
