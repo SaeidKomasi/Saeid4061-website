@@ -1,114 +1,193 @@
-let currentLang = "fa";
+document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
 
-/* ====== ترجمه‌های ثابت رابط کاربری (که کم عوض می‌شوند) ====== */
-const t = {
-  fa: {
-    label_language: "زبان",
-    tab_personal: "شخصی",
-    tab_company: "شرکت",
-    label_whatsapp: "WhatsApp / Phone",
-    label_email: "E-mail",
-    label_registered_seat: "Registered seat:",
-    label_address_reg: "Registration address:",
-    label_address_corr: "Correspondence address:"
-  },
-  en: {
-    label_language: "Language",
-    tab_personal: "Personal",
-    tab_company: "Company",
-    label_whatsapp: "WhatsApp / Phone",
-    label_email: "E-mail",
-    label_registered_seat: "Registered seat:",
-    label_address_reg: "Registration address:",
-    label_address_corr: "Correspondence address:"
-  },
-  pl: {
-    label_language: "Język",
-    tab_personal: "Osobisty",
-    tab_company: "Firma",
-    label_whatsapp: "WhatsApp / Telefon",
-    label_email: "E-mail",
-    label_registered_seat: "Siedziba zarejestrowana:",
-    label_address_reg: "Adres rejestracyjny:",
-    label_address_corr: "Adres do korespondencji:"
-  }
-};
+    const languageSelect = document.getElementById("languageSelect");
+    const btnPersonal   = document.getElementById("btn-personal");
+    const btnCompany    = document.getElementById("btn-company");
 
-/* ====== کمک‌تابع برای ادغام محتوای JSON با t ====== */
-function mergeContent(extra) {
-  Object.keys(extra).forEach((lang) => {
-    if (!t[lang]) t[lang] = {};
-    Object.assign(t[lang], extra[lang]);
-  });
-}
+    const personalCard  = document.getElementById("personal-card");
+    const companyCard   = document.getElementById("company-card");
 
-/* ====== اعمال ترجمه روی صفحه ====== */
-function applyTranslations() {
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.dataset.i18n;
-    const value = t[currentLang] && t[currentLang][key];
-    if (value !== undefined) {
-      el.textContent = value;
+    const personalTitle   = document.getElementById("personal-title");
+    const personalContent = document.getElementById("personal-content");
+    const companyTitle    = document.getElementById("company-title");
+    const companyContent  = document.getElementById("company-content");
+
+    const labelLanguage  = document.getElementById("label-language");
+    const whatsappLabel  = document.getElementById("whatsapp-label");
+    const telegramLabel  = document.getElementById("telegram-label");
+    const emailLabel     = document.getElementById("email-label");
+    const footerText     = document.getElementById("footer-text");
+
+    const btnWhatsapp = document.getElementById("btn-whatsapp");
+    const btnTelegram = document.getElementById("btn-telegram");
+    const btnEmail    = document.getElementById("btn-email");
+
+    // لینک‌های تماس
+    btnWhatsapp.addEventListener("click", () => {
+        window.location.href = "https://wa.me/48737004848";
+    });
+    btnTelegram.addEventListener("click", () => {
+        window.location.href = "https://t.me/Saeid4061";
+    });
+    btnEmail.addEventListener("click", () => {
+        window.location.href = "mailto:saeedkomasy@gmail.com";
+    });
+
+    // متون سه‌زبانه
+    const translations = {
+        en: {
+            direction: "ltr",
+            languageLabel: "Language",
+            modePersonal: "Personal",
+            modeCompany: "Company",
+
+            personalTitle: "Personal contact",
+            personalHtml: `
+                For direct contact with CEO & Founder you can use the same WhatsApp, Telegram and Email shown below.
+                <br/><br/>
+                Please feel free to contact in English, Polish, Farsi or Turkish.
+            `,
+
+            companyTitle: "Company details",
+            companyHtml: `
+                <strong>Company:</strong> SAEID4061 Sp. z o.o.<br/>
+                <strong>KRS:</strong> 0001065392<br/>
+                <strong>NIP:</strong> 5372677546<br/>
+                <strong>REGON:</strong> 526744160<br/><br/>
+                <strong>Registered seat:</strong><br/>
+                ul. Kolejowa 31B, lok. 23B,<br/>
+                21-500 Biała Podlaska, Poland<br/><br/>
+                <strong>Correspondence address:</strong><br/>
+                Orzechowa 32/1,<br/>
+                21-500 Biała Podlaska, Poland
+            `,
+
+            whatsappLabel: "WhatsApp / Phone",
+            telegramLabel: "Telegram",
+            emailLabel: "Email",
+            footer: "SAEID KOMASI – GREY LION 2025 ©"
+        },
+        fa: {
+            direction: "rtl",
+            languageLabel: "زبان",
+            modePersonal: "شخصی",
+            modeCompany: "شرکت",
+
+            personalTitle: "ارتباط مستقیم شخصی",
+            personalHtml: `
+                برای ارتباط مستقیم با مدیرعامل و موسس، می‌توانید از همین شماره واتساپ، آیدی تلگرام و ایمیل زیر استفاده کنید.
+                <br/><br/>
+                لطفاً آزادانه به فارسی، انگلیسی، لهستانی یا ترکی پیام بدهید.
+            `,
+
+            companyTitle: "مشخصات شرکت",
+            companyHtml: `
+                <strong>نام شرکت:</strong> SAEID4061 Sp. z o.o.<br/>
+                <strong>شماره KRS:</strong> 0001065392<br/>
+                <strong>شماره NIP:</strong> 5372677546<br/>
+                <strong>شماره REGON:</strong> 526744160<br/><br/>
+                <strong>آدرس ثبت‌شده شرکت:</strong><br/>
+                ul. Kolejowa 31B, lok. 23B,<br/>
+                21-500 Biała Podlaska, Poland<br/><br/>
+                <strong>آدرس مکاتبات:</strong><br/>
+                Orzechowa 32/1,<br/>
+                21-500 Biała Podlaska, Poland
+            `,
+
+            whatsappLabel: "واتساپ / تلفن",
+            telegramLabel: "تلگرام",
+            emailLabel: "ایمیل",
+            footer: "SAEID KOMASI – GREY LION 2025 ©"
+        },
+        pl: {
+            direction: "ltr",
+            languageLabel: "Język",
+            modePersonal: "Osobisty",
+            modeCompany: "Firma",
+
+            personalTitle: "Kontakt osobisty",
+            personalHtml: `
+                W celu bezpośredniego kontaktu z CEO & Founder można użyć tego samego numeru WhatsApp,
+                konta Telegram oraz adresu e-mail podanych poniżej.
+                <br/><br/>
+                Możliwa komunikacja w języku polskim, angielskim, perskim i tureckim.
+            `,
+
+            companyTitle: "Dane spółki",
+            companyHtml: `
+                <strong>Nazwa spółki:</strong> SAEID4061 Sp. z o.o.<br/>
+                <strong>KRS:</strong> 0001065392<br/>
+                <strong>NIP:</strong> 5372677546<br/>
+                <strong>REGON:</strong> 526744160<br/><br/>
+                <strong>Siedziba zarejestrowana:</strong><br/>
+                ul. Kolejowa 31B, lok. 23B,<br/>
+                21-500 Biała Podlaska, Polska<br/><br/>
+                <strong>Adres do korespondencji:</strong><br/>
+                Orzechowa 32/1,<br/>
+                21-500 Biała Podlaska, Polska
+            `,
+
+            whatsappLabel: "WhatsApp / Telefon",
+            telegramLabel: "Telegram",
+            emailLabel: "E-mail",
+            footer: "SAEID KOMASI – GREY LION 2025 ©"
+        }
+    };
+
+    function applyLanguage(lang) {
+        const t = translations[lang] || translations.fa;
+
+        // راست‌چین / چپ‌چین
+        if (t.direction === "rtl") {
+            body.classList.add("rtl");
+        } else {
+            body.classList.remove("rtl");
+        }
+
+        // متن‌ها
+        labelLanguage.textContent = t.languageLabel;
+        btnPersonal.textContent   = t.modePersonal;
+        btnCompany.textContent    = t.modeCompany;
+
+        personalTitle.textContent = t.personalTitle;
+        personalContent.innerHTML = t.personalHtml;
+
+        companyTitle.textContent  = t.companyTitle;
+        companyContent.innerHTML  = t.companyHtml;
+
+        whatsappLabel.textContent = t.whatsappLabel;
+        telegramLabel.textContent = t.telegramLabel;
+        emailLabel.textContent    = t.emailLabel;
+        footerText.textContent    = t.footer;
     }
-  });
 
-  // جهت صفحه برای فارسی
-  if (currentLang === "fa") {
-    document.body.classList.add("rtl");
-  } else {
-    document.body.classList.remove("rtl");
-  }
-}
+    function setMode(mode) {
+        if (mode === "personal") {
+            personalCard.classList.add("visible");
+            companyCard.classList.remove("visible");
+            btnPersonal.classList.add("active");
+            btnCompany.classList.remove("active");
+        } else {
+            personalCard.classList.remove("visible");
+            companyCard.classList.add("visible");
+            btnPersonal.classList.remove("active");
+            btnCompany.classList.add("active");
+        }
+    }
 
-/* ====== بارگذاری محتوای Personal و Company از JSON ====== */
-function loadContent() {
-  Promise.all([
-    fetch("content/personal.json").then((r) => r.json()).catch(() => null),
-    fetch("content/company.json").then((r) => r.json()).catch(() => null)
-  ]).then(([personalData, companyData]) => {
-    if (personalData) mergeContent(personalData);
-    if (companyData) mergeContent(companyData);
+    // لیسنرها
+    languageSelect.addEventListener("change", (e) => {
+        const lang = e.target.value;
+        applyLanguage(lang);
+        document.documentElement.lang = lang === "fa" ? "fa" : lang;
+    });
 
-    // بعد از این که محتوا آمد، ترجمه‌ها را اعمال کن
-    applyTranslations();
-    setMode("personal");
-  });
-}
+    btnPersonal.addEventListener("click", () => setMode("personal"));
+    btnCompany.addEventListener("click", () => setMode("company"));
 
-/* ====== سوییچ زبان ====== */
-const langSelect = document.getElementById("lang-select");
-
-langSelect.addEventListener("change", (e) => {
-  currentLang = e.target.value;
-  applyTranslations();
+    // مقدار اولیه: فارسی + حالت شرکت
+    languageSelect.value = "fa";
+    applyLanguage("fa");
+    setMode("company");
 });
-
-/* ====== سوییچ Personal / Company ====== */
-const btnPersonal = document.getElementById("btn-personal");
-const btnCompany = document.getElementById("btn-company");
-const personalSection = document.getElementById("personal-section");
-const companySection = document.getElementById("company-section");
-
-function setMode(mode) {
-  if (mode === "personal") {
-    personalSection.classList.add("active");
-    companySection.classList.remove("active");
-    btnPersonal.classList.add("active");
-    btnCompany.classList.remove("active");
-  } else {
-    companySection.classList.add("active");
-    personalSection.classList.remove("active");
-    btnCompany.classList.add("active");
-    btnPersonal.classList.remove("active");
-  }
-}
-
-btnPersonal.addEventListener("click", () => setMode("personal"));
-btnCompany.addEventListener("click", () => setMode("company"));
-
-/* ====== مقدار اولیه ====== */
-
-// اول UI ثابت رو نشان بده (لیبل‌ها و دکمه‌ها)
-applyTranslations();
-// بعد، متن‌های Personal/Company را از JSON بخوان
-loadContent();
