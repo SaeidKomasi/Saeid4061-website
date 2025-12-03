@@ -62,6 +62,7 @@
                 <button class="tab-btn active" data-tab="company" id="companyTab" data-i18n="companyTab"></button>
                 <button class="tab-btn" data-tab="personal" id="personalTab" data-i18n="personalTab"></button>
             </div>
+            <div class="tab-caption" data-i18n="tabCaption"></div>
 
             <!-- Company section -->
             <section id="company-section" class="card-section active">
@@ -69,50 +70,38 @@
                     <h2 class="card-title" data-i18n="companyDetailsTitle"></h2>
                     <p class="card-subtitle" data-i18n="companyDetailsSubtitle"></p>
 
-                    <div class="company-grid">
-                        <div class="company-col">
-                            <div class="company-label" data-i18n="companyNameLabel"></div>
-                            <div class="company-text">SAEID4061 Sp. z o.o.</div>
-
-                            <div class="company-label">KRS</div>
-                            <div class="company-text">0001065392</div>
-
-                            <div class="company-label">NIP</div>
-                            <div class="company-text">5372677546</div>
-
-                            <div class="company-label">REGON</div>
-                            <div class="company-text">526744160</div>
+                    <div class="company-list">
+                        <div class="company-row">
+                            <span class="company-label" data-i18n="companyNameLabel"></span>
+                            <span class="company-text">SAEID4061 Sp. z o.o.</span>
                         </div>
-
-                        <div class="company-col">
-                            <div class="company-label" data-i18n="registeredAddressLabel"></div>
-                            <div class="company-text">
+                        <div class="company-row">
+                            <span class="company-label">KRS</span>
+                            <span class="company-text">0001065392</span>
+                        </div>
+                        <div class="company-row">
+                            <span class="company-label">NIP</span>
+                            <span class="company-text">5372677546</span>
+                        </div>
+                        <div class="company-row">
+                            <span class="company-label">REGON</span>
+                            <span class="company-text">526744160</span>
+                        </div>
+                        <div class="company-row">
+                            <span class="company-label" data-i18n="registeredAddressLabel"></span>
+                            <span class="company-text">
                                 Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                            </div>
-
-                            <div class="company-label" data-i18n="correspondenceAddressLabel"></div>
-                            <div class="company-text">
+                            </span>
+                        </div>
+                        <div class="company-row">
+                            <span class="company-label" data-i18n="correspondenceAddressLabel"></span>
+                            <span class="company-text">
                                 Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                            </div>
+                            </span>
                         </div>
                     </div>
 
                     <p class="card-note" data-i18n="companyContactNote"></p>
-
-                    <div class="contact-row">
-                        <a href="https://wa.me/48737004734" class="contact-pill whatsapp" target="_blank">
-                            <span class="emoji">📞</span>
-                            <span data-i18n="whatsappLabel"></span>
-                        </a>
-                        <a href="https://t.me/Saeid4061" class="contact-pill telegram" target="_blank">
-                            <span class="emoji">✈️</span>
-                            <span data-i18n="telegramLabel"></span>
-                        </a>
-                        <a href="mailto:saeidkomasy@gmail.com" class="contact-pill email">
-                            <span class="emoji">✉️</span>
-                            <span data-i18n="emailLabel"></span>
-                        </a>
-                    </div>
                 </div>
             </section>
 
@@ -121,23 +110,21 @@
                 <div class="content-card">
                     <h2 class="card-title" data-i18n="personalTitle"></h2>
                     <p class="card-text" data-i18n="personalText"></p>
-
-                    <div class="contact-row">
-                        <a href="https://wa.me/48737004734" class="contact-pill whatsapp" target="_blank">
-                            <span class="emoji">📞</span>
-                            <span data-i18n="whatsappLabel"></span>
-                        </a>
-                        <a href="https://t.me/Saeid4061" class="contact-pill telegram" target="_blank">
-                            <span class="emoji">✈️</span>
-                            <span data-i18n="telegramLabel"></span>
-                        </a>
-                        <a href="mailto:saeidkomasy@gmail.com" class="contact-pill email">
-                            <span class="emoji">✉️</span>
-                            <span data-i18n="emailLabel"></span>
-                        </a>
-                    </div>
                 </div>
             </section>
+
+            <!-- Floating contact buttons -->
+            <div class="contact-floating">
+                <a href="https://wa.me/48737004734" class="contact-fab whatsapp" target="_blank" title="WhatsApp / Phone">
+                    <span>📞</span>
+                </a>
+                <a href="https://t.me/Saeid4061" class="contact-fab telegram" target="_blank" title="Telegram">
+                    <span>✈️</span>
+                </a>
+                <a href="mailto:saeidkomasy@gmail.com" class="contact-fab email" title="Email">
+                    <span>✉️</span>
+                </a>
+            </div>
         </main>
 
         <!-- ===== FOOTER ===== -->
