@@ -1,0 +1,18 @@
+
+{
+  "fa": {
+    "personal_title": "ارتباط مستقیم شخصی",
+    "personal_intro": "برای ارتباط مستقیم با مدیرعامل، می‌توانید از همان ایمیل، تلگرام و واتساپ زیر استفاده کنید.",
+    "personal_note": "پیام‌های کاری، پیشنهاد همکاری و ایده‌های جدید را می‌توانید از هر سه مسیر ارسال کنید."
+  },
+  "en": {
+    "personal_title": "Direct personal contact",
+    "personal_intro": "For direct contact with the CEO & Founder you can use the same WhatsApp, Telegram and e-mail shown below.",
+    "personal_note": "You can send business offers, cooperation ideas and project proposals through any of these channels."
+  },
+  "pl": {
+    "personal_title": "Bezpośredni kontakt osobisty",
+    "personal_intro": "Do bezpośredniego kontaktu z Prezesem Zarządu można użyć tego samego numeru WhatsApp, Telegramu oraz adresu e-mail poniżej.",
+    "personal_note": "Zapytania biznesowe, propozycje współpracy i nowe projekty można przesyłać dowolnym z tych kanałów."
+  }
+}
