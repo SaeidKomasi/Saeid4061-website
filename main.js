@@ -55,10 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <strong>KRS:</strong> 0001065392<br/>
                 <strong>NIP:</strong> 5372677546<br/>
                 <strong>REGON:</strong> 526744160<br/><br/>
-                <strong>Registered seat:</strong><br/>
-                ul. Kolejowa 31B, lok. 23B,<br/>
-                21-500 Biała Podlaska, Poland<br/><br/>
-                <strong>Correspondence address:</strong><br/>
+                <strong>Registered seat & Correspondence address:</strong><br/>
                 Orzechowa 32/1,<br/>
                 21-500 Biała Podlaska, Poland
             `,
@@ -76,7 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             personalTitle: "ارتباط مستقیم شخصی",
             personalHtml: `
-                برای ارتباط مستقیم با مدیرعامل و موسس، می‌توانید از همین شماره واتساپ، آیدی تلگرام و ایمیل زیر استفاده کنید.
+                برای ارتباط مستقیم با مدیرعامل و موسس می‌توانید از همین شماره واتساپ،
+                آیدی تلگرام و ایمیل زیر استفاده کنید.
                 <br/><br/>
                 لطفاً آزادانه به فارسی، انگلیسی، لهستانی یا ترکی پیام بدهید.
             `,
@@ -87,10 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <strong>شماره KRS:</strong> 0001065392<br/>
                 <strong>شماره NIP:</strong> 5372677546<br/>
                 <strong>شماره REGON:</strong> 526744160<br/><br/>
-                <strong>آدرس ثبت‌شده شرکت:</strong><br/>
-                ul. Kolejowa 31B, lok. 23B,<br/>
-                21-500 Biała Podlaska, Poland<br/><br/>
-                <strong>آدرس مکاتبات:</strong><br/>
+                <strong>آدرس ثبت‌شده و مکاتبات شرکت:</strong><br/>
                 Orzechowa 32/1,<br/>
                 21-500 Biała Podlaska, Poland
             `,
@@ -120,10 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <strong>KRS:</strong> 0001065392<br/>
                 <strong>NIP:</strong> 5372677546<br/>
                 <strong>REGON:</strong> 526744160<br/><br/>
-                <strong>Siedziba zarejestrowana:</strong><br/>
-                ul. Kolejowa 31B, lok. 23B,<br/>
-                21-500 Biała Podlaska, Polska<br/><br/>
-                <strong>Adres do korespondencji:</strong><br/>
+                <strong>Siedziba zarejestrowana i adres korespondencyjny:</strong><br/>
                 Orzechowa 32/1,<br/>
                 21-500 Biała Podlaska, Polska
             `,
@@ -138,14 +130,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function applyLanguage(lang) {
         const t = translations[lang] || translations.fa;
 
-        // راست‌چین / چپ‌چین
         if (t.direction === "rtl") {
             body.classList.add("rtl");
         } else {
             body.classList.remove("rtl");
         }
 
-        // متن‌ها
         labelLanguage.textContent = t.languageLabel;
         btnPersonal.textContent   = t.modePersonal;
         btnCompany.textContent    = t.modeCompany;
@@ -169,10 +159,10 @@ document.addEventListener("DOMContentLoaded", () => {
             btnPersonal.classList.add("active");
             btnCompany.classList.remove("active");
         } else {
-            personalCard.classList.remove("visible");
             companyCard.classList.add("visible");
-            btnPersonal.classList.remove("active");
+            personalCard.classList.remove("visible");
             btnCompany.classList.add("active");
+            btnPersonal.classList.remove("active");
         }
     }
 
