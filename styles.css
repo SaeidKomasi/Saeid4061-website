@@ -1,60 +1,81 @@
-/* ====== GOOGLE FONTS ====== */
+/* ===== GOOGLE FONTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
 
-/* ====== RESET ====== */
+/* ===== GLOBAL RESET ===== */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
 }
 
 body {
     min-height: 100vh;
+    color: #f5f5f5;
     font-family: "Montserrat", Arial, sans-serif;
-    color: #e9f2ff;
 }
 
-/* RTL helper */
+/* RTL برای فارسی */
 body.rtl {
     direction: rtl;
 }
 
-/* ====== PAGE WRAPPER + BACKGROUND ====== */
+/* ===== PAGE WRAPPER ===== */
+/* پیش‌فرض: بک‌گراند روز (Company) */
 .page-wrapper {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background:
-        linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(4,8,20,0.9)),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(4, 8, 20, 0.9)),
         url("assets/bg-day.jpg") center center / cover no-repeat fixed;
 }
 
-/* ====== HEADER ====== */
+/* حالت شب برای صفحه شخصی */
+.page-wrapper.night-bg {
+    background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.96)),
+        url("assets/bg-night.jpg") center center / cover no-repeat fixed;
+}
+
+/* ===== HEADER ===== */
 .site-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 24px;
-    background: linear-gradient(90deg, #0053b8, #0077ff);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    padding: 8px 22px;
+    background: linear-gradient(90deg, #0053b8, #007cff);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-center {
+    text-align: center;
 }
 
 /* Logo */
 .logo-box {
-    width: 72px;
-    height: 72px;
-    border-radius: 16px;
-    background: rgba(0,0,0,0.35);
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 4px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid rgba(255,255,255,0.35);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
 }
 
 .logo-img {
@@ -63,240 +84,247 @@ body.rtl {
     object-fit: cover;
 }
 
-/* Header center */
-.header-center {
-    text-align: center;
-    flex: 1 1 auto;
-    padding: 0 16px;
-}
-
+/* Badge */
 .route-badge {
-    display: inline-block;
-    padding: 2px 10px;
+    padding: 4px 10px;
     border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.7);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 6px;
+    color: #f0f4ff;
+    background: rgba(0, 0, 0, 0.22);
 }
 
-.brand-name {
+/* Header text */
+.owner-name {
     margin: 0;
     font-family: "Playfair Display", serif;
-    font-size: 26px;
+    font-weight: 700;
+    font-size: 22px;
     letter-spacing: 3px;
-}
-
-.brand-position {
-    font-size: 11px;
-    margin-top: 2px;
     text-transform: uppercase;
 }
 
-.brand-company {
+.owner-role {
     font-size: 11px;
-    margin-top: 2px;
     text-transform: uppercase;
+    letter-spacing: 1.4px;
+    opacity: 0.9;
 }
 
-.brand-tagline {
-    margin-top: 4px;
+.company-name {
     font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    margin-top: 2px;
+    opacity: 0.95;
 }
 
-/* Header right: language */
-.header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
+.route-subtitle {
+    margin-top: 3px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    opacity: 0.9;
 }
 
+/* Language select */
 .language-label {
     font-size: 11px;
+    margin-right: 4px;
 }
 
 .language-select {
-    border-radius: 999px;
-    padding: 4px 10px;
-    border: none;
-    font-size: 12px;
-    cursor: pointer;
+    padding: 3px 6px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    font-size: 11px;
 }
 
-/* ====== CONTENT ====== */
-.content {
-    flex: 1 1 auto;
-    padding: 24px 24px 32px;
+/* ===== TABS ===== */
+.tabs {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/* Tabs */
-.tab-toggle {
-    margin-bottom: 6px;
-    display: flex;
-    gap: 8px;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 0 4px;
 }
 
 .tab-btn {
-    min-width: 110px;
-    padding: 6px 16px;
+    min-width: 90px;
+    padding: 5px 14px;
     border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.6);
-    background: rgba(3,16,40,0.55);
-    color: #e9f2ff;
-    font-size: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(0, 0, 0, 0.35);
+    color: #f2f6ff;
+    font-size: 12px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.18s ease;
 }
 
 .tab-btn.active {
-    background: #00b894;
-    border-color: #00b894;
-    color: #021018;
+    background: #28a745;
+    border-color: #1f8c39;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
 }
 
-.tab-caption {
-    font-size: 11px;
-    opacity: 0.8;
-    margin-bottom: 16px;
+/* ===== MAIN CONTENT ===== */
+.content {
+    flex: 1 1 auto;
+    padding: 18px 20px 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-/* Cards */
-.card-section {
-    width: 100%;
-    max-width: 540px;
+/* Sections */
+.content-section {
     display: none;
-    margin-top: 32px;
+    width: 100%;
+    max-width: 1040px;
 }
 
-.card-section.active {
+.content-section.active {
     display: block;
 }
 
-.content-card {
-    background: rgba(8,16,38,0.88);
-    border-radius: 18px;
-    padding: 18px 22px 20px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.55);
-    border: 1px solid rgba(89,131,252,0.45);
+/* Card */
+.card {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    padding: 18px 22px;
+    color: #f5f5f5;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* Titles */
+.company-card {
+    max-width: 520px;
+}
+
+.personal-card {
+    max-width: 580px;
+}
+
+/* Card titles */
 .card-title {
-    margin: 0 0 6px;
+    margin: 0 0 4px;
+    font-family: "Playfair Display", serif;
     font-size: 18px;
-    font-weight: 600;
 }
 
-.card-subtitle,
-.card-text,
-.card-note {
-    margin: 4px 0;
-    font-size: 13px;
-    line-height: 1.6;
+.card-subtitle {
+    margin: 0 0 14px;
+    font-size: 12px;
+    opacity: 0.9;
 }
 
-/* Company list (left column, زیر هم) */
-.company-list {
-    margin-top: 10px;
-    margin-bottom: 12px;
+/* Company grid */
+.company-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 26px;
+    font-size: 12px;
 }
 
-.company-row {
-    display: flex;
-    flex-direction: column;
+.field {
     margin-bottom: 6px;
 }
 
-.company-label {
+.field-label {
+    display: block;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+.field-value {
+    display: block;
+    opacity: 0.92;
+}
+
+.card-footer-text {
+    margin-top: 14px;
     font-size: 11px;
-    color: #a8c0ff;
+    opacity: 0.9;
 }
 
-.company-text {
-    font-size: 13px;
-    font-weight: 500;
-    color: #f5fbff;
-}
-
-/* ====== FLOATING CONTACT BUTTONS ====== */
+/* ===== FLOATING CONTACT ICONS ===== */
 .contact-floating {
     position: fixed;
-    right: 22px;
-    bottom: 24px;
+    right: 18px;
+    bottom: 26px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    z-index: 10;
+    z-index: 50;
 }
 
-.contact-fab {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+.contact-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    text-decoration: none;
     font-size: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    text-decoration: none;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    transition: transform 0.16s ease, box-shadow 0.16s ease, opacity 0.16s ease;
+    opacity: 0.96;
 }
 
-.contact-fab:hover {
+.contact-circle:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.65);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.8);
+    opacity: 1;
 }
 
-.contact-fab.whatsapp {
-    background: #00b894;
+.contact-circle.whatsapp {
+    background: #25d366;
 }
 
-.contact-fab.telegram {
-    background: #0984e3;
+.contact-circle.telegram {
+    background: #0088cc;
 }
 
-.contact-fab.email {
+.contact-circle.email {
     background: #ff9f1a;
 }
 
-/* ====== FOOTER ====== */
+/* ===== FOOTER ===== */
 .site-footer {
     text-align: center;
-    padding: 10px 8px 14px;
     font-size: 11px;
-    background: rgba(0,0,0,0.8);
+    padding: 6px 10px 10px;
+    opacity: 0.85;
 }
 
-/* ====== RESPONSIVE ====== */
-@media (max-width: 720px) {
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
     .site-header {
-        flex-direction: row;
-        align-items: center;
-        padding: 10px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
 
-    .brand-name {
-        font-size: 20px;
+    .header-center {
+        text-align: left;
+        width: 100%;
     }
 
     .content {
-        padding: 20px 14px 80px;
-        align-items: stretch;
+        padding: 14px 10px 52px;
     }
 
-    .card-section {
-        max-width: 100%;
-        margin-top: 24px;
+    .company-grid {
+        grid-template-columns: 1fr;
     }
 
     .contact-floating {
-        right: 14px;
+        right: 10px;
         bottom: 16px;
     }
 }
