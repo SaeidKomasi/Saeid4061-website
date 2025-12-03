@@ -1,136 +1,158 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>SAEID KOMASI – Contact</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SAEID KOMASI – SAEID4061 Sp. z o.o.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="main.js" defer></script>
 </head>
-<body class="rtl">
-    <div class="page-wrapper">
-        <!-- ===== HEADER ===== -->
-        <header class="site-header">
-            <div class="header-left">
-                <div class="logo-box">
-                    <img src="saeid4061-logo.jpg" alt="Grey Lion logo" class="logo-img" />
-                </div>
+<body>
+<div class="page-wrapper">
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo-box">
+                <img src="saeid4061-logo.jpg" alt="Grey Lion logo" class="logo-img" />
             </div>
+            <div class="route-badge">EU • IR • PL</div>
+        </div>
 
-            <div class="header-center">
-                <div class="route-badge">EU • IR • PL</div>
-                <h1 class="brand-name">SAEID KOMASI</h1>
-                <div class="brand-position">CEO &amp; Founder</div>
-                <div class="brand-company">SAEID4061 Sp. z o.o.</div>
-                <div class="brand-tagline" data-i18n="tagline"></div>
+        <div class="header-center">
+            <h1 class="owner-name">SAEID KOMASI</h1>
+            <div class="owner-role">CEO &amp; Founder</div>
+            <div class="company-name">SAEID4061 Sp. z o.o.</div>
+            <div class="route-subtitle">
+                International Road Transport – Europe · Middle East · Central Asia
             </div>
+        </div>
 
-            <div class="header-right">
-                <span class="language-label" data-i18n="languageLabel"></span>
-                <select id="language-select" class="language-select">
-                    <option value="fa">فارسی</option>
-                    <option value="en">English</option>
-                    <option value="pl">Polski</option>
-                    <option value="de">Deutsch</option>
-                    <option value="fr">Français</option>
-                    <option value="it">Italiano</option>
-                    <option value="es">Español</option>
-                    <option value="ru">Русский</option>
-                    <option value="tr">Türkçe</option>
-                    <option value="ar">العربية</option>
-                    <option value="ur">اردو</option>
-                    <option value="zh">中文</option>
-                    <option value="ja">日本語</option>
-                    <option value="nl">Nederlands</option>
-                    <option value="sv">Svenska</option>
-                    <option value="no">Norsk</option>
-                    <option value="da">Dansk</option>
-                    <option value="cs">Čeština</option>
-                    <option value="sk">Slovenčina</option>
-                    <option value="hu">Magyar</option>
-                    <option value="ro">Română</option>
-                    <option value="bg">Български</option>
-                    <option value="el">Ελληνικά</option>
-                </select>
-            </div>
-        </header>
+        <div class="header-right">
+            <label for="language-select" class="language-label" data-i18n="languageLabel">
+                Language
+            </label>
+            <select id="language-select" class="language-select">
+                <!-- 23 زبان – نام‌ها دراپ‌داون، متن داخل صفحه برای fa / en / pl ترجمه شده،
+                     سایر زبان‌ها به صورت پیش‌فرض متن انگلیسی را نشان می‌دهند -->
+                <option value="fa">فارسی</option>
+                <option value="en" selected>English</option>
+                <option value="pl">Polski</option>
+                <option value="de">Deutsch</option>
+                <option value="fr">Français</option>
+                <option value="it">Italiano</option>
+                <option value="es">Español</option>
+                <option value="pt">Português</option>
+                <option value="tr">Türkçe</option>
+                <option value="ru">Русский</option>
+                <option value="uk">Українська</option>
+                <option value="cs">Čeština</option>
+                <option value="sk">Slovenčina</option>
+                <option value="hu">Magyar</option>
+                <option value="ro">Română</option>
+                <option value="bg">Български</option>
+                <option value="sr">Српски</option>
+                <option value="hr">Hrvatski</option>
+                <option value="sl">Slovenščina</option>
+                <option value="nl">Nederlands</option>
+                <option value="sv">Svenska</option>
+                <option value="no">Norsk</option>
+                <option value="da">Dansk</option>
+            </select>
+        </div>
+    </header>
 
-        <!-- ===== CONTENT ===== -->
-        <main class="content">
-            <!-- Tabs -->
-            <div class="tab-toggle">
-                <button class="tab-btn active" data-tab="company" id="companyTab" data-i18n="companyTab"></button>
-                <button class="tab-btn" data-tab="personal" id="personalTab" data-i18n="personalTab"></button>
-            </div>
-            <div class="tab-caption" data-i18n="tabCaption"></div>
+    <!-- ===== TABS (Company / Personal) ===== -->
+    <nav class="tabs">
+        <button id="company-tab" class="tab-btn active" data-tab="company">
+            <span data-i18n="tabCompany">Company</span>
+        </button>
+        <button id="personal-tab" class="tab-btn" data-tab="personal">
+            <span data-i18n="tabPersonal">Personal</span>
+        </button>
+    </nav>
 
-            <!-- Company section -->
-            <section id="company-section" class="card-section active">
-                <div class="content-card">
-                    <h2 class="card-title" data-i18n="companyDetailsTitle"></h2>
-                    <p class="card-subtitle" data-i18n="companyDetailsSubtitle"></p>
-
-                    <div class="company-list">
-                        <div class="company-row">
-                            <span class="company-label" data-i18n="companyNameLabel"></span>
-                            <span class="company-text">SAEID4061 Sp. z o.o.</span>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="content">
+        <!-- COMPANY SECTION -->
+        <section id="company-section" class="content-section active">
+            <div class="card company-card">
+                <h2 class="card-title" data-i18n="companyDetailsTitle">Company details</h2>
+                <p class="card-subtitle" data-i18n="companyDetailsSubtitle">
+                    Official registration data of the company:
+                </p>
+                <div class="company-grid">
+                    <div class="company-col">
+                        <div class="field">
+                            <span class="field-label" data-i18n="fieldCompany">Company</span>
+                            <span class="field-value">SAEID4061 Sp. z o.o.</span>
                         </div>
-                        <div class="company-row">
-                            <span class="company-label">KRS</span>
-                            <span class="company-text">0001065392</span>
+                        <div class="field">
+                            <span class="field-label">KRS</span>
+                            <span class="field-value">0001065392</span>
                         </div>
-                        <div class="company-row">
-                            <span class="company-label">NIP</span>
-                            <span class="company-text">5372677546</span>
+                        <div class="field">
+                            <span class="field-label">NIP</span>
+                            <span class="field-value">5372677546</span>
                         </div>
-                        <div class="company-row">
-                            <span class="company-label">REGON</span>
-                            <span class="company-text">526744160</span>
+                        <div class="field">
+                            <span class="field-label">REGON</span>
+                            <span class="field-value">526744160</span>
                         </div>
-                        <div class="company-row">
-                            <span class="company-label" data-i18n="registeredAddressLabel"></span>
-                            <span class="company-text">
+                    </div>
+                    <div class="company-col">
+                        <div class="field">
+                            <span class="field-label" data-i18n="fieldRegistered">Registered seat</span>
+                            <span class="field-value">
                                 Orzechowa 32/1, 21-500 Biała Podlaska, Poland
                             </span>
                         </div>
-                        <div class="company-row">
-                            <span class="company-label" data-i18n="correspondenceAddressLabel"></span>
-                            <span class="company-text">
+                        <div class="field">
+                            <span class="field-label" data-i18n="fieldCorrespondence">Correspondence address</span>
+                            <span class="field-value">
                                 Orzechowa 32/1, 21-500 Biała Podlaska, Poland
                             </span>
                         </div>
                     </div>
-
-                    <p class="card-note" data-i18n="companyContactNote"></p>
                 </div>
-            </section>
 
-            <!-- Personal section -->
-            <section id="personal-section" class="card-section">
-                <div class="content-card">
-                    <h2 class="card-title" data-i18n="personalTitle"></h2>
-                    <p class="card-text" data-i18n="personalText"></p>
-                </div>
-            </section>
-
-            <!-- Floating contact buttons -->
-            <div class="contact-floating">
-                <a href="https://wa.me/48737004734" class="contact-fab whatsapp" target="_blank" title="WhatsApp / Phone">
-                    <span>📞</span>
-                </a>
-                <a href="https://t.me/Saeid4061" class="contact-fab telegram" target="_blank" title="Telegram">
-                    <span>✈️</span>
-                </a>
-                <a href="mailto:saeidkomasy@gmail.com" class="contact-fab email" title="Email">
-                    <span>✉️</span>
-                </a>
+                <p class="card-footer-text" data-i18n="companyFooter">
+                    Direct contact / 24h for urgent transport inquiries:
+                </p>
             </div>
-        </main>
+        </section>
 
-        <!-- ===== FOOTER ===== -->
-        <footer class="site-footer">
-            <span>© SAEID KOMASI – GREY LION 2025</span>
-        </footer>
+        <!-- PERSONAL SECTION -->
+        <section id="personal-section" class="content-section">
+            <div class="card personal-card">
+                <h2 class="card-title" data-i18n="personalTitle">Personal direct contact</h2>
+                <p class="card-subtitle" data-i18n="personalSubtitle">
+                    For direct contact with CEO &amp; Founder, you can use the same WhatsApp,
+                    Telegram and Email shown below.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FLOATING CONTACT ICONS ===== -->
+    <div class="contact-floating">
+        <a class="contact-circle whatsapp" href="https://wa.me/48737004748" target="_blank"
+           aria-label="WhatsApp">
+            📞
+        </a>
+        <a class="contact-circle telegram" href="https://t.me/Saeid4061" target="_blank"
+           aria-label="Telegram">
+            ✈️
+        </a>
+        <a class="contact-circle email" href="mailto:saeidkomasy@gmail.com" aria-label="Email">
+            ✉️
+        </a>
     </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        © SAEID KOMASI – GREY LION 2025
+    </footer>
+</div>
+
+<script src="main.js"></script>
 </body>
 </html>
