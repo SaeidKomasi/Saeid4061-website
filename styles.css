@@ -1,324 +1,143 @@
-/* ===== GOOGLE FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
+/* ===== FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap');
 
-/* ===== GLOBAL RESET ===== */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
+/* ===== GLOBAL ===== */
 body {
-    min-height: 100vh;
-    color: #f5f5f5;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
     background: #000;
-    font-family: "Montserrat", Arial, sans-serif;
+    color: #fff;
 }
 
-/* RTL mode for Farsi / Arabic / Urdu etc. */
-body.rtl {
-    direction: rtl;
-}
-
-/* ===== PAGE WRAPPER ===== */
+/* ===== BACKGROUND ===== */
 .page-wrapper {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     background:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.85)),
-        url("assets/bg-day.jpg") center center / cover no-repeat fixed;
+        linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.9)),
+        url("assets/bg-day.jpg") center center/cover no-repeat fixed;
+    padding-bottom: 80px;
 }
 
 /* ===== HEADER ===== */
 .site-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 14px 22px;
-    background: linear-gradient(90deg, #0053c4, #0078ff);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: linear-gradient(90deg, #0053b8, #0071ff);
 }
 
-/* logo مربعی */
+/* ===== LOGO ===== */
 .header-logo {
-    width: 72px;
-    height: 72px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    background: #000;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.6);
+    padding: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.header-center {
-    text-align: center;
-    flex: 1 1 auto;
-}
-
-.route-badge {
-    display: inline-block;
-    padding: 2px 10px;
-    margin-bottom: 4px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #ffe9a3;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    background: rgba(0, 0, 0, 0.18);
-}
-
-.header-name {
+/* ===== TITLE ===== */
+.headline {
     font-family: "Playfair Display", serif;
-    margin: 0;
-    font-size: 26px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-.header-role {
-    margin-top: 2px;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.9;
-}
-
-.header-company {
-    margin-top: 2px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.header-route {
-    margin-top: 3px;
-    font-size: 11px;
-    opacity: 0.9;
-}
-
-/* header right */
-.header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-}
-
-.language-label {
-    font-size: 11px;
-}
-
-.language-select {
-    padding: 4px 8px;
-    font-size: 12px;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    background: rgba(0, 0, 0, 0.25);
-    color: #fff;
-}
-
-/* ===== MAIN CONTENT ===== */
-.content {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 10px 40px;
-}
-
-/* Toggle buttons */
-.mode-toggle {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 16px;
-}
-
-.mode-btn {
-    min-width: 90px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background: rgba(0, 0, 0, 0.45);
-    color: #fff;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.mode-btn:hover {
-    background: rgba(0, 0, 0, 0.7);
-}
-
-.mode-btn.active {
-    background: #00c853;
-    border-color: #00c853;
-    color: #051018;
-}
-
-/* Info card */
-.info-section {
-    width: 100%;
-    max-width: 820px;
-    margin-bottom: 18px;
-    padding: 18px 24px 20px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-}
-
-.info-section.hidden {
-    display: none;
-}
-
-.section-title {
-    margin: 0 0 6px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.section-subtitle {
-    margin: 0 0 10px;
-    font-size: 13px;
-    opacity: 0.9;
-}
-
-/* Company grid */
-.company-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 40px;
-    font-size: 13px;
-}
-
-.company-label {
-    font-weight: 600;
-    margin-top: 8px;
-}
-
-.company-label:first-child {
-    margin-top: 0;
-}
-
-.company-value {
-    margin-top: 2px;
-}
-
-/* Contact section */
-.contact-section {
-    width: 100%;
-    max-width: 820px;
-    padding: 16px 24px 18px;
-    background: rgba(0, 0, 0, 0.78);
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.65);
-    text-align: center;
-}
-
-.contact-title {
-    font-size: 13px;
-    margin-bottom: 12px;
-    opacity: 0.95;
-}
-
-.contact-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-/* contact button style */
-.contact-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 13px;
-    text-decoration: none;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(0, 0, 0, 0.65);
-}
-
-.contact-btn .contact-label {
+.subline {
+    font-size: 16px;
     font-weight: 500;
 }
 
-.contact-btn .contact-value {
+.company-name {
+    font-size: 16px;
     font-weight: 600;
 }
 
-/* colors */
-.contact-btn.whatsapp {
-    background: linear-gradient(90deg, #00e676, #00c853);
+/* ===== LANGUAGE SELECT ===== */
+.lang-select {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+    background: #fff;
 }
 
-.contact-btn.telegram {
-    background: linear-gradient(90deg, #00b0ff, #0091ea);
+/* ===== TABS ===== */
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 18px 0;
 }
 
-.contact-btn.email {
-    background: linear-gradient(90deg, #ff9800, #ffa726);
+.tab-btn {
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #fff;
+    cursor: pointer;
 }
 
-/* ===== FOOTER ===== */
-.site-footer {
+.tab-btn.active {
+    background: #008cff;
+    font-weight: bold;
+}
+
+/* ===== CONTENT ===== */
+.tab-content {
+    display: none;
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 16px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h2, h3 {
+    margin-top: 0;
+}
+
+/* ===== BOXES ===== */
+.company-box,
+.contact-box {
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.35);
+}
+
+.company-box p {
+    margin: 6px 0;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: block;
     text-align: center;
-    padding: 8px 10px 12px;
-    font-size: 11px;
-    background: rgba(0, 0, 0, 0.7);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px;
+    margin: 8px 0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-    }
-
-    .header-right {
-        align-items: flex-start;
-    }
-
-    .company-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .content {
-        padding: 20px 8px 30px;
-    }
+.whatsapp {
+    background: #25D366;
 }
 
-@media (max-width: 480px) {
-    .header-name {
-        font-size: 22px;
-    }
+.telegram {
+    background: #0088cc;
+}
 
-    .header-route {
-        font-size: 10px;
-    }
-
-    .info-section,
-    .contact-section {
-        padding: 14px 16px 16px;
-    }
-
-    .contact-btn {
-        font-size: 12px;
-    }
+.email {
+    background: #ff9900;
 }
