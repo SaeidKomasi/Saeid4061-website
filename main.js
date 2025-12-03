@@ -11,12 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Language
     const languageSelect = document.getElementById("language-select");
 
-    // i18n map – متن‌ها برای fa / en / pl
+    // i18n map – fa / en / pl
     const translations = {
         en: {
             languageLabel: "Language",
             tabCompany: "Company",
             tabPersonal: "Personal",
+            tabCompanyDesc: "Company profile & registration data",
+            tabPersonalDesc: "Direct personal contact with CEO & Founder",
             companyDetailsTitle: "Company details",
             companyDetailsSubtitle: "Official registration data of the company:",
             fieldCompany: "Company",
@@ -31,6 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
             languageLabel: "زبان",
             tabCompany: "شرکت",
             tabPersonal: "شخصی",
+            tabCompanyDesc: "پروفایل و اطلاعات رسمی ثبت شرکت",
+            tabPersonalDesc: "ارتباط مستقیم شخصی با مدیرعامل و مؤسس",
             companyDetailsTitle: "مشخصات شرکت",
             companyDetailsSubtitle: "اطلاعات رسمی ثبت شرکت:",
             fieldCompany: "شرکت",
@@ -46,6 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
             languageLabel: "Język",
             tabCompany: "Firma",
             tabPersonal: "Osobisty",
+            tabCompanyDesc: "Profil firmy i dane rejestracyjne",
+            tabPersonalDesc: "Bezpośredni kontakt osobisty z CEO & Founder",
             companyDetailsTitle: "Dane firmy",
             companyDetailsSubtitle:
                 "Oficjalne dane rejestracyjne spółki:",
@@ -63,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function getLangKey(code) {
         if (code === "fa") return "fa";
         if (code === "pl") return "pl";
-        // سایر زبان‌ها متن انگلیسی را می‌گیرند
+        // بقیه زبان‌ها متن انگلیسی را می‌گیرند
         return "en";
     }
 
@@ -106,11 +112,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // رویداد تب‌ها
+    // کلیک روی تب‌ها
     companyTabBtn.addEventListener("click", () => activateTab("company"));
     personalTabBtn.addEventListener("click", () => activateTab("personal"));
 
-    // رویداد زبان
+    // تغییر زبان
     languageSelect.addEventListener("change", (e) => {
         applyTranslations(e.target.value);
     });
