@@ -15,8 +15,8 @@ html, body {
 
 body {
     min-height: 100vh;
-    color: #f5f5f5;
     font-family: "Montserrat", Arial, sans-serif;
+    color: #e9f2ff;
 }
 
 /* RTL helper */
@@ -30,7 +30,7 @@ body.rtl {
     display: flex;
     flex-direction: column;
     background:
-        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85)),
+        linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(4,8,20,0.9)),
         url("assets/bg-day.jpg") center center / cover no-repeat fixed;
 }
 
@@ -128,15 +128,15 @@ body.rtl {
 /* ====== CONTENT ====== */
 .content {
     flex: 1 1 auto;
-    padding: 24px 16px 32px;
+    padding: 24px 24px 32px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 /* Tabs */
 .tab-toggle {
-    margin-bottom: 14px;
+    margin-bottom: 6px;
     display: flex;
     gap: 8px;
 }
@@ -146,8 +146,8 @@ body.rtl {
     padding: 6px 16px;
     border-radius: 999px;
     border: 1px solid rgba(255,255,255,0.6);
-    background: rgba(0,0,0,0.45);
-    color: #fff;
+    background: rgba(3,16,40,0.55);
+    color: #e9f2ff;
     font-size: 13px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -156,13 +156,21 @@ body.rtl {
 .tab-btn.active {
     background: #00b894;
     border-color: #00b894;
+    color: #021018;
+}
+
+.tab-caption {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-bottom: 16px;
 }
 
 /* Cards */
 .card-section {
     width: 100%;
-    max-width: 900px;
+    max-width: 540px;
     display: none;
+    margin-top: 32px;
 }
 
 .card-section.active {
@@ -170,10 +178,11 @@ body.rtl {
 }
 
 .content-card {
-    background: rgba(0,0,0,0.65);
+    background: rgba(8,16,38,0.88);
     border-radius: 18px;
     padding: 18px 22px 20px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.55);
+    border: 1px solid rgba(89,131,252,0.45);
 }
 
 /* Titles */
@@ -191,60 +200,68 @@ body.rtl {
     line-height: 1.6;
 }
 
-/* Company grid */
-.company-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 36px;
+/* Company list (left column, زیر هم) */
+.company-list {
     margin-top: 10px;
     margin-bottom: 12px;
 }
 
+.company-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6px;
+}
+
 .company-label {
     font-size: 11px;
-    opacity: 0.75;
+    color: #a8c0ff;
 }
 
 .company-text {
     font-size: 13px;
     font-weight: 500;
-    margin-bottom: 6px;
+    color: #f5fbff;
 }
 
-/* Contact pills */
-.contact-row {
+/* ====== FLOATING CONTACT BUTTONS ====== */
+.contact-floating {
+    position: fixed;
+    right: 22px;
+    bottom: 24px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 8px;
-    margin-top: 8px;
+    z-index: 10;
 }
 
-.contact-pill {
-    display: inline-flex;
+.contact-fab {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
-    gap: 6px;
-    border-radius: 999px;
-    padding: 6px 14px;
-    font-size: 13px;
-    text-decoration: none;
+    justify-content: center;
     color: #fff;
-    white-space: nowrap;
+    text-decoration: none;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.contact-pill .emoji {
-    font-size: 15px;
+.contact-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.65);
 }
 
-/* Colors */
-.contact-pill.whatsapp {
+.contact-fab.whatsapp {
     background: #00b894;
 }
 
-.contact-pill.telegram {
+.contact-fab.telegram {
     background: #0984e3;
 }
 
-.contact-pill.email {
+.contact-fab.email {
     background: #ff9f1a;
 }
 
@@ -261,42 +278,25 @@ body.rtl {
     .site-header {
         flex-direction: row;
         align-items: center;
+        padding: 10px 12px;
     }
 
     .brand-name {
         font-size: 20px;
     }
 
-    .company-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .content-card {
-        padding: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-header {
-        padding: 10px 12px;
-    }
-
-    .logo-box {
-        width: 60px;
-        height: 60px;
-    }
-
-    .tab-btn {
-        min-width: 90px;
-        font-size: 12px;
-    }
-
-    .contact-row {
-        flex-direction: column;
+    .content {
+        padding: 20px 14px 80px;
         align-items: stretch;
     }
 
-    .contact-pill {
-        justify-content: center;
+    .card-section {
+        max-width: 100%;
+        margin-top: 24px;
+    }
+
+    .contact-floating {
+        right: 14px;
+        bottom: 16px;
     }
 }
