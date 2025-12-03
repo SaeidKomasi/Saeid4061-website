@@ -1,0 +1,44 @@
+{
+  "fa": {
+    "company_title": "SAEID4061 Sp. z o.o. – معرفی شرکت",
+    "company_intro": "شرکت حمل‌ونقل بین‌المللی جاده‌ای ثبت‌شده در لهستان، با تمرکز بر ارتباط مستقیم و قابل اعتماد بین اروپا، خاورمیانه و آسیای مرکزی.",
+    "company_legal_title": "اطلاعات رسمی ثبت شرکت",
+    "company_activity_title": "حوزه اصلی فعالیت",
+    "company_activity_text": "فعالیت اصلی شرکت، حمل‌ونقل بین‌المللی جاده‌ای کالا (Transport drogowy towarów) است. در کنار آن، خدمات پشتیبان مانند انبارش، هماهنگی لجستیک، همکاری با شرکت‌های بزرگ لجستیکی و هماهنگی حمل ترکیبی نیز قابل ارائه است.",
+    "company_management_title": "هیات‌مدیره و مالکیت",
+    "company_management_ceo": "Saeid Komasi – Prezes Zarządu (مدیرعامل و مالک اصلی)",
+    "company_management_board": "Mehdi Rezazadeh – Członek Zarządu (عضو هیات‌مدیره)",
+    "company_partners_title": "شبکه همکاران و مقایسه پیشنهادی کرایه",
+    "company_partners_text": "برای شفافیت بیشتر، امکان مقایسه کرایه پیشنهادی ما با نرخ‌های شرکت‌های بزرگ لجستیکی مانند DHL، DB Schenker و Raben وجود دارد. هدف ما ارائه سرویس امن، مستقیم و رقابتی است.",
+    "quote_title": "پیشنهاد کرایه / درخواست حمل",
+    "quote_text": "برای دریافت پیشنهاد کرایه، کافی است اطلاعات پایه مانند: مبدأ، مقصد، نوع کالا، وزن تقریبی، تاریخ بارگیری و نیازهای خاص (مانند دما، زمان تحویل، مسیر ترجیحی) را در پیام واتساپ یا ایمیل ارسال کنید. پاسخ معمولاً در کوتاه‌ترین زمان ممکن داده می‌شود."
+  },
+  "en": {
+    "company_title": "SAEID4061 Sp. z o.o. – Company profile",
+    "company_intro": "International road transport company registered in Poland, focused on safe and direct connections between Europe, the Middle East and Central Asia.",
+    "company_legal_title": "Official company data",
+    "company_activity_title": "Main field of activity",
+    "company_activity_text": "The core business is international road freight transport. In addition, we can organise supporting logistics services such as storage, cross-docking, cooperation with large logistics operators and combined transport on request.",
+    "company_management_title": "Management & ownership",
+    "company_management_ceo": "Saeid Komasi – President of the Board (majority shareholder)",
+    "company_management_board": "Mehdi Rezazadeh – Member of the Board",
+    "company_partners_title": "Reference operators & rate comparison",
+    "company_partners_text": "For full transparency, you can compare our offers with rates of large logistics operators such as DHL, DB Schenker or Raben. Our goal is to provide safe, direct and competitive service.",
+    "quote_title": "Request for quotation",
+    "quote_text": "To receive a freight quote, please send basic information: loading place, unloading place, type of cargo, approx. weight, loading date and any special requirements (temperature, transit time, preferred route) by WhatsApp or e-mail."
+  },
+  "pl": {
+    "company_title": "SAEID4061 Sp. z o.o. – Profil spółki",
+    "company_intro": "Międzynarodowa spółka transportu drogowego zarejestrowana w Polsce, koncentrująca się na bezpiecznych połączeniach między Europą, Bliskim Wschodem i Azją Centralną.",
+    "company_legal_title": "Dane rejestrowe spółki",
+    "company_activity_title": "Główny zakres działalności",
+    "company_activity_text": "Podstawową działalnością spółki jest międzynarodowy drogowy transport towarów. Dodatkowo możemy organizować usługi wspierające, takie jak magazynowanie, przeładunki, współpraca z dużymi operatorami logistycznymi oraz transport kombinowany.",
+    "company_management_title": "Zarząd i struktura własności",
+    "company_management_ceo": "Saeid Komasi – Prezes Zarządu (główny udziałowiec)",
+    "company_management_board": "Mehdi Rezazadeh – Członek Zarządu",
+    "company_partners_title": "Operatorzy referencyjni i porównanie stawek",
+    "company_partners_text": "Dla pełnej przejrzystości można porównywać nasze oferty ze stawkami dużych operatorów logistycznych, takich jak DHL, DB Schenker czy Raben. Naszym celem jest bezpieczna, bezpośrednia i konkurencyjna obsługa.",
+    "quote_title": "Zapytanie ofertowe",
+    "quote_text": "Aby otrzymać wycenę frachtu, prosimy o podanie podstawowych informacji: miejsce załadunku, miejsce rozładunku, rodzaj towaru, przybliżona waga, planowana data załadunku oraz ewentualne wymagania specjalne (temperatura, czas tranzytu, preferowana trasa)."
+  }
+}
