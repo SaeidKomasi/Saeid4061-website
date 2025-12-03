@@ -35,11 +35,13 @@ const translations = {
         phoneLabel: "WhatsApp / Phone",
         personalTitle: "Personal contact",
         personalText:
-            "For direct contact with CEO & Founder you can use the same email, Telegram and WhatsApp number shown above.",
+            "For direct contact with CEO & Founder you can use the same email, Telegram and WhatsApp number shown below.",
         companyTitle: "Company information",
         companyNameLabel: "Company",
         registeredSeatLabel: "Registered seat",
-        correspondenceLabel: "Correspondence address"
+        correspondenceLabel: "Correspondence address",
+        companyContactIntro:
+            "For fast contact with the company you can also use the WhatsApp, Telegram and email below."
     },
     fa: {
         languageLabel: "زبان",
@@ -50,11 +52,13 @@ const translations = {
         phoneLabel: "واتساپ / تلفن",
         personalTitle: "ارتباط مستقیم شخصی",
         personalText:
-            "برای ارتباط مستقیم با مدیرعامل می‌توانید از همین ایمیل، تلگرام و شماره واتساپ بالا استفاده کنید.",
+            "برای ارتباط مستقیم با مدیرعامل می‌توانید از همین ایمیل، تلگرام و شماره واتساپ در پایین صفحه استفاده کنید.",
         companyTitle: "اطلاعات شرکت",
         companyNameLabel: "شرکت",
         registeredSeatLabel: "آدرس ثبت‌شده شرکت",
-        correspondenceLabel: "آدرس مکاتبات"
+        correspondenceLabel: "آدرس مکاتبات",
+        companyContactIntro:
+            "برای تماس سریع با شرکت می‌توانید از واتساپ، تلگرام و ایمیل زیر استفاده کنید."
     },
     pl: {
         languageLabel: "Język",
@@ -65,21 +69,25 @@ const translations = {
         phoneLabel: "WhatsApp / Telefon",
         personalTitle: "Kontakt osobisty",
         personalText:
-            "W celu bezpośredniego kontaktu z CEO & Founder można użyć tego samego adresu e-mail, Telegramu oraz numeru WhatsApp podanego powyżej.",
+            "W celu bezpośredniego kontaktu z CEO & Founder można użyć tego samego adresu e-mail, Telegramu oraz numeru WhatsApp podanych poniżej.",
         companyTitle: "Dane spółki",
         companyNameLabel: "Spółka",
         registeredSeatLabel: "Siedziba zarejestrowana",
-        correspondenceLabel: "Adres do korespondencji"
+        correspondenceLabel: "Adres do korespondencji",
+        companyContactIntro:
+            "W celu szybkiego kontaktu ze spółką można skorzystać z WhatsAppa, Telegramu oraz e-maila poniżej."
     }
 };
 
 // بقیه زبان‌ها از انگلیسی استفاده کنند
-["es","de","nl","de-at","hu","cs","fr","ro","tr","mn","ru","ar","ka","az","zh","ja","tk","tg","kk"]
-    .forEach(code => {
-        if (!translations[code]) {
-            translations[code] = translations.en;
-        }
-    });
+[
+    "es","de","nl","de-at","hu","cs","fr","ro","tr",
+    "mn","ru","ar","ka","az","zh","ja","tk","tg","kk"
+].forEach(code => {
+    if (!translations[code]) {
+        translations[code] = translations.en;
+    }
+});
 
 function isRTL(lang) {
     return lang === "fa" || lang === "ar";
@@ -103,7 +111,8 @@ function applyTranslations(lang) {
         "companyTitle",
         "companyNameLabel",
         "registeredSeatLabel",
-        "correspondenceLabel"
+        "correspondenceLabel",
+        "companyContactIntro"
     ];
 
     keys.forEach(key => {
