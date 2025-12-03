@@ -1,3 +1,5 @@
+
+// لیست زبان‌ها برای سلکت
 const languageList = [
     { code: "fa", label: "فارسی" },
     { code: "en", label: "English" },
@@ -15,7 +17,7 @@ const languageList = [
     { code: "ru", label: "Русский" },
     { code: "ar", label: "العربية" },
     { code: "ka", label: "ქართული" },
-    { code: "az", label: "Azərbaycan" },
+    { code: "az", label: "Azərbaycanca" },
     { code: "zh", label: "中文" },
     { code: "ja", label: "日本語" },
     { code: "tk", label: "Türkmençe" },
@@ -23,149 +25,163 @@ const languageList = [
     { code: "kk", label: "Қазақша" }
 ];
 
+// ترجمه‌ها (کامل برای انگلیسی / فارسی / لهستانی، بقیه بر اساس انگلیسی)
 const translations = {
     en: {
-        tagline: "International Road Transport – Europe • Middle East • Central Asia",
-        language_label: "Language",
-        tab_personal: "Personal",
-        tab_company: "Company",
-        personal_title: "Personal Contact",
-        personal_desc:
-            "For direct contact with the CEO & Founder, you can use the same email, Telegram and WhatsApp shown in the company section.",
-        company_header: "Company details",
-        company_label: "Company",
-        krs_label: "KRS",
-        regon_label: "REGON",
-        nip_label: "NIP",
-        registered_seat_label: "Registered seat",
-        correspondence_address_label: "Correspondence address",
-        email_label: "Email",
-        telegram_label: "Telegram",
-        whatsapp_label: "WhatsApp"
+        languageLabel: "Language",
+        personalTab: "Personal",
+        companyTab: "Company",
+        emailLabel: "Email",
+        telegramLabel: "Telegram",
+        phoneLabel: "WhatsApp / Phone",
+        personalTitle: "Personal contact",
+        personalText:
+            "For direct contact with CEO & Founder you can use the same email, Telegram and WhatsApp number shown above.",
+        companyTitle: "Company information",
+        companyNameLabel: "Company",
+        registeredSeatLabel: "Registered seat",
+        correspondenceLabel: "Correspondence address"
     },
     fa: {
-        tagline: "حمل‌ونقل بین‌المللی جاده‌ای – اروپا • خاورمیانه • آسیای مرکزی",
-        language_label: "زبان",
-        tab_personal: "شخصی",
-        tab_company: "شرکت",
-        personal_title: "تماس شخصی",
-        personal_desc:
-            "برای ارتباط مستقیم با مدیرعامل و بنیان‌گذار می‌توانید از همان ایمیل، تلگرام و واتساپ بخش شرکت استفاده کنید.",
-        company_header: "مشخصات رسمی شرکت",
-        company_label: "شرکت",
-        krs_label: "شماره KRS",
-        regon_label: "شماره REGON",
-        nip_label: "شماره NIP",
-        registered_seat_label: "نشانی ثبت‌شده شرکت",
-        correspondence_address_label: "نشانی مکاتبات",
-        email_label: "ایمیل",
-        telegram_label: "تلگرام",
-        whatsapp_label: "واتساپ"
+        languageLabel: "زبان",
+        personalTab: "شخصی",
+        companyTab: "شرکت",
+        emailLabel: "ایمیل",
+        telegramLabel: "تلگرام",
+        phoneLabel: "واتساپ / تلفن",
+        personalTitle: "ارتباط مستقیم شخصی",
+        personalText:
+            "برای ارتباط مستقیم با مدیرعامل می‌توانید از همین ایمیل، تلگرام و شماره واتساپ بالا استفاده کنید.",
+        companyTitle: "اطلاعات شرکت",
+        companyNameLabel: "شرکت",
+        registeredSeatLabel: "آدرس ثبت‌شده شرکت",
+        correspondenceLabel: "آدرس مکاتبات"
     },
     pl: {
-        tagline:
-            "Międzynarodowy transport drogowy – Europa • Bliski Wschód • Azja Centralna",
-        language_label: "Język",
-        tab_personal: "Osobiste",
-        tab_company: "Firma",
-        personal_title: "Kontakt osobisty",
-        personal_desc:
-            "Do bezpośredniego kontaktu z CEO & Founder możesz użyć tego samego e-maila, Telegrama i WhatsAppa jak w sekcji firmowej.",
-        company_header: "Dane spółki",
-        company_label: "Spółka",
-        krs_label: "KRS",
-        regon_label: "REGON",
-        nip_label: "NIP",
-        registered_seat_label: "Siedziba rejestrowa",
-        correspondence_address_label: "Adres do korespondencji",
-        email_label: "E-mail",
-        telegram_label: "Telegram",
-        whatsapp_label: "WhatsApp"
+        languageLabel: "Język",
+        personalTab: "Osobisty",
+        companyTab: "Firma",
+        emailLabel: "E-mail",
+        telegramLabel: "Telegram",
+        phoneLabel: "WhatsApp / Telefon",
+        personalTitle: "Kontakt osobisty",
+        personalText:
+            "W celu bezpośredniego kontaktu z CEO & Founder można użyć tego samego adresu e-mail, Telegramu oraz numeru WhatsApp podanego powyżej.",
+        companyTitle: "Dane spółki",
+        companyNameLabel: "Spółka",
+        registeredSeatLabel: "Siedziba zarejestrowana",
+        correspondenceLabel: "Adres do korespondencji"
     }
 };
 
-function t(key, lang) {
-    const langData = translations[lang] || {};
-    const enData = translations["en"] || {};
-    return langData[key] || enData[key] || "";
+// بقیه زبان‌ها از انگلیسی استفاده کنند
+["es","de","nl","de-at","hu","cs","fr","ro","tr","mn","ru","ar","ka","az","zh","ja","tk","tg","kk"]
+    .forEach(code => {
+        if (!translations[code]) {
+            translations[code] = translations.en;
+        }
+    });
+
+function isRTL(lang) {
+    return lang === "fa" || lang === "ar";
 }
 
-function applyLanguage(lang) {
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-        const key = el.getAttribute("data-i18n");
-        el.textContent = t(key, lang);
+function applyTranslations(lang) {
+    const t = translations[lang] || translations.en;
+
+    document.documentElement.lang = lang;
+    document.body.setAttribute("dir", isRTL(lang) ? "rtl" : "ltr");
+
+    const keys = [
+        "languageLabel",
+        "personalTab",
+        "companyTab",
+        "emailLabel",
+        "telegramLabel",
+        "phoneLabel",
+        "personalTitle",
+        "personalText",
+        "companyTitle",
+        "companyNameLabel",
+        "registeredSeatLabel",
+        "correspondenceLabel"
+    ];
+
+    keys.forEach(key => {
+        const el = document.querySelector(`[data-i18n="${key}"]`);
+        if (el && t[key]) {
+            el.textContent = t[key];
+        }
     });
 }
 
 function initLanguageSelect() {
-    const select = document.getElementById("language-select");
+    const select = document.getElementById("languageSelect");
     if (!select) return;
 
-    select.innerHTML = "";
-    languageList.forEach((item) => {
+    // ساخت گزینه‌ها
+    languageList.forEach(lang => {
         const opt = document.createElement("option");
-        opt.value = item.code;
-        opt.textContent = item.label;
+        opt.value = lang.code;
+        opt.textContent = lang.label;
         select.appendChild(opt);
     });
 
-    let defaultLang =
-        localStorage.getItem("saeid4061_lang") ||
-        (navigator.language || "en").toLowerCase();
-
-    const found = languageList.find((l) => defaultLang.startsWith(l.code));
-    defaultLang = found ? found.code : "en";
-
-    select.value = defaultLang;
-    applyLanguage(defaultLang);
+    // زبان پیش‌فرض
+    select.value = "fa";
+    applyTranslations("fa");
 
     select.addEventListener("change", () => {
-        const lang = select.value;
-        localStorage.setItem("saeid4061_lang", lang);
-        applyLanguage(lang);
+        applyTranslations(select.value);
     });
 }
 
 function initTabs() {
-    const personalBtn = document.getElementById("personal-tab");
-    const companyBtn = document.getElementById("company-tab");
-    const personalSection = document.getElementById("personal-section");
-    const companySection = document.getElementById("company-section");
-    if (!personalBtn || !companyBtn || !personalSection || !companySection) return;
+    const personalTab = document.getElementById("personalTab");
+    const companyTab = document.getElementById("companyTab");
+    const personalSection = document.getElementById("personalSection");
+    const companySection = document.getElementById("companySection");
 
-    const showSection = (target) => {
-        if (target === "personal") {
-            personalSection.classList.add("visible");
-            companySection.classList.remove("visible");
-            personalBtn.classList.add("active");
-            companyBtn.classList.remove("active");
+    if (!personalTab || !companyTab || !personalSection || !companySection) return;
+
+    function activate(tab) {
+        if (tab === "personal") {
+            personalTab.classList.add("active");
+            companyTab.classList.remove("active");
+            personalSection.classList.remove("hidden");
+            companySection.classList.add("hidden");
         } else {
-            companySection.classList.add("visible");
-            personalSection.classList.remove("visible");
-            companyBtn.classList.add("active");
-            personalBtn.classList.remove("active");
+            companyTab.classList.add("active");
+            personalTab.classList.remove("active");
+            companySection.classList.remove("hidden");
+            personalSection.classList.add("hidden");
         }
-    };
+    }
 
-    personalBtn.addEventListener("click", () => showSection("personal"));
-    companyBtn.addEventListener("click", () => showSection("company"));
+    personalTab.addEventListener("click", () => activate("personal"));
+    companyTab.addEventListener("click", () => activate("company"));
 
-    showSection("company");
+    // پیش‌فرض: Company
+    activate("company");
 }
 
-function setBackground() {
+function initBackgroundByTime() {
+    const wrapper = document.getElementById("page-wrapper");
+    if (!wrapper) return;
+
     const hour = new Date().getHours();
-    const body = document.body;
-    if (hour >= 6 && hour < 18) {
-        body.style.backgroundImage = "url('assets/bg-day.jpg')";
-    } else {
-        body.style.backgroundImage = "url('assets/bg-night.jpg')";
-    }
+    const isDay = hour >= 7 && hour < 19;
+    wrapper.classList.add(isDay ? "day" : "night");
+}
+
+function initYear() {
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    setBackground();
-    setInterval(setBackground, 60 * 60 * 1000);
     initLanguageSelect();
     initTabs();
+    initBackgroundByTime();
+    initYear();
 });
