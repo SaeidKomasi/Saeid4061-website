@@ -148,7 +148,7 @@ body.rtl {
     display: flex;
     justify-content: center;
     gap: 6px;
-    padding: 8px 0 4px;
+    padding: 8px 0 2px;
 }
 
 .tab-btn {
@@ -168,6 +168,14 @@ body.rtl {
     border-color: #1f8c39;
     color: #ffffff;
     box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
+}
+
+/* نوشته زیر تب‌ها */
+.tabs-caption {
+    text-align: center;
+    font-size: 11px;
+    opacity: 0.9;
+    margin-bottom: 4px;
 }
 
 /* ===== MAIN CONTENT ===== */
