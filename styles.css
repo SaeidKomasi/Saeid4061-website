@@ -29,8 +29,8 @@ body.rtl {
 .page-wrapper {
     min-height: 100vh;
     background:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.85)),
-        url("assets/bg-night.jpg") center center / cover no-repeat fixed;
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.85)),
+        url("assets/bg-day.jpg") center center / cover no-repeat fixed;
     display: flex;
     flex-direction: column;
 }
@@ -86,7 +86,7 @@ body.rtl {
     margin-top: 2px;
 }
 
-/* فونت شماره ۲ برای نام شرکت */
+/* فونت شماره ۲ برای شرکت */
 .header-company {
     font-family: "Montserrat", Arial, sans-serif;
     font-size: 12px;
@@ -124,25 +124,6 @@ body.rtl {
     flex-wrap: wrap;
 }
 
-.language-select {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-}
-
-.language-select label {
-    font-weight: 600;
-}
-
-.language-select select {
-    border-radius: 999px;
-    border: none;
-    padding: 4px 10px;
-    font-size: 13px;
-    outline: none;
-}
-
 /* mode toggle */
 .mode-toggle {
     display: flex;
@@ -166,6 +147,25 @@ body.rtl {
     color: #041014;
 }
 
+.language-select {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.language-select label {
+    font-weight: 600;
+}
+
+.language-select select {
+    border-radius: 999px;
+    border: none;
+    padding: 4px 10px;
+    font-size: 13px;
+    outline: none;
+}
+
 /* ====== MAIN CONTENT ====== */
 .content {
     flex: 1 1 auto;
@@ -178,7 +178,7 @@ body.rtl {
 .card {
     max-width: 960px;
     width: 100%;
-    background: rgba(7, 14, 20, 0.88);
+    background: rgba(7, 14, 20, 0.90);
     border-radius: 16px;
     padding: 18px 20px 16px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
@@ -238,7 +238,6 @@ body.rtl {
     opacity: 0.9;
 }
 
-/* رنگ‌های دکمه‌ها */
 .contact-btn.whatsapp {
     background: linear-gradient(90deg, #08c96b, #00a94b);
 }
@@ -265,7 +264,7 @@ body.rtl {
     opacity: 0.7;
 }
 
-/* ====== RTL FIXES ====== */
+/* ====== RTL ====== */
 body.rtl .site-header,
 body.rtl .top-controls,
 body.rtl .content,
@@ -273,7 +272,6 @@ body.rtl .contact-buttons {
     direction: rtl;
 }
 
-/* برای زبان‌های چپ‌چین (EN / PL) */
 body:not(.rtl) .site-header,
 body:not(.rtl) .top-controls,
 body:not(.rtl) .content,
@@ -284,44 +282,28 @@ body:not(.rtl) .contact-buttons {
 /* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
     .site-header {
-        flex-direction: row;
-        align-items: center;
         padding: 10px 12px;
     }
-
-    .header-center {
-        margin: 0 8px;
-    }
-
     .header-name {
         font-size: 20px;
         letter-spacing: 0.12em;
     }
-
     .header-role {
         font-size: 11px;
-        letter-spacing: 0.10em;
     }
-
     .header-company {
         font-size: 11px;
     }
-
     .header-tagline {
         font-size: 10px;
     }
-
     .header-logo {
         height: 42px;
     }
-
     .card {
         padding: 14px 14px 12px;
     }
-
     .contact-btn {
         font-size: 12px;
     }
 }
-
-/* END OF FILE */
