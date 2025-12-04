@@ -3,235 +3,207 @@
 <head>
     <meta charset="UTF-8" />
     <title>SAEID KOMASI – SAEID4061 Sp. z o.o.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="mode-none">
-    <div class="page-wrapper">
-        <!-- ========== HEADER ========== -->
-        <header class="site-header">
-            <div class="header-left">
-                <div class="route-badge">EU · IR · PL</div>
+<body>
+<div class="page-wrapper mode-home">
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="flag-badge">EU · IR · PL</div>
+        </div>
+
+        <div class="header-center">
+            <div class="headline-top">SAEID KOMASI</div>
+            <div class="headline-sub">CEO &amp; Founder</div>
+            <div class="headline-company">SAEID4061 Sp. z o.o.</div>
+            <div class="headline-route">
+                International Road Transport – Europe · Middle East · Central Asia
             </div>
+        </div>
 
-            <div class="header-center">
-                <h1 class="site-title">SAEID KOMASI</h1>
-                <div class="company-name">SAEID4061 Sp. z o.o.</div>
-                <div class="tagline">
-                    International Road Transport – Europe · Middle East · Central Asia
-                </div>
+        <div class="header-right">
+            <div class="lang-wrapper">
+                <span class="lang-label">Language</span>
+                <select id="languageSelect" class="lang-select">
+                    <option value="en">English</option>
+                    <option value="fa">فارسی</option>
+                    <option value="pl">Polski</option>
+                </select>
             </div>
-
-            <div class="header-right">
-                <img src="saeid4061-logo.jpg" alt="Grey Lion logo" class="header-logo" />
-
-                <div class="language-switcher">
-                    <button id="languageToggle" class="lang-btn">
-                        English ▾
-                    </button>
-                    <ul id="languageMenu" class="lang-menu">
-                        <li data-lang="en">English</li>
-                        <li data-lang="fa">فارسی</li>
-                        <li data-lang="pl">Polski</li>
-                    </ul>
-                </div>
+            <div class="logo-box">
+                <img src="saeid4061-logo.jpg" alt="Grey Lion logo" />
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- ========== TOP TABS (Company / Personal) ========== -->
-        <nav class="top-tabs">
-            <button
-                class="view-toggle__btn"
-                data-view="company"
-                id="btnCompany"
-            >
-                Company
-            </button>
-            <button
-                class="view-toggle__btn"
-                data-view="personal"
-                id="btnPersonal"
-            >
-                Personal
-            </button>
-        </nav>
+    <!-- ===== TOP TABS: COMPANY / PERSONAL ===== -->
+    <nav class="top-tabs">
+        <button id="tabCompany" class="top-tab">
+            Company
+        </button>
+        <button id="tabPersonal" class="top-tab">
+            Personal
+        </button>
+    </nav>
 
-        <!-- ========== MAIN CONTENT ========== -->
-        <main class="content-area">
-            <!-- ===== COMPANY VIEW ===== -->
-            <section
-                id="companyView"
-                class="view-section"
-                data-view-section="company"
-            >
-                <!-- زیرتب‌های داخل کمپانی -->
-                <nav class="sub-tabs">
-                    <button
-                        class="sub-tab-btn active"
-                        data-subview="registration"
-                        id="btnRegistration"
-                    >
-                        Registration
-                    </button>
-                    <button
-                        class="sub-tab-btn"
-                        data-subview="owners"
-                        id="btnOwners"
-                    >
-                        Owners &amp; Capital
-                    </button>
-                    <button
-                        class="sub-tab-btn"
-                        data-subview="activities"
-                        id="btnActivities"
-                    >
-                        Activities
-                    </button>
-                </nav>
-
-                <!-- پنجره ۱: اطلاعات ثبت و آدرس‌ها -->
-                <section
-                    class="subview active"
-                    data-subview="registration"
-                >
-                    <div class="card-panel">
-                        <h2>Company details</h2>
-
-                        <div class="company-columns">
-                            <div class="company-col">
-                                <p><strong>Company</strong><br />SAEID4061 Sp. z o.o.</p>
-                                <p><strong>KRS</strong><br />0001065392</p>
-                                <p><strong>NIP</strong><br />5372677546</p>
-                                <p><strong>REGON</strong><br />526744160</p>
-                            </div>
-
-                            <div class="company-col">
-                                <p>
-                                    <strong>Registered seat</strong><br />
-                                    Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                                </p>
-                                <p>
-                                    <strong>Correspondence address</strong><br />
-                                    Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                                </p>
-                                <p>
-                                    <strong>Email</strong><br />
-                                    saeedkomasy@gmail.com
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- پنجره ۲: سهام‌داران و سرمایه -->
-                <section class="subview" data-subview="owners">
-                    <div class="card-panel">
-                        <h2>Owners &amp; Capital</h2>
-
-                        <p><strong>Share capital</strong></p>
-                        <p>Amount: 5 000,00 PLN</p>
-                        <p>Capital not covered by in-kind contribution.</p>
-
-                        <div class="owners-grid">
-                            <div class="owner-card">
-                                <h3>Komasi Saeid</h3>
-                                <p>President of the Management Board</p>
-                                <p>Number of shares: 90</p>
-                                <p>Total value: 4 500,00 PLN</p>
-                            </div>
-
-                            <div class="owner-card">
-                                <h3>Rezazadeh Mehdi</h3>
-                                <p>Member of the Management Board</p>
-                                <p>Number of shares: 10</p>
-                                <p>Total value: 500,00 PLN</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- پنجره ۳: فعالیت‌های اقتصادی (PKD) -->
-                <section class="subview" data-subview="activities">
-                    <div class="card-panel">
-                        <h2>Business activities</h2>
-
-                        <p class="pkd-intro">
-                            Main statutory activities according to the Polish Classification of Activities (PKD):
-                        </p>
-
-                        <div class="pkd-list">
-                            <div class="pkd-pill">49.41.Z – Road freight transport</div>
-                            <div class="pkd-pill">45.20.Z – Maintenance and repair of motor vehicles</div>
-                            <div class="pkd-pill">52.29.C – Other transport support activities</div>
-                            <div class="pkd-pill">56.29.Z – Other food service activities</div>
-                            <div class="pkd-pill">96.09.Z – Other personal service activities</div>
-                            <div class="pkd-pill">49.39.Z – Other land transport</div>
-                            <div class="pkd-pill">68.20.Z – Rental and operating of own or leased real estate</div>
-                            <div class="pkd-pill">70.22.Z – Business and management consultancy</div>
-                            <div class="pkd-pill">82.11.Z – Office administrative and support activities</div>
-                        </div>
-
-                        <div class="pkd-details">
-                            <h3>Road freight transport (PKD 49.41.Z)</h3>
-                            <p>
-                                International and domestic road freight transport with modern Euro 6 trucks.
-                                Main corridors: European Union – Iran – Poland with focus on time-critical and
-                                high-value cargo.
-                            </p>
-                            <ul>
-                                <li>Full truck load (FTL) and part load (LTL) transports</li>
-                                <li>Transport of palletised, industrial and consumer goods</li>
-                                <li>Flexible routing through Central &amp; Eastern Europe, Balkans, Türkiye and the Middle East</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- ===== PERSONAL VIEW ===== -->
-            <section
-                id="personalView"
-                class="view-section"
-                data-view-section="personal"
-            >
-                <div class="card-panel personal-panel">
-                    <h2>Personal direct contact</h2>
-                    <p>
-                        For direct contact with CEO &amp; Founder you can use the same WhatsApp,
-                        Telegram and Email below.
-                    </p>
-
-                    <div class="contact-buttons">
-                        <a
-                            href="tel:+488480047374"
-                            class="contact-btn contact-btn--whatsapp"
-                        >
-                            📞 WhatsApp / Phone
-                        </a>
-                        <a
-                            href="https://t.me/Saeid4061"
-                            class="contact-btn contact-btn--telegram"
-                            target="_blank" rel="noopener noreferrer"
-                        >
-                            ✈️ Telegram @Saeid4061
-                        </a>
-                        <a
-                            href="mailto:saeedkomasy@gmail.com"
-                            class="contact-btn contact-btn--email"
-                        >
-                            ✉️ Email
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- ========== FOOTER ========== -->
-        <footer class="site-footer">
-            <span>© SAEID KOMASI – GREY LION 2025</span>
-        </footer>
+    <!-- توضیح زیر تب‌ها -->
+    <div class="mode-caption" id="modeCaption">
+        Select <strong>Company</strong> or <strong>Personal</strong> to view details.
     </div>
 
-    <script src="main.js"></script>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <!-- HOME (صفحه شروع – بدون اطلاعات) -->
+        <section id="homeSection" class="card-panel visible">
+            <div class="home-intro">
+                <h2>Welcome</h2>
+                <p>
+                    This is the official contact &amp; company profile page of
+                    <strong>SAEID4061 Sp. z o.o.</strong>  
+                    Choose <strong>Company</strong> to see legal &amp; business data,
+                    or <strong>Personal</strong> for direct CEO contact.
+                </p>
+            </div>
+        </section>
+
+        <!-- COMPANY SECTION -->
+        <section id="companySection" class="card-panel hidden">
+            <!-- زیرتب‌های داخل Company -->
+            <nav class="sub-tabs">
+                <button class="sub-tab active" data-subtab="registration">Registration</button>
+                <button class="sub-tab" data-subtab="owners">Owners &amp; Capital</button>
+                <button class="sub-tab" data-subtab="activities">Activities</button>
+            </nav>
+
+            <!-- Registration / Company profile -->
+            <div id="company-registration" class="subtab-panel visible">
+                <h2>Company details</h2>
+                <div class="company-grid">
+                    <div>
+                        <p><strong>Company</strong><br />SAEID4061 Sp. z o.o.</p>
+                        <p><strong>KRS</strong><br />0001065392</p>
+                        <p><strong>NIP</strong><br />5372677546</p>
+                        <p><strong>REGON</strong><br />526744160</p>
+                    </div>
+                    <div>
+                        <p><strong>Registered seat</strong><br />
+                            Orzechowa 32/1, 21-500 Biała Podlaska, Poland
+                        </p>
+                        <p><strong>Correspondence address</strong><br />
+                            Orzechowa 32/1, 21-500 Biała Podlaska, Poland
+                        </p>
+                        <p><strong>Email</strong><br />saeedkomasy@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Owners & capital -->
+            <div id="company-owners" class="subtab-panel hidden">
+                <h2>Owners &amp; share capital</h2>
+                <div class="company-grid">
+                    <div>
+                        <p><strong>Share capital</strong><br />5 000,00 PLN</p>
+                        <p><strong>Capital covered</strong><br />Cash contribution</p>
+                    </div>
+                    <div>
+                        <p><strong>Shareholder 1</strong><br />
+                           Saeid Komasi – 90 shares – 4 500,00 PLN
+                        </p>
+                        <p><strong>Shareholder 2</strong><br />
+                           Mehdi Rezazadeh – 10 shares – 500,00 PLN
+                        </p>
+                        <p><strong>Management</strong><br />
+                           President of the Board: Saeid Komasi<br/>
+                           Member of the Board: Mehdi Rezazadeh
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business activities – هر PKD یک کلید -->
+            <div id="company-activities" class="subtab-panel hidden">
+                <h2>Business activities</h2>
+                <p class="muted">
+                    Main statutory activities according to the Polish Classification of Activities (PKD).
+                </p>
+
+                <!-- دکمه‌های هر شاخه -->
+                <div class="activities-buttons">
+                    <button class="activity-btn active" data-activity="pkd_49_41">
+                        49.41Z – Road freight transport
+                    </button>
+                    <button class="activity-btn" data-activity="pkd_45">
+                        45 – Motor vehicles trade &amp; repair
+                    </button>
+                    <button class="activity-btn" data-activity="pkd_52">
+                        52 – Warehousing &amp; logistics support
+                    </button>
+                    <button class="activity-btn" data-activity="pkd_56">
+                        56 – Food services (drivers &amp; partners)
+                    </button>
+                    <button class="activity-btn" data-activity="pkd_96">
+                        96 – Other personal service activities
+                    </button>
+                    <button class="activity-btn" data-activity="pkd_49_other">
+                        49 – Other land transport &amp; pipelines
+                    </button>
+                    <button class="activity-btn" data-activity="pkd_68">
+                        68 – Real estate related activities
+                    </button>
+                    <button class="activity-btn" data-activity="pkd_70">
+                        70 – Head offices &amp; consultancy
+                    </button>
+                    <button class="activity-btn" data-activity="pkd_82">
+                        82 – Office admin &amp; support
+                    </button>
+                </div>
+
+                <!-- جعبه توضیحات هر شاخه -->
+                <div id="activityDetails" class="activity-details card-panel">
+                    <!-- با JS پر می‌شود -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PERSONAL SECTION -->
+        <section id="personalSection" class="card-panel hidden">
+            <h2>Personal direct contact</h2>
+            <p>
+                For direct contact with CEO &amp; Founder you can use the same
+                WhatsApp, Telegram and Email shown below.  
+                Available for urgent transport inquiries, partnership offers and
+                strategic cooperation.
+            </p>
+
+            <div class="contact-buttons">
+                <a href="https://wa.me/488480047748" class="contact-btn whatsapp" target="_blank">
+                    📞 WhatsApp / Phone
+                </a>
+                <a href="https://t.me/Saeid4061" class="contact-btn telegram" target="_blank">
+                    💬 Telegram @Saeid4061
+                </a>
+                <a href="mailto:saeedkomasy@gmail.com" class="contact-btn email">
+                    ✉️ saeedkomasy@gmail.com
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FLOATING CONTACT ICONS (سمت راست پایین) ===== -->
+    <div class="floating-contacts">
+        <a href="https://wa.me/488480047748" target="_blank" title="WhatsApp / Phone">📞</a>
+        <a href="https://t.me/Saeid4061" target="_blank" title="Telegram">@</a>
+        <a href="mailto:saeedkomasy@gmail.com" title="Email">✉️</a>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        © SAEID KOMASI – GREY LION 2025
+    </footer>
+</div>
+
+<script src="main.js"></script>
 </body>
 </html>
