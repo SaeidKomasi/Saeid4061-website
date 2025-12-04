@@ -1,479 +1,109 @@
-/* ====== GOOGLE FONTS ====== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
+/* ===== FIX: Company / Personal toggle buttons ===== */
 
-/* ====== GLOBAL RESET ====== */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+.view-toggle {
+    margin: 10px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    min-height: 100vh;
-    color: #f5f5f5;
-    background: #000;
+.view-toggle__btn {
+    position: relative;
+    padding: 6px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(15, 23, 42, 0.9);
+    color: #e5e7eb;
+    font-size: 12px;
+    cursor: pointer;
+    min-width: 140px;
+    text-align: center;
     font-family: "Montserrat", Arial, sans-serif;
 }
 
-/* راست‌چین برای فارسی */
-body.rtl {
-    direction: rtl;
-}
-
-/* ====== PAGE WRAPPER – حالت روز و شب ====== */
-.page-wrapper {
-    min-height: 100vh;
-    background:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.9)),
-        url("assets/bg-day.jpg") center center / cover no-repeat fixed;
-    display: flex;
-    flex-direction: column;
-}
-
-/* وقتی JS کلاس personal-bg می‌گذارد، بک‌گراند شب می‌شود */
-.page-wrapper.personal-bg {
-    background:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.95)),
-        url("assets/bg-night.jpg") center center / cover no-repeat fixed;
-}
-
-/* ====== HEADER ====== */
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 24px;
-    background: linear-gradient(90deg, #0053b8, #0071ff);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
-    position: sticky;
-    top: 0;
-    z-index: 20;
-}
-
-/* لوگو سمت چپ */
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-square {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.logo-square img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* برچسب مسیر EU–IR–PL */
-.route-badge {
-    padding: 4px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #f5f5f5;
-    background: rgba(0, 0, 0, 0.15);
-}
-
-/* عنوان وسط */
-.header-center {
-    text-align: center;
-    flex: 1 1 auto;
-}
-
-.header-name {
-    font-family: "Playfair Display", serif;
-    font-size: 24px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-}
-
-.header-role {
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    opacity: 0.88;
-}
-
-.header-company {
-    font-size: 14px;
+.view-toggle__btn strong {
+    display: block;
+    font-size: 13px;
     font-weight: 600;
-    margin-top: 4px;
 }
 
-.header-subline {
+.view-toggle__btn span {
+    display: block;
     font-size: 11px;
-    margin-top: 2px;
-    opacity: 0.9;
+    opacity: 0.82;
 }
 
-/* سمت راست هدر: سوییچ زبان و غیره */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* حالت فعال (کلید انتخاب‌شده) */
+.view-toggle__btn.active {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: #022c22;
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.45);
 }
 
-/* دکمه انتخاب زبان */
-.language-toggle {
-    position: relative;
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    background: rgba(0, 0, 0, 0.12);
-    color: #fff;
-    font-size: 11px;
-    cursor: pointer;
-    min-width: 120px;
-    text-align: center;
-}
+/* ===== FIX: نمایش/عدم نمایش بخش کمپانی و پرسنل ===== */
 
-.language-toggle:hover {
-    background: rgba(0, 0, 0, 0.22);
-}
-
-/* منوی زبان (لیست کشویی) */
-.language-menu {
-    position: absolute;
-    top: 110%;
-    right: 0;
-    background: #111827;
-    border-radius: 10px;
-    padding: 6px 0;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-    max-height: 260px;
-    overflow-y: auto;
-    min-width: 170px;
-    z-index: 30;
+/* فرض می‌کنیم div های اصلی بدنه، کلاس view-section دارن */
+.view-section {
     display: none;
 }
 
-.language-menu.open {
+.view-section.active {
     display: block;
 }
 
-.language-option {
-    padding: 6px 12px;
-    font-size: 11px;
-    text-align: left;
-    cursor: pointer;
-    white-space: nowrap;
-}
+/* ===== FIX: تب‌های داخل Company (Registration / Owners & Capital / Activities) ===== */
 
-body.rtl .language-option {
-    text-align: right;
-}
-
-.language-option:hover {
-    background: rgba(55, 65, 81, 0.9);
-}
-
-/* ====== MODE TOGGLE: Company / Personal ====== */
-.mode-toggle {
-    margin: 12px auto 0;
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-    z-index: 10;
-}
-
-.mode-btn {
-    position: relative;
-    padding: 6px 16px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    background: rgba(15, 23, 42, 0.85);
-    color: #e5e7eb;
-    font-size: 12px;
-    cursor: pointer;
-    min-width: 90px;
-}
-
-.mode-btn span {
-    display: block;
-    font-size: 11px;
-    opacity: 0.8;
-}
-
-.mode-btn.active {
-    background: #22c55e;
-    border-color: #22c55e;
-    color: #022c22;
-}
-
-/* ====== COMPANY SUBTABS (Registration / Owners / Activities) ====== */
 .company-tabs {
-    margin: 8px auto 0;
+    margin: 12px auto 8px;
     display: flex;
     justify-content: center;
     gap: 6px;
     flex-wrap: wrap;
 }
 
-.company-tab {
+/* اگر قبلاً خودت برای تب‌ها دکمه گذاشتی، همین استایل روی همه button های داخل .company-tabs اعمال می‌شود */
+.company-tabs button {
     padding: 5px 14px;
     border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.85);
-    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.9);
+    background: rgba(15, 23, 42, 0.95);
     color: #e5e7eb;
     font-size: 11px;
     cursor: pointer;
+    font-family: "Montserrat", Arial, sans-serif;
 }
 
-.company-tab.active {
-    background: #22c55e;
-    border-color: #22c55e;
-    color: #022c22;
+.company-tabs button:hover {
+    background: rgba(30, 64, 175, 0.9);
 }
 
-/* ====== CONTENT LAYOUT ====== */
-.content-wrapper {
-    flex: 1 1 auto;
-    padding: 14px 24px 32px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* دو ستون برای دسکتاپ */
-.content-columns {
-    display: grid;
-    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.1fr);
-    gap: 18px;
-    align-items: flex-start;
-}
-
-/* کارت عمومی */
-.card {
-    background: rgba(15, 23, 42, 0.9);
-    border-radius: 18px;
-    padding: 16px 18px;
-    border: 1px solid rgba(148, 163, 184, 0.6);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-}
-
-/* کارت در حالت شخصی – کمی باریک‌تر */
-.card.personal-card {
-    max-width: 620px;
-    margin: 18px auto 0;
-}
-
-/* عنوان بخش */
-.section-title {
-    font-family: "Playfair Display", serif;
-    font-size: 17px;
-    margin-bottom: 6px;
-}
-
-/* متن توضیح کوتاه زیر عنوان */
-.section-subtitle {
-    font-size: 11px;
-    opacity: 0.78;
-    margin-bottom: 12px;
-}
-
-/* نوشته‌های جزئیات شرکت (راحت خوانده شود) */
-.company-details {
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-.company-details strong {
-    font-weight: 600;
-}
-
-/* ستون چپ و راست برای دیتای شرکت */
-.company-column-left {
-    font-size: 13px;
-}
-
-.company-column-right {
-    font-size: 13px;
-    text-align: right;
-}
-body.rtl .company-column-right {
-    text-align: left;
-}
-
-/* ====== ACTIVITIES LIST (دکمه‌های شاخه‌ها) ====== */
-.activities-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.activity-pill {
-    padding: 6px 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.8);
-    background: rgba(15, 23, 42, 0.9);
-    font-size: 11px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.activity-pill-code {
-    font-weight: 600;
-    color: #22c55e;
-}
-
-.activity-pill.active {
-    background: #22c55e;
-    border-color: #22c55e;
-    color: #022c22;
-}
-
-/* متن داخل بخش فعالیت‌ها */
-.activity-content {
-    margin-top: 12px;
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-.activity-content ul {
-    padding-left: 18px;
-    margin: 6px 0 0;
-    font-size: 13px;
-}
-body.rtl .activity-content ul {
-    padding-left: 0;
-    padding-right: 18px;
-}
-
-/* ====== PERSONAL CONTACT TEXT ====== */
-.personal-text {
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-/* ====== شناور تماس (آیکون‌های گوشه راست) ====== */
-.contact-floating {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 40;
-}
-
-body.rtl .contact-floating {
-    right: auto;
-    left: 22px;
-}
-
-/* آیکون تکی */
-.contact-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    color: #fff;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.75);
-}
-
-/* رنگ‌ها */
-.contact-icon.whatsapp {
-    background: #22c55e;
-}
-.contact-icon.telegram {
+/* تب فعال */
+.company-tabs button.active {
     background: #0ea5e9;
-}
-.contact-icon.email {
-    background: #f97316;
-}
-
-/* ====== FOOTER ====== */
-.site-footer {
-    text-align: center;
-    padding: 10px 16px 16px;
-    font-size: 11px;
-    opacity: 0.8;
+    border-color: #0ea5e9;
+    color: #022c22;
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.45);
 }
 
-/* ====== RESPONSIVE ====== */
-@media (max-width: 960px) {
-    .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-
-    .header-center {
-        text-align: left;
-        width: 100%;
-    }
-    body.rtl .header-center {
-        text-align: right;
-    }
-
-    .content-wrapper {
-        padding: 12px 10px 22px;
-    }
-
-    .content-columns {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .card {
-        margin-top: 10px;
-    }
+/* هر پنجرهٔ محتوای کمپانی که JS بهش کلاس active بده */
+.company-panel {
+    display: none;
 }
 
-@media (max-width: 640px) {
-    .logo-square {
-        width: 46px;
-        height: 46px;
-    }
+.company-panel.active {
+    display: block;
+}
 
-    .header-name {
-        font-size: 20px;
-        letter-spacing: 0.14em;
-    }
+/* کمی فاصله برای عنوان‌ها درون تب‌ها */
+.company-panel .section-title {
+    margin-top: 4px;
+}
 
-    .header-subline {
-        font-size: 10px;
-    }
-
-    .contact-floating {
-        right: 14px;
-        bottom: 14px;
-    }
-    body.rtl .contact-floating {
-        left: 14px;
-        right: auto;
-    }
-
-    .contact-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
+/* رنگ متن‌ها کمی روشن‌تر برای خوانایی روی بک‌گراند تیره */
+.company-details,
+.activity-content,
+.personal-text {
+    color: #e5e7eb;
 }
