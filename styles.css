@@ -1,80 +1,479 @@
+/* ====== GOOGLE FONTS ====== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
 
-/* RESET */
-*,*::before,*::after{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{min-height:100vh;font-family:"Montserrat",Arial,sans-serif;color:#f5f5f5}
-body.rtl{direction:rtl}
-
-/* BACKGROUNDS */
-.page-wrapper{min-height:100vh;display:flex;flex-direction:column;
-  background:linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,.9)),
-  url("assets/bg-day.jpg") center/cover no-repeat fixed;
-  transition:background .6s ease
+/* ====== GLOBAL RESET ====== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
-.page-wrapper.company-mode{background:
-  linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,.9)),
-  url("assets/bg-day.jpg") center/cover no-repeat fixed}
-.page-wrapper.personal-mode{background:
-  linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.95)),
-  url("assets/bg-night.jpg") center/cover no-repeat fixed}
 
-/* HEADER */
-.site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;
-  background:linear-gradient(90deg,#0053b8,#0077ff);box-shadow:0 2px 6px rgba(0,0,0,.45)}
-.header-left,.header-right{display:flex;align-items:center;gap:10px}
-.eu-ir-pl-badge{font-size:11px;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.8);background:rgba(0,0,0,.18)}
-.header-center{text-align:center;color:#fff}
-.site-title{margin:0;font-family:"Playfair Display",serif;font-size:22px;letter-spacing:2px}
-.site-subtitle{font-size:11px;text-transform:uppercase;opacity:.9}
-.site-company{font-size:11px;margin-top:2px;font-weight:600}
-.site-route{margin-top:4px;font-size:10px;letter-spacing:.5px}
-.logo-square{width:60px;height:60px;border-radius:12px;border:2px solid rgba(255,255,255,.9);object-fit:cover;background:#000;box-shadow:0 0 12px rgba(0,0,0,.6)}
-.lang-wrapper{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-left:8px}
-.lang-label{font-size:11px}
-.lang-select{padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.8);background:rgba(0,0,0,.28);color:#fff;font-size:11px}
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
-/* TOP TABS */
-.tab-switch{display:flex;justify-content:center;gap:8px;margin:10px auto}
-.tab-btn{position:relative;background:rgba(0,0,0,.5);border-radius:999px;padding:6px 16px;border:1px solid rgba(255,255,255,.3);color:#fff;cursor:pointer;font-size:11px;min-width:120px;transition:background .25s,transform .15s}
-.tab-btn .tab-title{display:block;font-weight:600}
-.tab-btn .tab-caption{display:block;font-size:10px;opacity:.8}
-.tab-btn.active{background:linear-gradient(90deg,#00c853,#64dd17);color:#021012;transform:translateY(-1px)}
+body {
+    min-height: 100vh;
+    color: #f5f5f5;
+    background: #000;
+    font-family: "Montserrat", Arial, sans-serif;
+}
 
-/* CONTENT */
-.content-area{flex:1 1 auto;display:flex;justify-content:center;align-items:flex-start;padding:12px 16px 60px}
-.content-section{display:none;width:100%;max-width:1100px}
-.content-section.active{display:block}
+/* راست‌چین برای فارسی */
+body.rtl {
+    direction: rtl;
+}
 
-/* INNER TABS (Company panes) */
-.inner-tabs{display:flex;gap:8px;margin:0 0 10px 0;flex-wrap:wrap}
-.inner-tab{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:10px;padding:6px 12px;font-size:12px;cursor:pointer}
-.inner-tab.active{background:#2bd67b;color:#001c12;border-color:#2bd67b}
-.pane-wrapper{display:block}
-.pane{display:none;background:rgba(0,0,0,.65);border-radius:18px;padding:14px 18px;box-shadow:0 12px 30px rgba(0,0,0,.65);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.15)}
-.pane.active{display:block}
+/* ====== PAGE WRAPPER – حالت روز و شب ====== */
+.page-wrapper {
+    min-height: 100vh;
+    background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.9)),
+        url("assets/bg-day.jpg") center center / cover no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+}
 
-/* Simple table-like blocks */
-.info-block{margin:6px 0}
-.info-title{font-family:"Playfair Display",serif;font-size:18px;margin:0 0 8px 0}
-.kv{display:grid;grid-template-columns:220px 1fr;gap:6px 20px;font-size:12px}
-.kv .k{opacity:.85}
-.kv .v{font-weight:600}
+/* وقتی JS کلاس personal-bg می‌گذارد، بک‌گراند شب می‌شود */
+.page-wrapper.personal-bg {
+    background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.95)),
+        url("assets/bg-night.jpg") center center / cover no-repeat fixed;
+}
 
-/* FABs */
-.contact-fab-container{position:fixed;right:14px;bottom:18px;display:flex;flex-direction:column;gap:8px;z-index:30}
-.fab{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;color:#fff;box-shadow:0 6px 15px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.4)}
-.fab-whatsapp{background:#25d366}
-.fab-telegram{background:#0088cc}
-.fab-email{background:#ff9800}
+/* ====== HEADER ====== */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: linear-gradient(90deg, #0053b8, #0071ff);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
 
-/* FOOTER */
-.site-footer{text-align:center;font-size:10px;padding:6px 0 10px;color:#ddd}
+/* لوگو سمت چپ */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-/* RESPONSIVE */
-@media (max-width:768px){
-  .site-header{flex-direction:column;gap:6px}
-  .logo-square{width:52px;height:52px}
-  .content-area{padding:10px 10px 70px}
-  .kv{grid-template-columns:1fr}
+.logo-square {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* برچسب مسیر EU–IR–PL */
+.route-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f5f5f5;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/* عنوان وسط */
+.header-center {
+    text-align: center;
+    flex: 1 1 auto;
+}
+
+.header-name {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.header-role {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.88;
+}
+
+.header-company {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.header-subline {
+    font-size: 11px;
+    margin-top: 2px;
+    opacity: 0.9;
+}
+
+/* سمت راست هدر: سوییچ زبان و غیره */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* دکمه انتخاب زبان */
+.language-toggle {
+    position: relative;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.12);
+    color: #fff;
+    font-size: 11px;
+    cursor: pointer;
+    min-width: 120px;
+    text-align: center;
+}
+
+.language-toggle:hover {
+    background: rgba(0, 0, 0, 0.22);
+}
+
+/* منوی زبان (لیست کشویی) */
+.language-menu {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: #111827;
+    border-radius: 10px;
+    padding: 6px 0;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    max-height: 260px;
+    overflow-y: auto;
+    min-width: 170px;
+    z-index: 30;
+    display: none;
+}
+
+.language-menu.open {
+    display: block;
+}
+
+.language-option {
+    padding: 6px 12px;
+    font-size: 11px;
+    text-align: left;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+body.rtl .language-option {
+    text-align: right;
+}
+
+.language-option:hover {
+    background: rgba(55, 65, 81, 0.9);
+}
+
+/* ====== MODE TOGGLE: Company / Personal ====== */
+.mode-toggle {
+    margin: 12px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    z-index: 10;
+}
+
+.mode-btn {
+    position: relative;
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(15, 23, 42, 0.85);
+    color: #e5e7eb;
+    font-size: 12px;
+    cursor: pointer;
+    min-width: 90px;
+}
+
+.mode-btn span {
+    display: block;
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.mode-btn.active {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: #022c22;
+}
+
+/* ====== COMPANY SUBTABS (Registration / Owners / Activities) ====== */
+.company-tabs {
+    margin: 8px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.company-tab {
+    padding: 5px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.85);
+    background: rgba(15, 23, 42, 0.9);
+    color: #e5e7eb;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.company-tab.active {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: #022c22;
+}
+
+/* ====== CONTENT LAYOUT ====== */
+.content-wrapper {
+    flex: 1 1 auto;
+    padding: 14px 24px 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* دو ستون برای دسکتاپ */
+.content-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.1fr);
+    gap: 18px;
+    align-items: flex-start;
+}
+
+/* کارت عمومی */
+.card {
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 18px;
+    padding: 16px 18px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+/* کارت در حالت شخصی – کمی باریک‌تر */
+.card.personal-card {
+    max-width: 620px;
+    margin: 18px auto 0;
+}
+
+/* عنوان بخش */
+.section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+/* متن توضیح کوتاه زیر عنوان */
+.section-subtitle {
+    font-size: 11px;
+    opacity: 0.78;
+    margin-bottom: 12px;
+}
+
+/* نوشته‌های جزئیات شرکت (راحت خوانده شود) */
+.company-details {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.company-details strong {
+    font-weight: 600;
+}
+
+/* ستون چپ و راست برای دیتای شرکت */
+.company-column-left {
+    font-size: 13px;
+}
+
+.company-column-right {
+    font-size: 13px;
+    text-align: right;
+}
+body.rtl .company-column-right {
+    text-align: left;
+}
+
+/* ====== ACTIVITIES LIST (دکمه‌های شاخه‌ها) ====== */
+.activities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.activity-pill {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.8);
+    background: rgba(15, 23, 42, 0.9);
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.activity-pill-code {
+    font-weight: 600;
+    color: #22c55e;
+}
+
+.activity-pill.active {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: #022c22;
+}
+
+/* متن داخل بخش فعالیت‌ها */
+.activity-content {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.activity-content ul {
+    padding-left: 18px;
+    margin: 6px 0 0;
+    font-size: 13px;
+}
+body.rtl .activity-content ul {
+    padding-left: 0;
+    padding-right: 18px;
+}
+
+/* ====== PERSONAL CONTACT TEXT ====== */
+.personal-text {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* ====== شناور تماس (آیکون‌های گوشه راست) ====== */
+.contact-floating {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 40;
+}
+
+body.rtl .contact-floating {
+    right: auto;
+    left: 22px;
+}
+
+/* آیکون تکی */
+.contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #fff;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.75);
+}
+
+/* رنگ‌ها */
+.contact-icon.whatsapp {
+    background: #22c55e;
+}
+.contact-icon.telegram {
+    background: #0ea5e9;
+}
+.contact-icon.email {
+    background: #f97316;
+}
+
+/* ====== FOOTER ====== */
+.site-footer {
+    text-align: center;
+    padding: 10px 16px 16px;
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 960px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .header-center {
+        text-align: left;
+        width: 100%;
+    }
+    body.rtl .header-center {
+        text-align: right;
+    }
+
+    .content-wrapper {
+        padding: 12px 10px 22px;
+    }
+
+    .content-columns {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .card {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .logo-square {
+        width: 46px;
+        height: 46px;
+    }
+
+    .header-name {
+        font-size: 20px;
+        letter-spacing: 0.14em;
+    }
+
+    .header-subline {
+        font-size: 10px;
+    }
+
+    .contact-floating {
+        right: 14px;
+        bottom: 14px;
+    }
+    body.rtl .contact-floating {
+        left: 14px;
+        right: auto;
+    }
+
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
 }
