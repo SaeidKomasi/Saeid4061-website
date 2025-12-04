@@ -17,17 +17,21 @@ body {
   padding: 26px 16px 40px;
 }
 
-/* پس‌زمینه‌ها */
+/* مپ بک‌گراندها طبق خواسته‌ات:
+   Home  -> روز (جاده روز)
+   Company -> شب (bg-night)
+   Personal -> عکس پل (bg-default)
+*/
 .mode-home {
-  background-image: url("assets/bg-default.jpg");
-}
-
-.mode-company {
   background-image: url("assets/bg-day.jpg");
 }
 
-.mode-personal {
+.mode-company {
   background-image: url("assets/bg-night.jpg");
+}
+
+.mode-personal {
+  background-image: url("assets/bg-default.jpg");
 }
 
 /* ===== HEADER ===== */
@@ -88,8 +92,8 @@ body {
   padding: 18px 14px 26px;
   background: radial-gradient(
     circle at top,
-    rgba(0, 0, 0, 0.85),
-    rgba(0, 0, 0, 0.4)
+    rgba(0, 0, 0, 0.86),
+    rgba(0, 0, 0, 0.55)
   );
   border-radius: 16px;
   backdrop-filter: blur(6px);
@@ -191,6 +195,7 @@ body {
   align-items: flex-start;
   transition: transform 0.15s ease, box-shadow 0.15s ease,
     background 0.15s ease, border-color 0.15s ease;
+  color: #ffffff;
 }
 
 .activity-card:hover {
@@ -209,7 +214,7 @@ body {
 
 .act-label {
   font-size: 13px;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 /* ===== ACTIVITY DETAIL ===== */
