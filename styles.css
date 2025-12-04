@@ -1,24 +1,21 @@
-/* ===== GOOGLE FONTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
 
-/* ===== RESET ===== */
+/* RESET */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
-
 html, body {
     margin: 0;
     padding: 0;
 }
-
 body {
     font-family: "Montserrat", Arial, sans-serif;
     color: #f5f5f5;
 }
 
-/* ===== PAGE WRAPPER + BACKGROUNDS ===== */
+/* BACKGROUNDS */
 .page-wrapper {
     min-height: 100vh;
     display: flex;
@@ -27,29 +24,23 @@ body {
         linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85)),
         url("assets/bg-day.jpg") center center / cover no-repeat fixed;
 }
-
-/* صفحه شروع – بک‌گراند روز */
 .page-wrapper.mode-home {
     background:
         linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85)),
         url("assets/bg-day.jpg") center center / cover no-repeat fixed;
 }
-
-/* Company – بک‌گراند شب */
 .page-wrapper.mode-company {
     background:
         linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85)),
         url("assets/bg-night.jpg") center center / cover no-repeat fixed;
 }
-
-/* Personal – عکس خودت */
 .page-wrapper.mode-personal {
     background:
         linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85)),
         url("assets/bg-default.jpg") center center / cover no-repeat fixed;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .site-header {
     display: flex;
     align-items: center;
@@ -61,28 +52,20 @@ body {
     top: 0;
     z-index: 20;
 }
-
 .header-left,
 .header-center,
 .header-right {
     display: flex;
     align-items: center;
 }
-
-.header-left {
-    flex: 0 0 auto;
-}
-
+.header-left { flex: 0 0 auto; }
 .header-center {
     flex-direction: column;
     justify-content: center;
     text-align: center;
     flex: 1 1 auto;
 }
-
-.header-right {
-    gap: 16px;
-}
+.header-right { gap: 16px; }
 
 .flag-badge {
     padding: 4px 10px;
@@ -93,26 +76,23 @@ body {
     letter-spacing: 0.06em;
 }
 
-/* هدر – فونت خاص */
+/* HEADLINE */
 .headline-top {
     font-family: "Playfair Display", serif;
     font-size: 1.6rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
 }
-
 .headline-sub {
     font-size: 0.9rem;
     opacity: 0.9;
     margin-top: 2px;
 }
-
 .headline-company {
     font-size: 0.95rem;
     font-weight: 600;
     margin-top: 2px;
 }
-
 .headline-route {
     font-size: 0.75rem;
     opacity: 0.9;
@@ -121,19 +101,17 @@ body {
     margin-top: 4px;
 }
 
-/* زبان + لوگو */
+/* LANG + LOGO */
 .lang-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 2px;
 }
-
 .lang-label {
     font-size: 0.7rem;
     opacity: 0.8;
 }
-
 .lang-select {
     border-radius: 999px;
     padding: 3px 10px;
@@ -142,7 +120,6 @@ body {
     background: rgba(0,0,0,0.2);
     color: #fff;
 }
-
 .logo-box {
     width: 52px;
     height: 52px;
@@ -154,21 +131,19 @@ body {
     justify-content: center;
     background: #000;
 }
-
 .logo-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* ===== TOP TABS (COMPANY / PERSONAL) ===== */
+/* TOP TABS */
 .top-tabs {
     display: flex;
     justify-content: center;
     gap: 8px;
     margin-top: 10px;
 }
-
 .top-tab {
     min-width: 110px;
     padding: 6px 18px;
@@ -180,14 +155,12 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
 }
-
 .top-tab.active {
     background: #00b36b;
     border-color: #00b36b;
     color: #fff;
 }
 
-/* کپشن زیر تب‌ها */
 .mode-caption {
     text-align: center;
     margin-top: 6px;
@@ -195,13 +168,11 @@ body {
     opacity: 0.9;
 }
 
-/* ===== MAIN CONTENT ===== */
+/* MAIN CONTENT */
 .main-content {
     flex: 1 1 auto;
     padding: 16px 24px 40px;
 }
-
-/* کارت کلی */
 .card-panel {
     max-width: 1100px;
     margin: 14px auto;
@@ -211,32 +182,20 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.6);
     backdrop-filter: blur(4px);
 }
+.card-panel h2 { margin-top: 0; }
 
-.card-panel h2 {
-    margin-top: 0;
-}
+.hidden { display: none; }
+.visible { display: block; }
 
-/* نمایش / عدم نمایش */
-.hidden {
-    display: none;
-}
-.visible {
-    display: block;
-}
+.home-intro p { max-width: 700px; }
 
-/* HOME INTRO */
-.home-intro p {
-    max-width: 700px;
-}
-
-/* SUB TABS (داخل Company) */
+/* SUBTABS */
 .sub-tabs {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 10px;
 }
-
 .sub-tab {
     padding: 5px 14px;
     border-radius: 999px;
@@ -247,14 +206,13 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
 }
-
 .sub-tab.active {
     background: #ffb020;
     border-color: #ffb020;
     color: #000;
 }
 
-/* Company grid */
+/* GRID */
 .company-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -262,14 +220,13 @@ body {
     font-size: 0.9rem;
 }
 
-/* Activities */
+/* ACTIVITIES */
 .activities-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     margin: 10px 0 12px;
 }
-
 .activity-btn {
     border-radius: 999px;
     border: 1px solid rgba(173,216,255,0.6);
@@ -281,7 +238,6 @@ body {
     white-space: nowrap;
     transition: all 0.15s ease;
 }
-
 .activity-btn.active {
     background: #2f7fff;
     border-color: #2f7fff;
@@ -292,20 +248,42 @@ body {
     margin-top: 8px;
     font-size: 0.9rem;
 }
-
 .muted {
     font-size: 0.8rem;
     opacity: 0.85;
 }
 
-/* Contact buttons (Personal) */
+/* جزئیات اکتیویتی – هدر و بدنه خالی */
+.activity-detail-view {
+    margin-top: 14px;
+}
+.back-btn {
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.6);
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.activity-detail-view h3 {
+    margin: 4px 0 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.activity-detail-body {
+    margin-top: 12px;
+    min-height: 120px; /* جا برای چیزهایی که بعداً اضافه می‌کنیم */
+}
+
+/* CONTACT BUTTONS */
 .contact-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 16px;
 }
-
 .contact-btn {
     text-decoration: none;
     padding: 9px 18px;
@@ -317,21 +295,14 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-.contact-btn.whatsapp {
-    background: #25d366;
-}
-
-.contact-btn.telegram {
-    background: #229ed9;
-}
-
+.contact-btn.whatsapp { background: #25d366; }
+.contact-btn.telegram { background: #229ed9; }
 .contact-btn.email {
     background: #ffb020;
     color: #000;
 }
 
-/* floating contacts */
+/* FLOATING CONTACTS */
 .floating-contacts {
     position: fixed;
     right: 18px;
@@ -341,7 +312,6 @@ body {
     gap: 8px;
     z-index: 30;
 }
-
 .floating-contacts a {
     width: 40px;
     height: 40px;
@@ -363,7 +333,7 @@ body {
     opacity: 0.85;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .site-header {
         flex-direction: column;
