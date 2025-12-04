@@ -1,128 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>SAEID KOMASI – Contact</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <title>SAEID KOMASI — Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 <div id="page" class="page-wrapper company-mode">
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-        <div class="header-left">
-            <div class="eu-ir-pl-badge">EU • IR • PL</div>
-        </div>
-
-        <div class="header-center">
-            <h1 class="site-title">SAEID KOMASI</h1>
-            <div class="site-subtitle">CEO &amp; Founder</div>
-            <div class="site-company">SAEID4061 Sp. z o.o.</div>
-            <div class="site-route">
-                International Road Transport – Europe • Middle East • Central Asia
-            </div>
-        </div>
-
-        <div class="header-right">
-            <img src="saeid4061-logo.jpg" alt="Grey Lion logo" class="logo-square" />
-            <div class="lang-wrapper">
-                <label for="languageSelect" class="lang-label">Language</label>
-                <select id="languageSelect" class="lang-select"></select>
-            </div>
-        </div>
-    </header>
-
-    <!-- ===== TABS ===== -->
-    <nav class="tab-switch">
-        <button id="companyTab" class="tab-btn active">
-            <span class="tab-title" data-i18n="tabCompany">Company</span>
-            <span class="tab-caption" data-i18n="tabCompanyCaption">
-                Company profile &amp; registration data
-            </span>
-        </button>
-        <button id="personalTab" class="tab-btn">
-            <span class="tab-title" data-i18n="tabPersonal">Personal</span>
-            <span class="tab-caption" data-i18n="tabPersonalCaption">
-                Direct personal contact with CEO &amp; Founder
-            </span>
-        </button>
-    </nav>
-
-    <!-- ===== MAIN CONTENT ===== -->
-    <main class="content-area">
-        <!-- COMPANY SECTION -->
-        <section id="companySection" class="content-section active">
-            <div class="company-card">
-                <h2 data-i18n="companyDetailsTitle">Company details</h2>
-                <p class="card-sub" data-i18n="companyDetailsSubtitle">
-                    Official registration data of the company:
-                </p>
-
-                <div class="company-grid">
-                    <div class="col">
-                        <div class="field">
-                            <span data-i18n="labelCompany">Company</span><br />
-                            SAEID4061 Sp. z o.o.
-                        </div>
-                        <div class="field">
-                            <span data-i18n="labelKRS">KRS</span><br />
-                            0001065392
-                        </div>
-                        <div class="field">
-                            <span data-i18n="labelNIP">NIP</span><br />
-                            5372677546
-                        </div>
-                        <div class="field">
-                            <span data-i18n="labelREGON">REGON</span><br />
-                            526744160
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="field">
-                            <span data-i18n="labelRegisteredSeat">Registered seat</span><br />
-                            Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                        </div>
-                        <div class="field">
-                            <span data-i18n="labelCorrAddress">Correspondence address</span><br />
-                            Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                        </div>
-                        <div class="field">
-                            <span data-i18n="labelDirectContact">Direct contact / 24h for urgent transport inquiries</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PERSONAL SECTION -->
-        <section id="personalSection" class="content-section">
-            <div class="personal-card">
-                <h2 data-i18n="personalTitle">Personal direct contact</h2>
-                <p data-i18n="personalText">
-                    For direct contact with CEO &amp; Founder, you can use the same WhatsApp, Telegram and Email shown below.
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <!-- ===== CONTACT FLOATING BUTTONS ===== -->
-    <div class="contact-fab-container">
-        <a class="fab fab-whatsapp" href="https://wa.me/48737004748" target="_blank" aria-label="WhatsApp">
-            📞
-        </a>
-        <a class="fab fab-telegram" href="https://t.me/Saeid4061" target="_blank" aria-label="Telegram">
-            ✈️
-        </a>
-        <a class="fab fab-email" href="mailto:saeedkomasy@gmail.com" aria-label="Email">
-            ✉️
-        </a>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-left">
+      <div class="eu-ir-pl-badge">EU • IR • PL</div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="site-footer">
-        © SAEID KOMASI – GREY LION 2025
-    </footer>
+    <div class="header-center">
+      <h1 class="site-title">SAEID KOMASI</h1>
+      <div class="site-subtitle">CEO &amp; Founder</div>
+      <div class="site-company">SAEID4061 Sp. z o.o.</div>
+      <div class="site-route">International Road Transport — Europe • Middle East • Central Asia</div>
+    </div>
+
+    <div class="header-right">
+      <img src="saeid4061-logo.jpg" alt="Grey Lion logo" class="logo-square" />
+      <div class="lang-wrapper">
+        <label class="lang-label" for="languageSelect">Language</label>
+        <select id="languageSelect" class="lang-select"></select>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOP TABS (Company / Personal) -->
+  <nav class="tab-switch">
+    <button id="companyTab" class="tab-btn active">
+      <span class="tab-title" data-i18n="tabCompany">Company</span>
+      <span class="tab-caption" data-i18n="tabCompanyCaption">Company profile & registration data</span>
+    </button>
+    <button id="personalTab" class="tab-btn">
+      <span class="tab-title" data-i18n="tabPersonal">Personal</span>
+      <span class="tab-caption" data-i18n="tabPersonalCaption">Direct personal contact with CEO & Founder</span>
+    </button>
+  </nav>
+
+  <!-- CONTENT AREA -->
+  <main class="content-area">
+    <!-- COMPANY SECTION with inner tabs -->
+    <section id="companySection" class="content-section active">
+      <div class="inner-tabs">
+        <button data-pane="registration" class="inner-tab active" data-i18n="paneRegistration">Registration</button>
+        <button data-pane="owners" class="inner-tab" data-i18n="paneOwners">Owners & Capital</button>
+        <button data-pane="activities" class="inner-tab" data-i18n="paneActivities">Activities</button>
+      </div>
+
+      <div class="pane-wrapper">
+        <article id="pane-registration" class="pane active">
+          <!-- Filled by JS from content/company/<lang>/registration.json -->
+        </article>
+        <article id="pane-owners" class="pane">
+          <!-- Filled by JS from content/company/<lang>/owners.json -->
+        </article>
+        <article id="pane-activities" class="pane">
+          <!-- Filled by JS from content/company/<lang>/activities.json -->
+        </article>
+      </div>
+    </section>
+
+    <!-- PERSONAL SECTION -->
+    <section id="personalSection" class="content-section">
+      <div class="personal-card">
+        <h2 data-i18n="personalTitle">Personal direct contact</h2>
+        <p data-i18n="personalText">
+          For direct contact with CEO &amp; Founder, you can use the same WhatsApp, Telegram and Email shown below.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FLOATING CONTACT ICONS -->
+  <div class="contact-fab-container">
+    <a class="fab fab-whatsapp" href="https://wa.me/48737004748" target="_blank" aria-label="WhatsApp">📞</a>
+    <a class="fab fab-telegram" href="https://t.me/Saeid4061" target="_blank" aria-label="Telegram">✈️</a>
+    <a class="fab fab-email" href="mailto:saeedkomasy@gmail.com" aria-label="Email">✉️</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">© SAEID KOMASI — GREY LION 2025</footer>
 </div>
 
 <script src="main.js"></script>
