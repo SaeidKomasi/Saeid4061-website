@@ -1,0 +1,12 @@
+{
+  "title": "Company details",
+  "fields": [
+    {"label": "Company", "value": "SAEID4061 Sp. z o.o."},
+    {"label": "KRS", "value": "0001065392"},
+    {"label": "NIP", "value": "5372677546"},
+    {"label": "REGON", "value": "526744160"},
+    {"label": "Registered seat", "value": "Orzechowa 32/1, 21-500 Biała Podlaska, Poland"},
+    {"label": "Correspondence address", "value": "Orzechowa 32/1, 21-500 Biała Podlaska, Poland"},
+    {"label": "Email", "value": "saeedkomasy@gmail.com"}
+  ]
+}
