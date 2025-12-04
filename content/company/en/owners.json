@@ -1,0 +1,12 @@
+{
+  "title": "Owners & Capital",
+  "owners": [
+    {"role": "President of the Management Board", "name": "Saeid Komasi", "pesel": "84091923055", "shares": "90 shares"},
+    {"role": "Member of the Management Board", "name": "Mehdi Rezazadeh", "pesel": "81062521135", "shares": "10 shares"}
+  ],
+  "capital": {
+    "title": "Share capital",
+    "amount": "5,000.00 PLN",
+    "note": "Capital not covered by in-kind contribution."
+  }
+}
