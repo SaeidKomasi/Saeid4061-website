@@ -1,56 +1,62 @@
 /* ===== GOOGLE FONTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
 
-/* ===== GLOBAL RESET ===== */
+/* ===== RESET ===== */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
 }
 
 body {
     min-height: 100vh;
-    color: #f5f5f5;
     font-family: "Montserrat", Arial, sans-serif;
+    color: #f5f5f5;
 }
 
-/* RTL برای فارسی */
+/* RTL for Persian */
 body.rtl {
     direction: rtl;
 }
 
-/* ===== PAGE WRAPPER ===== */
-/* پیش‌فرض: بک‌گراند روز (Company) */
+/* ===== PAGE WRAPPER & BACKGROUNDS ===== */
 .page-wrapper {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(4, 8, 20, 0.9)),
+        linear-gradient(to bottom, rgba(0,0,0,0.40), rgba(0,0,0,0.85)),
+        url("assets/bg-day.jpg") center center / cover no-repeat fixed;
+    transition: background-image 0.6s ease, background 0.6s ease;
+}
+
+/* Company (day) */
+.page-wrapper.company-mode {
+    background:
+        linear-gradient(to bottom, rgba(0,0,0,0.40), rgba(0,0,0,0.85)),
         url("assets/bg-day.jpg") center center / cover no-repeat fixed;
 }
 
-/* حالت شب برای صفحه شخصی */
-.page-wrapper.night-bg {
+/* Personal (night) */
+.page-wrapper.personal-mode {
     background:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.96)),
+        linear-gradient(to bottom, rgba(0,0,0,0.60), rgba(0,0,0,0.95)),
         url("assets/bg-night.jpg") center center / cover no-repeat fixed;
 }
 
 /* ===== HEADER ===== */
 .site-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 8px 22px;
-    background: linear-gradient(90deg, #0053b8, #007cff);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+    justify-content: space-between;
+    padding: 10px 18px;
+    background: linear-gradient(90deg, #0053b8, #0077ff);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.45);
 }
 
 .header-left,
@@ -60,279 +66,271 @@ body.rtl {
     gap: 10px;
 }
 
+/* EU IR PL pill */
+.eu-ir-pl-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.8);
+    background: rgba(0,0,0,0.18);
+}
+
+/* Center title block */
 .header-center {
     text-align: center;
+    color: #fff;
+}
+
+.site-title {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.site-subtitle {
+    font-size: 11px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.site-company {
+    font-size: 11px;
+    margin-top: 2px;
+    font-weight: 600;
+}
+
+.site-route {
+    margin-top: 4px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
 }
 
 /* Logo */
-.logo-box {
-    width: 56px;
-    height: 56px;
-    border-radius: 18px;
-    background: rgba(0, 0, 0, 0.35);
-    padding: 4px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
-}
-
-.logo-img {
-    width: 100%;
-    height: 100%;
+.logo-square {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.9);
     object-fit: cover;
-}
-
-/* Badge */
-.route-badge {
-    padding: 4px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #f0f4ff;
-    background: rgba(0, 0, 0, 0.22);
-}
-
-/* Header text */
-.owner-name {
-    margin: 0;
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.owner-role {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    opacity: 0.9;
-}
-
-.company-name {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.8px;
-    margin-top: 2px;
-    opacity: 0.95;
-}
-
-.route-subtitle {
-    margin-top: 3px;
-    font-size: 11px;
-    letter-spacing: 1px;
-    opacity: 0.9;
+    background: #000;
+    box-shadow: 0 0 12px rgba(0,0,0,0.6);
 }
 
 /* Language select */
-.language-label {
-    font-size: 11px;
-    margin-right: 4px;
+.lang-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    margin-left: 10px;
 }
 
-.language-select {
-    padding: 3px 6px;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    background: rgba(0, 0, 0, 0.25);
-    color: #ffffff;
+.lang-label {
+    font-size: 11px;
+}
+
+.lang-select {
+    padding: 4px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.8);
+    background: rgba(0,0,0,0.28);
+    color: #fff;
     font-size: 11px;
 }
 
 /* ===== TABS ===== */
-.tabs {
+.tab-switch {
     display: flex;
     justify-content: center;
-    gap: 6px;
-    padding: 8px 0 2px;
+    gap: 8px;
+    margin: 10px auto;
 }
 
 .tab-btn {
-    min-width: 90px;
-    padding: 5px 14px;
+    position: relative;
+    background: rgba(0,0,0,0.5);
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    background: rgba(0, 0, 0, 0.35);
-    color: #f2f6ff;
-    font-size: 12px;
+    padding: 6px 16px;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
     cursor: pointer;
-    transition: all 0.18s ease;
+    font-size: 11px;
+    min-width: 120px;
+    transition: background 0.25s, transform 0.15s;
+}
+
+.tab-btn .tab-title {
+    display: block;
+    font-weight: 600;
+}
+
+.tab-btn .tab-caption {
+    display: block;
+    font-size: 10px;
+    opacity: 0.8;
 }
 
 .tab-btn.active {
-    background: #28a745;
-    border-color: #1f8c39;
-    color: #ffffff;
-    box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
-}
-
-/* نوشته زیر تب‌ها */
-.tabs-caption {
-    text-align: center;
-    font-size: 11px;
-    opacity: 0.9;
-    margin-bottom: 4px;
+    background: linear-gradient(90deg, #00c853, #64dd17);
+    color: #021012;
+    transform: translateY(-1px);
 }
 
 /* ===== MAIN CONTENT ===== */
-.content {
+.content-area {
     flex: 1 1 auto;
-    padding: 18px 20px 40px;
     display: flex;
-    align-items: flex-start;
     justify-content: center;
+    align-items: flex-start;
+    padding: 12px 16px 60px;
 }
 
-/* Sections */
 .content-section {
     display: none;
     width: 100%;
-    max-width: 1040px;
+    max-width: 980px;
 }
 
 .content-section.active {
     display: block;
 }
 
-/* Card */
-.card {
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 16px;
-    padding: 18px 22px;
-    color: #f5f5f5;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.company-card {
-    max-width: 520px;
-}
-
+/* Cards */
+.company-card,
 .personal-card {
-    max-width: 580px;
+    background: rgba(0,0,0,0.65);
+    border-radius: 18px;
+    padding: 14px 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.65);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
-/* Card titles */
-.card-title {
-    margin: 0 0 4px;
+/* Typography */
+.company-card h2,
+.personal-card h2 {
+    margin: 0 0 6px 0;
     font-family: "Playfair Display", serif;
     font-size: 18px;
 }
 
-.card-subtitle {
-    margin: 0 0 14px;
-    font-size: 12px;
-    opacity: 0.9;
-}
-
-/* Company grid */
-.company-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px 26px;
-    font-size: 12px;
-}
-
-.field {
-    margin-bottom: 6px;
-}
-
-.field-label {
-    display: block;
-    font-weight: 600;
-    opacity: 0.95;
-}
-
-.field-value {
-    display: block;
-    opacity: 0.92;
-}
-
-.card-footer-text {
-    margin-top: 14px;
+.card-sub {
+    margin: 0 0 8px 0;
     font-size: 11px;
     opacity: 0.9;
 }
 
-/* ===== FLOATING CONTACT ICONS ===== */
-.contact-floating {
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 40px;
+    font-size: 11px;
+}
+
+.company-grid .field span {
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.company-grid .field {
+    line-height: 1.5;
+}
+
+/* Personal */
+.personal-card p {
+    margin: 0;
+    font-size: 11px;
+}
+
+/* ===== CONTACT FLOATING BUTTONS ===== */
+.contact-fab-container {
     position: fixed;
-    right: 18px;
-    bottom: 26px;
+    right: 14px;
+    bottom: 18px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    z-index: 50;
+    z-index: 30;
 }
 
-.contact-circle {
+.fab {
     width: 40px;
     height: 40px;
-    border-radius: 999px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
     text-decoration: none;
-    color: #ffffff;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
-    transition: transform 0.16s ease, box-shadow 0.16s ease, opacity 0.16s ease;
-    opacity: 0.96;
+    font-size: 18px;
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.4);
 }
 
-.contact-circle:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.8);
-    opacity: 1;
-}
-
-.contact-circle.whatsapp {
+.fab-whatsapp {
     background: #25d366;
 }
 
-.contact-circle.telegram {
+.fab-telegram {
     background: #0088cc;
 }
 
-.contact-circle.email {
-    background: #ff9f1a;
+.fab-email {
+    background: #ff9800;
 }
 
 /* ===== FOOTER ===== */
 .site-footer {
     text-align: center;
-    font-size: 11px;
-    padding: 6px 10px 10px;
-    opacity: 0.85;
+    font-size: 10px;
+    padding: 6px 0 10px;
+    color: #ddd;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .site-header {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        align-items: stretch;
+        gap: 6px;
     }
 
     .header-center {
-        text-align: left;
-        width: 100%;
+        order: 1;
     }
 
-    .content {
-        padding: 14px 10px 52px;
+    .header-left,
+    .header-right {
+        order: 2;
+        justify-content: space-between;
+    }
+
+    .logo-square {
+        width: 52px;
+        height: 52px;
+    }
+
+    .content-area {
+        padding: 10px 10px 70px;
     }
 
     .company-grid {
         grid-template-columns: 1fr;
+        gap: 8px;
     }
 
-    .contact-floating {
+    .contact-fab-container {
         right: 10px;
-        bottom: 16px;
+        bottom: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 18px;
+    }
+    .site-route {
+        font-size: 9px;
     }
 }
