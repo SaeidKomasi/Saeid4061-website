@@ -48,14 +48,14 @@
         </button>
     </nav>
 
-    <!-- توضیح زیر تب‌ها -->
+    <!-- کپشن زیر تب‌ها -->
     <div class="mode-caption" id="modeCaption">
         Select <strong>Company</strong> or <strong>Personal</strong> to view details.
     </div>
 
     <!-- ===== MAIN CONTENT ===== -->
     <main class="main-content">
-        <!-- HOME (صفحه شروع – بدون اطلاعات) -->
+        <!-- HOME (صفحه شروع) -->
         <section id="homeSection" class="card-panel visible">
             <div class="home-intro">
                 <h2>Welcome</h2>
@@ -77,7 +77,7 @@
                 <button class="sub-tab" data-subtab="activities">Activities</button>
             </nav>
 
-            <!-- Registration / Company profile -->
+            <!-- Registration -->
             <div id="company-registration" class="subtab-panel visible">
                 <h2>Company details</h2>
                 <div class="company-grid">
@@ -122,47 +122,58 @@
                 </div>
             </div>
 
-            <!-- Business activities – هر PKD یک کلید -->
+            <!-- Activities -->
             <div id="company-activities" class="subtab-panel hidden">
                 <h2>Business activities</h2>
-                <p class="muted">
-                    Main statutory activities according to the Polish Classification of Activities (PKD).
-                </p>
 
-                <!-- دکمه‌های هر شاخه -->
-                <div class="activities-buttons">
-                    <button class="activity-btn active" data-activity="pkd_49_41">
-                        49.41Z – Road freight transport
-                    </button>
-                    <button class="activity-btn" data-activity="pkd_45">
-                        45 – Motor vehicles trade &amp; repair
-                    </button>
-                    <button class="activity-btn" data-activity="pkd_52">
-                        52 – Warehousing &amp; logistics support
-                    </button>
-                    <button class="activity-btn" data-activity="pkd_56">
-                        56 – Food services (drivers &amp; partners)
-                    </button>
-                    <button class="activity-btn" data-activity="pkd_96">
-                        96 – Other personal service activities
-                    </button>
-                    <button class="activity-btn" data-activity="pkd_49_other">
-                        49 – Other land transport &amp; pipelines
-                    </button>
-                    <button class="activity-btn" data-activity="pkd_68">
-                        68 – Real estate related activities
-                    </button>
-                    <button class="activity-btn" data-activity="pkd_70">
-                        70 – Head offices &amp; consultancy
-                    </button>
-                    <button class="activity-btn" data-activity="pkd_82">
-                        82 – Office admin &amp; support
-                    </button>
+                <!-- نمای لیست (دکمه‌ها) -->
+                <div id="activitiesListView">
+                    <p class="muted">
+                        Main statutory activities according to the Polish Classification of Activities (PKD).
+                    </p>
+
+                    <div class="activities-buttons">
+                        <button class="activity-btn" data-activity="pkd_49_41">
+                            49.41Z – Road freight transport
+                        </button>
+                        <button class="activity-btn" data-activity="pkd_45">
+                            45 – Motor vehicles trade &amp; repair
+                        </button>
+                        <button class="activity-btn" data-activity="pkd_52">
+                            52 – Warehousing &amp; logistics support
+                        </button>
+                        <button class="activity-btn" data-activity="pkd_56">
+                            56 – Food services (drivers &amp; partners)
+                        </button>
+                        <button class="activity-btn" data-activity="pkd_96">
+                            96 – Other personal service activities
+                        </button>
+                        <button class="activity-btn" data-activity="pkd_49_other">
+                            49 – Other land transport &amp; pipelines
+                        </button>
+                        <button class="activity-btn" data-activity="pkd_68">
+                            68 – Real estate related activities
+                        </button>
+                        <button class="activity-btn" data-activity="pkd_70">
+                            70 – Head offices &amp; consultancy
+                        </button>
+                        <button class="activity-btn" data-activity="pkd_82">
+                            82 – Office admin &amp; support
+                        </button>
+                    </div>
                 </div>
 
-                <!-- جعبه توضیحات هر شاخه -->
-                <div id="activityDetails" class="activity-details card-panel">
-                    <!-- با JS پر می‌شود -->
+                <!-- نمای جزئیات هر فعالیت (هدر + بدنه خالی) -->
+                <div id="activityDetailView" class="activity-detail-view hidden">
+                    <button id="activityBackBtn" class="back-btn">
+                        ← Back to activities
+                    </button>
+                    <h3 id="activityDetailTitle"></h3>
+                    <p id="activityDetailHeader" class="muted"></p>
+
+                    <div id="activityDetailBody" class="activity-detail-body">
+                        <!-- فعلاً خالی، بعداً با هم دکمه قیمت و مدارک اضافه می‌کنیم -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -191,14 +202,14 @@
         </section>
     </main>
 
-    <!-- ===== FLOATING CONTACT ICONS (سمت راست پایین) ===== -->
+    <!-- آیکون‌های شناور تماس -->
     <div class="floating-contacts">
         <a href="https://wa.me/488480047748" target="_blank" title="WhatsApp / Phone">📞</a>
         <a href="https://t.me/Saeid4061" target="_blank" title="Telegram">@</a>
         <a href="mailto:saeedkomasy@gmail.com" title="Email">✉️</a>
     </div>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- FOOTER -->
     <footer class="site-footer">
         © SAEID KOMASI – GREY LION 2025
     </footer>
