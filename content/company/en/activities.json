@@ -1,14 +1,50 @@
 {
   "title": "Business activities",
   "items": [
-    {"code": "49.41.Z", "desc": "Road freight transport"},
-    {"code": "45", "desc": "Retail/wholesale trade of motor vehicles; repair"},
-    {"code": "52", "desc": "Warehousing & support activities for transportation"},
-    {"code": "56", "desc": "Food service activities"},
-    {"code": "96", "desc": "Other personal service activities"},
-    {"code": "49", "desc": "Land transport and transport via pipelines"},
-    {"code": "68", "desc": "Real estate activities"},
-    {"code": "70", "desc": "Head offices; management consultancy"},
-    {"code": "82.11.Z", "desc": "Office administrative service activities"}
+    {
+      "code": "49.41.Z",
+      "slug": "49-41-z",
+      "label": "Road freight transport"
+    },
+    {
+      "code": "45",
+      "slug": "45",
+      "label": "Wholesale and retail trade; repair of motor vehicles"
+    },
+    {
+      "code": "52",
+      "slug": "52",
+      "label": "Warehousing and support activities for transport"
+    },
+    {
+      "code": "56",
+      "slug": "56",
+      "label": "Food service activities (for drivers & partners)"
+    },
+    {
+      "code": "96",
+      "slug": "96",
+      "label": "Other personal service activities"
+    },
+    {
+      "code": "49",
+      "slug": "49",
+      "label": "Land transport and transport via pipelines"
+    },
+    {
+      "code": "68",
+      "slug": "68",
+      "label": "Real estate activities"
+    },
+    {
+      "code": "70",
+      "slug": "70",
+      "label": "Head offices; management consultancy"
+    },
+    {
+      "code": "82.11.Z",
+      "slug": "82-11-z",
+      "label": "Office administrative and support service activities"
+    }
   ]
 }
