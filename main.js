@@ -12,8 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const companyBackBtn = document.getElementById("companyBackBtn");
   const personalBackBtn = document.getElementById("personalBackBtn");
 
-  // ===== حالت صفحه (Home / Company / Personal) =====
+  /* ===== حالت صفحه (Home / Company / Personal) ===== */
   function setMode(mode) {
+    if (!wrapper) return;
+
     wrapper.classList.remove("mode-home", "mode-company", "mode-personal");
     homeSection.classList.add("hidden");
     companySection.classList.add("hidden");
@@ -39,16 +41,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  tabCompany.addEventListener("click", () => setMode("company"));
-  tabPersonal.addEventListener("click", () => setMode("personal"));
+  if (tabCompany) {
+    tabCompany.addEventListener("click", () => setMode("company"));
+  }
+  if (tabPersonal) {
+    tabPersonal.addEventListener("click", () => setMode("personal"));
+  }
 
-  companyBackBtn.addEventListener("click", () => setMode("home"));
-  personalBackBtn.addEventListener("click", () => setMode("home"));
+  if (companyBackBtn) {
+    companyBackBtn.addEventListener("click", () => setMode("home"));
+  }
+  if (personalBackBtn) {
+    personalBackBtn.addEventListener("click", () => setMode("home"));
+  }
 
   // شروع روی Home
   setMode("home");
 
-  // ===== Sub tabs (Company) =====
+  /* ===== Sub tabs (Company) ===== */
   const subTabs = document.querySelectorAll(".sub-tab");
   const subPanels = {
     registration: document.getElementById("company-registration"),
@@ -62,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     Object.entries(subPanels).forEach(([key, panel]) => {
+      if (!panel) return;
       if (key === name) {
         panel.classList.remove("hidden");
       } else {
@@ -74,10 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => setSubTab(btn.dataset.subtab));
   });
 
-  // به صورت پیش‌فرض وارد Registration شو
+  // پیش‌فرض: Registration
   setSubTab("registration");
 
-  // ===== Activities (۹ کلید + صفحه دیتیل) =====
+  /* ===== Activities (۹ کلید + صفحه دیتیل) ===== */
   const activitiesHome = document.getElementById("activitiesHome");
   const activityDetail = document.getElementById("activityDetail");
   const actTitle = document.getElementById("actTitle");
@@ -133,8 +144,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  document.querySelectorAll(".activity-card").forEach((btn) => {
+  const activityCards = document.querySelectorAll(".activity-card");
+
+  activityCards.forEach((btn) => {
     btn.addEventListener("click", () => {
+      if (!activitiesHome || !activityDetail) return;
+
       const key = btn.dataset.act;
       const data = activityMeta[key];
       if (!data) return;
@@ -143,14 +158,17 @@ document.addEventListener("DOMContentLoaded", () => {
       activitiesHome.classList.add("hidden");
       activityDetail.classList.remove("hidden");
 
-      actTitle.textContent = data.title;
-      actHeader.textContent = data.header;
-      actBody.innerHTML = ""; // فعلاً خالی – بعداً ماژول قیمت و مدارک اضافه می‌کنیم
+      if (actTitle) actTitle.textContent = data.title;
+      if (actHeader) actHeader.textContent = data.header;
+      if (actBody) actBody.innerHTML = ""; // بعداً ماژول‌های دیگر
     });
   });
 
-  actBack.addEventListener("click", () => {
-    activityDetail.classList.add("hidden");
-    activitiesHome.classList.remove("hidden");
-  });
+  if (actBack) {
+    actBack.addEventListener("click", () => {
+      if (!activitiesHome || !activityDetail) return;
+      activityDetail.classList.add("hidden");
+      activitiesHome.classList.remove("hidden");
+    });
+  }
 });
