@@ -2,150 +2,119 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>SAEID KOMASI – SAEID4061 Sp. z o.o.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAEID KOMASI – Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div class="page-wrapper">
+<div id="page" class="page-wrapper company-mode">
     <!-- ===== HEADER ===== -->
     <header class="site-header">
         <div class="header-left">
-            <div class="logo-box">
-                <img src="saeid4061-logo.jpg" alt="Grey Lion logo" class="logo-img" />
-            </div>
-            <div class="route-badge">EU • IR • PL</div>
+            <div class="eu-ir-pl-badge">EU • IR • PL</div>
         </div>
 
         <div class="header-center">
-            <h1 class="owner-name">SAEID KOMASI</h1>
-            <div class="owner-role">CEO &amp; Founder</div>
-            <div class="company-name">SAEID4061 Sp. z o.o.</div>
-            <div class="route-subtitle">
-                International Road Transport – Europe · Middle East · Central Asia
+            <h1 class="site-title">SAEID KOMASI</h1>
+            <div class="site-subtitle">CEO &amp; Founder</div>
+            <div class="site-company">SAEID4061 Sp. z o.o.</div>
+            <div class="site-route">
+                International Road Transport – Europe • Middle East • Central Asia
             </div>
         </div>
 
         <div class="header-right">
-            <label for="language-select" class="language-label" data-i18n="languageLabel">
-                Language
-            </label>
-            <select id="language-select" class="language-select">
-                <option value="fa">فارسی</option>
-                <option value="en" selected>English</option>
-                <option value="pl">Polski</option>
-                <option value="de">Deutsch</option>
-                <option value="fr">Français</option>
-                <option value="it">Italiano</option>
-                <option value="es">Español</option>
-                <option value="pt">Português</option>
-                <option value="tr">Türkçe</option>
-                <option value="ru">Русский</option>
-                <option value="uk">Українська</option>
-                <option value="cs">Čeština</option>
-                <option value="sk">Slovenčina</option>
-                <option value="hu">Magyar</option>
-                <option value="ro">Română</option>
-                <option value="bg">Български</option>
-                <option value="sr">Српски</option>
-                <option value="hr">Hrvatski</option>
-                <option value="sl">Slovenščina</option>
-                <option value="nl">Nederlands</option>
-                <option value="sv">Svenska</option>
-                <option value="no">Norsk</option>
-                <option value="da">Dansk</option>
-            </select>
+            <img src="saeid4061-logo.jpg" alt="Grey Lion logo" class="logo-square" />
+            <div class="lang-wrapper">
+                <label for="languageSelect" class="lang-label">Language</label>
+                <select id="languageSelect" class="lang-select"></select>
+            </div>
         </div>
     </header>
 
-    <!-- ===== TABS (Company / Personal) ===== -->
-    <nav class="tabs">
-        <button id="company-tab" class="tab-btn active" data-tab="company">
-            <span data-i18n="tabCompany">Company</span>
+    <!-- ===== TABS ===== -->
+    <nav class="tab-switch">
+        <button id="companyTab" class="tab-btn active">
+            <span class="tab-title" data-i18n="tabCompany">Company</span>
+            <span class="tab-caption" data-i18n="tabCompanyCaption">
+                Company profile &amp; registration data
+            </span>
         </button>
-        <button id="personal-tab" class="tab-btn" data-tab="personal">
-            <span data-i18n="tabPersonal">Personal</span>
+        <button id="personalTab" class="tab-btn">
+            <span class="tab-title" data-i18n="tabPersonal">Personal</span>
+            <span class="tab-caption" data-i18n="tabPersonalCaption">
+                Direct personal contact with CEO &amp; Founder
+            </span>
         </button>
     </nav>
-    <div class="tabs-caption">
-        <span data-i18n="tabCompanyDesc">Company profile & registration data</span>
-        <span>·</span>
-        <span data-i18n="tabPersonalDesc">Direct personal contact with CEO & Founder</span>
-    </div>
 
     <!-- ===== MAIN CONTENT ===== -->
-    <main class="content">
+    <main class="content-area">
         <!-- COMPANY SECTION -->
-        <section id="company-section" class="content-section active">
-            <div class="card company-card">
-                <h2 class="card-title" data-i18n="companyDetailsTitle">Company details</h2>
-                <p class="card-subtitle" data-i18n="companyDetailsSubtitle">
+        <section id="companySection" class="content-section active">
+            <div class="company-card">
+                <h2 data-i18n="companyDetailsTitle">Company details</h2>
+                <p class="card-sub" data-i18n="companyDetailsSubtitle">
                     Official registration data of the company:
                 </p>
+
                 <div class="company-grid">
-                    <div class="company-col">
+                    <div class="col">
                         <div class="field">
-                            <span class="field-label" data-i18n="fieldCompany">Company</span>
-                            <span class="field-value">SAEID4061 Sp. z o.o.</span>
+                            <span data-i18n="labelCompany">Company</span><br />
+                            SAEID4061 Sp. z o.o.
                         </div>
                         <div class="field">
-                            <span class="field-label">KRS</span>
-                            <span class="field-value">0001065392</span>
+                            <span data-i18n="labelKRS">KRS</span><br />
+                            0001065392
                         </div>
                         <div class="field">
-                            <span class="field-label">NIP</span>
-                            <span class="field-value">5372677546</span>
+                            <span data-i18n="labelNIP">NIP</span><br />
+                            5372677546
                         </div>
                         <div class="field">
-                            <span class="field-label">REGON</span>
-                            <span class="field-value">526744160</span>
+                            <span data-i18n="labelREGON">REGON</span><br />
+                            526744160
                         </div>
                     </div>
-                    <div class="company-col">
+
+                    <div class="col">
                         <div class="field">
-                            <span class="field-label" data-i18n="fieldRegistered">Registered seat</span>
-                            <span class="field-value">
-                                Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                            </span>
+                            <span data-i18n="labelRegisteredSeat">Registered seat</span><br />
+                            Orzechowa 32/1, 21-500 Biała Podlaska, Poland
                         </div>
                         <div class="field">
-                            <span class="field-label" data-i18n="fieldCorrespondence">Correspondence address</span>
-                            <span class="field-value">
-                                Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                            </span>
+                            <span data-i18n="labelCorrAddress">Correspondence address</span><br />
+                            Orzechowa 32/1, 21-500 Biała Podlaska, Poland
+                        </div>
+                        <div class="field">
+                            <span data-i18n="labelDirectContact">Direct contact / 24h for urgent transport inquiries</span>
                         </div>
                     </div>
                 </div>
-
-                <p class="card-footer-text" data-i18n="companyFooter">
-                    Direct contact / 24h for urgent transport inquiries:
-                </p>
             </div>
         </section>
 
         <!-- PERSONAL SECTION -->
-        <section id="personal-section" class="content-section">
-            <div class="card personal-card">
-                <h2 class="card-title" data-i18n="personalTitle">Personal direct contact</h2>
-                <p class="card-subtitle" data-i18n="personalSubtitle">
-                    For direct contact with CEO &amp; Founder, you can use the same WhatsApp,
-                    Telegram and Email shown below.
+        <section id="personalSection" class="content-section">
+            <div class="personal-card">
+                <h2 data-i18n="personalTitle">Personal direct contact</h2>
+                <p data-i18n="personalText">
+                    For direct contact with CEO &amp; Founder, you can use the same WhatsApp, Telegram and Email shown below.
                 </p>
             </div>
         </section>
     </main>
 
-    <!-- ===== FLOATING CONTACT ICONS ===== -->
-    <div class="contact-floating">
-        <a class="contact-circle whatsapp" href="https://wa.me/48737004748" target="_blank"
-           aria-label="WhatsApp">
+    <!-- ===== CONTACT FLOATING BUTTONS ===== -->
+    <div class="contact-fab-container">
+        <a class="fab fab-whatsapp" href="https://wa.me/48737004748" target="_blank" aria-label="WhatsApp">
             📞
         </a>
-        <a class="contact-circle telegram" href="https://t.me/Saeid4061" target="_blank"
-           aria-label="Telegram">
+        <a class="fab fab-telegram" href="https://t.me/Saeid4061" target="_blank" aria-label="Telegram">
             ✈️
         </a>
-        <a class="contact-circle email" href="mailto:saeidkomasy@gmail.com" aria-label="Email">
+        <a class="fab fab-email" href="mailto:saeedkomasy@gmail.com" aria-label="Email">
             ✉️
         </a>
     </div>
