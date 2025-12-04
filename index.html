@@ -1,220 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>SAEID KOMASI – SAEID4061 Sp. z o.o.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAEID KOMASI – SAEID4061 Sp. z o.o.</title>
+
+  <!-- Royal fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-<div class="page-wrapper mode-home">
-    <!-- ===== HEADER ===== -->
-    <header class="site-header">
-        <div class="header-left">
-            <div class="flag-badge">EU · IR · PL</div>
-        </div>
+  <div class="page-wrapper mode-home">
+    <!-- ===== HEADER (همه صفحه‌ها مشترک) ===== -->
+    <header class="top-header">
+      <h1>SAEID KOMASI</h1>
+      <h2>CEO &amp; Founder — SAEID4061 Sp. z o.o.</h2>
+      <div id="modeCaption"></div>
 
-        <div class="header-center">
-            <div class="headline-top">SAEID KOMASI</div>
-            <div class="headline-sub">CEO &amp; Founder</div>
-            <div class="headline-company">SAEID4061 Sp. z o.o.</div>
-            <div class="headline-route">
-                International Road Transport – Europe · Middle East · Central Asia
-            </div>
-        </div>
-
-        <div class="header-right">
-            <div class="lang-wrapper">
-                <span class="lang-label">Language</span>
-                <select id="languageSelect" class="lang-select">
-                    <option value="en">English</option>
-                    <option value="fa">فارسی</option>
-                    <option value="pl">Polski</option>
-                </select>
-            </div>
-            <div class="logo-box">
-                <img src="saeid4061-logo.jpg" alt="Grey Lion logo" />
-            </div>
-        </div>
+      <nav class="top-tabs">
+        <button id="tabCompany">Company</button>
+        <button id="tabPersonal">Personal</button>
+      </nav>
     </header>
 
-    <!-- ===== TOP TABS: COMPANY / PERSONAL ===== -->
-    <nav class="top-tabs">
-        <button id="tabCompany" class="top-tab">
-            Company
-        </button>
-        <button id="tabPersonal" class="top-tab">
-            Personal
-        </button>
-    </nav>
+    <!-- ===== HOME (صفحه اصلی / دیفالت) ===== -->
+    <section id="homeSection" class="section">
+      <h2>Welcome</h2>
+      <p>
+        This is the official contact &amp; company page of
+        <strong>SAEID4061 Sp. z o.o.</strong><br />
+        Select <strong>Company</strong> for full corporate data and activities,
+        or <strong>Personal</strong> for direct contact with the CEO.
+      </p>
+    </section>
 
-    <!-- کپشن زیر تب‌ها -->
-    <div class="mode-caption" id="modeCaption">
-        Select <strong>Company</strong> or <strong>Personal</strong> to view details.
-    </div>
+    <!-- ===== COMPANY SECTION ===== -->
+    <section id="companySection" class="section hidden">
+      <button id="companyBackBtn" class="back-btn-page">← Back to home</button>
+      <h2>Company</h2>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main class="main-content">
-        <!-- HOME (صفحه شروع) -->
-        <section id="homeSection" class="card-panel visible">
-            <div class="home-intro">
-                <h2>Welcome</h2>
-                <p>
-                    This is the official contact &amp; company profile page of
-                    <strong>SAEID4061 Sp. z o.o.</strong>  
-                    Choose <strong>Company</strong> to see legal &amp; business data,
-                    or <strong>Personal</strong> for direct CEO contact.
-                </p>
-            </div>
-        </section>
+      <nav class="sub-tabs">
+        <button class="sub-tab" data-subtab="registration">Registration</button>
+        <button class="sub-tab" data-subtab="owners">Owners &amp; Capital</button>
+        <button class="sub-tab" data-subtab="activities">Activities</button>
+      </nav>
 
-        <!-- COMPANY SECTION -->
-        <section id="companySection" class="card-panel hidden">
-            <!-- زیرتب‌های داخل Company -->
-            <nav class="sub-tabs">
-                <button class="sub-tab active" data-subtab="registration">Registration</button>
-                <button class="sub-tab" data-subtab="owners">Owners &amp; Capital</button>
-                <button class="sub-tab" data-subtab="activities">Activities</button>
-            </nav>
+      <!-- Registration page -->
+      <div id="company-registration" class="sub-panel">
+        <h3>Company registration data</h3>
+        <div class="reg-box">
+          <p><strong>Company:</strong> SAEID4061 Sp. z o.o.</p>
+          <p><strong>KRS:</strong> 0001653592</p>
+          <p><strong>NIP:</strong> 5372677546</p>
+          <p><strong>REGON:</strong> 526741640</p>
+          <p><strong>EORI:</strong> PL537267754600000</p>
 
-            <!-- Registration -->
-            <div id="company-registration" class="subtab-panel visible">
-                <h2>Company details</h2>
-                <div class="company-grid">
-                    <div>
-                        <p><strong>Company</strong><br />SAEID4061 Sp. z o.o.</p>
-                        <p><strong>KRS</strong><br />0001065392</p>
-                        <p><strong>NIP</strong><br />5372677546</p>
-                        <p><strong>REGON</strong><br />526744160</p>
-                    </div>
-                    <div>
-                        <p><strong>Registered seat</strong><br />
-                            Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                        </p>
-                        <p><strong>Correspondence address</strong><br />
-                            Orzechowa 32/1, 21-500 Biała Podlaska, Poland
-                        </p>
-                        <p><strong>Email</strong><br />saeedkomasy@gmail.com</p>
-                    </div>
-                </div>
-            </div>
+          <p>
+            <strong>Registered seat:</strong><br />
+            Orzechowa 32/1, 21-500 Biała Podlaska, Poland
+          </p>
 
-            <!-- Owners & capital -->
-            <div id="company-owners" class="subtab-panel hidden">
-                <h2>Owners &amp; share capital</h2>
-                <div class="company-grid">
-                    <div>
-                        <p><strong>Share capital</strong><br />5 000,00 PLN</p>
-                        <p><strong>Capital covered</strong><br />Cash contribution</p>
-                    </div>
-                    <div>
-                        <p><strong>Shareholder 1</strong><br />
-                           Saeid Komasi – 90 shares – 4 500,00 PLN
-                        </p>
-                        <p><strong>Shareholder 2</strong><br />
-                           Mehdi Rezazadeh – 10 shares – 500,00 PLN
-                        </p>
-                        <p><strong>Management</strong><br />
-                           President of the Board: Saeid Komasi<br/>
-                           Member of the Board: Mehdi Rezazadeh
-                        </p>
-                    </div>
-                </div>
-            </div>
+          <p>
+            <strong>Correspondence address:</strong><br />
+            Orzechowa 32/1, 21-500 Biała Podlaska, Poland
+          </p>
 
-            <!-- Activities -->
-            <div id="company-activities" class="subtab-panel hidden">
-                <h2>Business activities</h2>
+          <p><strong>Email:</strong> saeedkomasy@gmail.com</p>
+        </div>
+      </div>
 
-                <!-- نمای لیست (دکمه‌ها) -->
-                <div id="activitiesListView">
-                    <p class="muted">
-                        Main statutory activities according to the Polish Classification of Activities (PKD).
-                    </p>
+      <!-- Owners & Capital page -->
+      <div id="company-owners" class="sub-panel hidden">
+        <h3>Owners &amp; share capital</h3>
+        <div class="reg-box">
+          <p><strong>Share capital:</strong> 5 000,00 PLN (fully paid)</p>
+          <p><strong>Form of contribution:</strong> cash</p>
 
-                    <div class="activities-buttons">
-                        <button class="activity-btn" data-activity="pkd_49_41">
-                            49.41Z – Road freight transport
-                        </button>
-                        <button class="activity-btn" data-activity="pkd_45">
-                            45 – Motor vehicles trade &amp; repair
-                        </button>
-                        <button class="activity-btn" data-activity="pkd_52">
-                            52 – Warehousing &amp; logistics support
-                        </button>
-                        <button class="activity-btn" data-activity="pkd_56">
-                            56 – Food services (drivers &amp; partners)
-                        </button>
-                        <button class="activity-btn" data-activity="pkd_96">
-                            96 – Other personal service activities
-                        </button>
-                        <button class="activity-btn" data-activity="pkd_49_other">
-                            49 – Other land transport &amp; pipelines
-                        </button>
-                        <button class="activity-btn" data-activity="pkd_68">
-                            68 – Real estate related activities
-                        </button>
-                        <button class="activity-btn" data-activity="pkd_70">
-                            70 – Head offices &amp; consultancy
-                        </button>
-                        <button class="activity-btn" data-activity="pkd_82">
-                            82 – Office admin &amp; support
-                        </button>
-                    </div>
-                </div>
+          <p><strong>Shareholder 1:</strong> Saeid Komasi – 90 shares – 4 500,00 PLN</p>
+          <p><strong>Shareholder 2:</strong> Mehdi Rezazadeh – 10 shares – 500,00 PLN</p>
 
-                <!-- نمای جزئیات هر فعالیت (هدر + بدنه خالی) -->
-                <div id="activityDetailView" class="activity-detail-view hidden">
-                    <button id="activityBackBtn" class="back-btn">
-                        ← Back to activities
-                    </button>
-                    <h3 id="activityDetailTitle"></h3>
-                    <p id="activityDetailHeader" class="muted"></p>
+          <p><strong>Management board:</strong><br />
+            President of the Board – Saeid Komasi<br />
+            Member of the Board – Mehdi Rezazadeh
+          </p>
+        </div>
+      </div>
 
-                    <div id="activityDetailBody" class="activity-detail-body">
-                        <!-- فعلاً خالی، بعداً با هم دکمه قیمت و مدارک اضافه می‌کنیم -->
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- Activities HUB (9 کلید) -->
+      <div id="company-activities" class="sub-panel hidden">
+        <!-- صفحه حاوی ۹ کلید -->
+        <div id="activitiesHome">
+          <h3>Business activities (PKD)</h3>
 
-        <!-- PERSONAL SECTION -->
-        <section id="personalSection" class="card-panel hidden">
-            <h2>Personal direct contact</h2>
-            <p>
-                For direct contact with CEO &amp; Founder you can use the same
-                WhatsApp, Telegram and Email shown below.  
-                Available for urgent transport inquiries, partnership offers and
-                strategic cooperation.
-            </p>
+          <div class="activity-grid">
+            <button class="activity-card" data-act="pkd_49_41">
+              <span class="act-code">49.41Z</span>
+              <span class="act-label">Road freight transport</span>
+            </button>
 
-            <div class="contact-buttons">
-                <a href="https://wa.me/488480047748" class="contact-btn whatsapp" target="_blank">
-                    📞 WhatsApp / Phone
-                </a>
-                <a href="https://t.me/Saeid4061" class="contact-btn telegram" target="_blank">
-                    💬 Telegram @Saeid4061
-                </a>
-                <a href="mailto:saeedkomasy@gmail.com" class="contact-btn email">
-                    ✉️ saeedkomasy@gmail.com
-                </a>
-            </div>
-        </section>
-    </main>
+            <button class="activity-card" data-act="pkd_43">
+              <span class="act-code">43</span>
+              <span class="act-label">Specialised construction &amp; building works</span>
+            </button>
 
-    <!-- آیکون‌های شناور تماس -->
+            <button class="activity-card" data-act="pkd_52">
+              <span class="act-code">52</span>
+              <span class="act-label">Warehousing &amp; logistics support</span>
+            </button>
+
+            <button class="activity-card" data-act="pkd_56">
+              <span class="act-code">56</span>
+              <span class="act-label">Food services (drivers &amp; partners)</span>
+            </button>
+
+            <button class="activity-card" data-act="pkd_96">
+              <span class="act-code">96</span>
+              <span class="act-label">Other personal service activities</span>
+            </button>
+
+            <button class="activity-card" data-act="pkd_49_other">
+              <span class="act-code">49</span>
+              <span class="act-label">Other land transport &amp; pipelines</span>
+            </button>
+
+            <button class="activity-card" data-act="pkd_68">
+              <span class="act-code">68</span>
+              <span class="act-label">Real estate related activities</span>
+            </button>
+
+            <button class="activity-card" data-act="pkd_70">
+              <span class="act-code">70</span>
+              <span class="act-label">Head offices &amp; consultancy</span>
+            </button>
+
+            <button class="activity-card" data-act="pkd_82">
+              <span class="act-code">82</span>
+              <span class="act-label">Office administrative &amp; support</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- صفحه دیتیل هر اکتیویتی (فقط هدر + بدنه خالی) -->
+        <div id="activityDetail" class="hidden">
+          <button id="activityBack" class="back-btn-page">← Back to activities</button>
+          <h3 id="actTitle"></h3>
+          <p id="actHeader" class="act-header"></p>
+
+          <div id="actBody" class="act-body">
+            <!-- خالی می‌مونه، بعداً براش بخش قیمت / مدارک / فرم اضافه می‌کنیم -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PERSONAL SECTION ===== -->
+    <section id="personalSection" class="section hidden">
+      <button id="personalBackBtn" class="back-btn-page">← Back to home</button>
+      <h2>Personal</h2>
+      <p>
+        Direct personal contact with the CEO &amp; Founder for strategic
+        cooperation, confidential projects and high-level transport inquiries.
+      </p>
+    </section>
+
+    <!-- ===== FLOATING CONTACTS (در همه صفحه‌ها ثابت) ===== -->
     <div class="floating-contacts">
-        <a href="https://wa.me/488480047748" target="_blank" title="WhatsApp / Phone">📞</a>
-        <a href="https://t.me/Saeid4061" target="_blank" title="Telegram">@</a>
-        <a href="mailto:saeedkomasy@gmail.com" title="Email">✉️</a>
+      <a
+        href="https://wa.me/48881004737"
+        target="_blank"
+        title="WhatsApp / Phone"
+      >
+        📞
+      </a>
+      <a
+        href="https://t.me/Saeid4061"
+        target="_blank"
+        title="Telegram @Saeid4061"
+      >
+        💬
+      </a>
+      <a
+        href="mailto:saeedkomasy@gmail.com"
+        title="Email"
+      >
+        ✉️
+      </a>
     </div>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        © SAEID KOMASI – GREY LION 2025
-    </footer>
-</div>
-
-<script src="main.js"></script>
+  </div>
 </body>
 </html>
