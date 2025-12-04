@@ -1,0 +1,14 @@
+{
+  "title": "Business activities",
+  "items": [
+    {"code": "49.41.Z", "desc": "Road freight transport"},
+    {"code": "45", "desc": "Retail/wholesale trade of motor vehicles; repair"},
+    {"code": "52", "desc": "Warehousing & support activities for transportation"},
+    {"code": "56", "desc": "Food service activities"},
+    {"code": "96", "desc": "Other personal service activities"},
+    {"code": "49", "desc": "Land transport and transport via pipelines"},
+    {"code": "68", "desc": "Real estate activities"},
+    {"code": "70", "desc": "Head offices; management consultancy"},
+    {"code": "82.11.Z", "desc": "Office administrative service activities"}
+  ]
+}
