@@ -1,106 +1,155 @@
-// ========== LANGUAGE DROPDOWN (فقط ظاهر) ==========
 document.addEventListener("DOMContentLoaded", () => {
-    const langToggle = document.getElementById("languageToggle");
-    const langMenu = document.getElementById("languageMenu");
+    const pageWrapper = document.querySelector(".page-wrapper");
 
-    if (langToggle && langMenu) {
-        langToggle.addEventListener("click", () => {
-            const visible = langMenu.style.display === "block";
-            langMenu.style.display = visible ? "none" : "block";
+    // تب‌های اصلی
+    const tabCompany = document.getElementById("tabCompany");
+    const tabPersonal = document.getElementById("tabPersonal");
+
+    // سکشن‌ها
+    const homeSection = document.getElementById("homeSection");
+    const companySection = document.getElementById("companySection");
+    const personalSection = document.getElementById("personalSection");
+
+    const modeCaption = document.getElementById("modeCaption");
+
+    // زیرتب‌های داخل Company
+    const subTabs = document.querySelectorAll(".sub-tab");
+    const subPanels = {
+        registration: document.getElementById("company-registration"),
+        owners: document.getElementById("company-owners"),
+        activities: document.getElementById("company-activities"),
+    };
+
+    // دکمه‌های اکتیویتی و توضیحات
+    const activityButtons = document.querySelectorAll(".activity-btn");
+    const activityDetailsBox = document.getElementById("activityDetails");
+
+    const activityTexts = {
+        pkd_49_41: `
+<strong>49.41Z – Road freight transport</strong><br/>
+International and domestic road freight transport with modern Euro 6 trucks.<br/>
+Main corridors: European Union – Iran – Poland with focus on time-critical and high-value cargo.<br/><br/>
+<ul>
+<li>Full truck load (FTL) and part load (LTL) transports</li>
+<li>Transport of palletised, industrial and consumer goods</li>
+<li>Flexible routing through Central & Eastern Europe, Balkans, Türkiye and the Middle East</li>
+</ul>
+        `,
+        pkd_45: `
+<strong>45 – Motor vehicles trade &amp; repair</strong><br/>
+Wholesale and retail trade of motor vehicles and spare parts, as well as basic maintenance
+and repair of trucks used in the company fleet.
+        `,
+        pkd_52: `
+<strong>52 – Warehousing &amp; logistics support</strong><br/>
+Warehousing, temporary storage and logistics support activities connected with road freight
+transport, including cross-dock operations and cargo handling.
+        `,
+        pkd_56: `
+<strong>56 – Food services (drivers &amp; partners)</strong><br/>
+Food service activities related to company operations – support for drivers and business partners
+during long-distance transport projects.
+        `,
+        pkd_96: `
+<strong>96 – Other personal service activities</strong><br/>
+Additional service activities connected with company’s transport and consulting services.
+        `,
+        pkd_49_other: `
+<strong>49 – Other land transport &amp; pipelines</strong><br/>
+Supplementary land transport services which can support main road freight business.
+        `,
+        pkd_68: `
+<strong>68 – Real estate related activities</strong><br/>
+Rental and management of real estate used for company offices, parking and logistics purposes.
+        `,
+        pkd_70: `
+<strong>70 – Head offices &amp; consultancy</strong><br/>
+Head office activities and business &amp; management consulting connected with international
+transport and logistics projects.
+        `,
+        pkd_82: `
+<strong>82 – Office administrative &amp; support</strong><br/>
+Administrative support, back-office services and customer communication related to company
+transport operations.
+        `
+    };
+
+    // تنظیم حالت صفحه (home / company / personal)
+    function setMode(mode) {
+        pageWrapper.classList.remove("mode-home", "mode-company", "mode-personal");
+        tabCompany.classList.remove("active");
+        tabPersonal.classList.remove("active");
+
+        homeSection.classList.add("hidden");
+        companySection.classList.add("hidden");
+        personalSection.classList.add("hidden");
+
+        if (mode === "company") {
+            pageWrapper.classList.add("mode-company");
+            tabCompany.classList.add("active");
+            companySection.classList.remove("hidden");
+            modeCaption.innerHTML = `Company profile &amp; registration data.`;
+        } else if (mode === "personal") {
+            pageWrapper.classList.add("mode-personal");
+            tabPersonal.classList.add("active");
+            personalSection.classList.remove("hidden");
+            modeCaption.innerHTML = `Direct personal contact with CEO &amp; Founder.`;
+        } else {
+            pageWrapper.classList.add("mode-home");
+            homeSection.classList.remove("hidden");
+            modeCaption.innerHTML = `Select <strong>Company</strong> or <strong>Personal</strong> to view details.`;
+        }
+    }
+
+    // کلیک روی تب‌ها
+    tabCompany.addEventListener("click", () => setMode("company"));
+    tabPersonal.addEventListener("click", () => setMode("personal"));
+
+    // حالت اولیه: صفحه شروع
+    setMode("home");
+
+    // زیرتب‌های Company
+    function setSubTab(name) {
+        subTabs.forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.subtab === name);
         });
 
-        langMenu.addEventListener("click", (e) => {
-            const li = e.target.closest("li");
-            if (!li) return;
-
-            const langCode = li.dataset.lang;
-            const label = li.textContent.trim();
-
-            langToggle.textContent = `${label} ▾`;
-            langMenu.style.display = "none";
-
-            // اینجا بعداً اگر خواستی ترجمهٔ واقعی اضافه می‌کنیم
-            console.log("language changed to:", langCode);
-        });
-
-        // کلیک بیرون منوی زبان -> بسته شود
-        document.addEventListener("click", (e) => {
-            if (
-                !langToggle.contains(e.target) &&
-                !langMenu.contains(e.target)
-            ) {
-                langMenu.style.display = "none";
+        Object.entries(subPanels).forEach(([key, panel]) => {
+            if (key === name) {
+                panel.classList.remove("hidden");
+                panel.classList.add("visible");
+            } else {
+                panel.classList.add("hidden");
+                panel.classList.remove("visible");
             }
         });
     }
 
-    // ========== VIEW SWITCH (Company / Personal) ==========
-    const viewButtons = document.querySelectorAll(".view-toggle__btn");
-    const viewSections = document.querySelectorAll(".view-section");
-
-    function setView(target) {
-        // دکمه‌ها
-        viewButtons.forEach((btn) => {
-            btn.classList.toggle("active", btn.dataset.view === target);
-        });
-
-        // بخش‌ها
-        viewSections.forEach((sec) => {
-            const isTarget = sec.dataset.viewSection === target;
-            sec.classList.toggle("active", isTarget);
-        });
-
-        // بک‌گراند
-        if (target === "company") {
-            document.body.classList.remove("mode-personal");
-            document.body.classList.add("mode-company");
-        } else if (target === "personal") {
-            document.body.classList.remove("mode-company");
-            document.body.classList.add("mode-personal");
-        }
-
-        // اگر هیچ‌کدام انتخاب نشده: حالت خنثی
-        if (!target) {
-            document.body.classList.remove("mode-company", "mode-personal");
-        }
-    }
-
-    viewButtons.forEach((btn) => {
+    subTabs.forEach(btn => {
         btn.addEventListener("click", () => {
-            const target = btn.dataset.view;
-            setView(target);
+            const name = btn.dataset.subtab;
+            setSubTab(name);
         });
     });
 
-    // در شروع: هیچ ویویی باز نباشد
-    setView(null);
+    // حالت اولیه زیرتب: Registration
+    setSubTab("registration");
 
-    // ========== SUBTABS داخل COMPANY ==========
-    const subTabButtons = document.querySelectorAll(".sub-tab-btn");
-    const subViews = document.querySelectorAll(".subview");
-
-    function setSubView(name) {
-        subTabButtons.forEach((btn) => {
-            btn.classList.toggle("active", btn.dataset.subview === name);
+    // اکتیویتی‌ها
+    function setActivity(id) {
+        activityButtons.forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.activity === id);
         });
 
-        subViews.forEach((sv) => {
-            sv.classList.toggle("active", sv.dataset.subview === name);
-        });
+        activityDetailsBox.innerHTML = activityTexts[id] || "<em>Details will be added soon.</em>";
     }
 
-    subTabButtons.forEach((btn) => {
+    activityButtons.forEach(btn => {
         btn.addEventListener("click", () => {
-            const name = btn.dataset.subview;
-            setSubView(name);
+            setActivity(btn.dataset.activity);
         });
     });
 
-    // وقتی برای اولین بار user روی Company کلیک کرد، به صورت پیش‌فرض Registration باز شود.
-    const btnCompany = document.getElementById("btnCompany");
-    if (btnCompany) {
-        btnCompany.addEventListener("click", () => {
-            setSubView("registration");
-        });
-    }
+    // اکتیویتی اولیه
+    setActivity("pkd_49_41");
 });
