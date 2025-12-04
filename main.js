@@ -1,127 +1,172 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const wrapper = document.querySelector(".page-wrapper");
-    const body = document.body;
+// ===== LANGUAGE DATA =====
+const languageList = [
+    { code: "en", label: "English" },
+    { code: "fa", label: "فارسی" },
+    { code: "pl", label: "Polski" },
+    // در آینده می‌توانیم زبان‌های دیگر را هم اضافه کنیم
+];
 
-    // Tabs
-    const companyTabBtn = document.getElementById("company-tab");
-    const personalTabBtn = document.getElementById("personal-tab");
-    const companySection = document.getElementById("company-section");
-    const personalSection = document.getElementById("personal-section");
+const translations = {
+    en: {
+        dir: "ltr",
+        tabCompany: "Company",
+        tabCompanyCaption: "Company profile & registration data",
+        tabPersonal: "Personal",
+        tabPersonalCaption: "Direct personal contact with CEO & Founder",
 
-    // Language
-    const languageSelect = document.getElementById("language-select");
+        companyDetailsTitle: "Company details",
+        companyDetailsSubtitle: "Official registration data of the company:",
+        labelCompany: "Company",
+        labelKRS: "KRS",
+        labelNIP: "NIP",
+        labelREGON: "REGON",
+        labelRegisteredSeat: "Registered seat",
+        labelCorrAddress: "Correspondence address",
+        labelDirectContact: "Direct contact / 24h for urgent transport inquiries",
 
-    // i18n map – fa / en / pl
-    const translations = {
-        en: {
-            languageLabel: "Language",
-            tabCompany: "Company",
-            tabPersonal: "Personal",
-            tabCompanyDesc: "Company profile & registration data",
-            tabPersonalDesc: "Direct personal contact with CEO & Founder",
-            companyDetailsTitle: "Company details",
-            companyDetailsSubtitle: "Official registration data of the company:",
-            fieldCompany: "Company",
-            fieldRegistered: "Registered seat",
-            fieldCorrespondence: "Correspondence address",
-            companyFooter: "Direct contact / 24h for urgent transport inquiries:",
-            personalTitle: "Personal direct contact",
-            personalSubtitle:
-                "For direct contact with CEO & Founder, you can use the same WhatsApp, Telegram and Email shown below."
-        },
-        fa: {
-            languageLabel: "زبان",
-            tabCompany: "شرکت",
-            tabPersonal: "شخصی",
-            tabCompanyDesc: "پروفایل و اطلاعات رسمی ثبت شرکت",
-            tabPersonalDesc: "ارتباط مستقیم شخصی با مدیرعامل و مؤسس",
-            companyDetailsTitle: "مشخصات شرکت",
-            companyDetailsSubtitle: "اطلاعات رسمی ثبت شرکت:",
-            fieldCompany: "شرکت",
-            fieldRegistered: "آدرس ثبت شرکت",
-            fieldCorrespondence: "آدرس مکاتبات",
-            companyFooter:
-                "راه ارتباط مستقیم / ۲۴ ساعته برای درخواست حمل‌های فوری:",
-            personalTitle: "ارتباط مستقیم شخصی",
-            personalSubtitle:
-                "برای ارتباط مستقیم با مدیرعامل و مؤسس، می‌توانید از همان واتساپ، تلگرام و ایمیلی که در پایین نمایش داده شده استفاده کنید."
-        },
-        pl: {
-            languageLabel: "Język",
-            tabCompany: "Firma",
-            tabPersonal: "Osobisty",
-            tabCompanyDesc: "Profil firmy i dane rejestracyjne",
-            tabPersonalDesc: "Bezpośredni kontakt osobisty z CEO & Founder",
-            companyDetailsTitle: "Dane firmy",
-            companyDetailsSubtitle:
-                "Oficjalne dane rejestracyjne spółki:",
-            fieldCompany: "Spółka",
-            fieldRegistered: "Siedziba zarejestrowana",
-            fieldCorrespondence: "Adres do korespondencji",
-            companyFooter:
-                "Kontakt bezpośredni / 24h w pilnych sprawach transportowych:",
-            personalTitle: "Bezpośredni kontakt osobisty",
-            personalSubtitle:
-                "Do bezpośredniego kontaktu z CEO & Founder możesz używać tego samego numeru WhatsApp, Telegramu i e-maila podanego poniżej."
-        }
-    };
+        personalTitle: "Personal direct contact",
+        personalText: "For direct contact with CEO & Founder, you can use the same WhatsApp, Telegram and Email shown below.",
+        langLabel: "Language"
+    },
+    fa: {
+        dir: "rtl",
+        tabCompany: "شرکت",
+        tabCompanyCaption: "پروفایل و اطلاعات ثبت شرکت",
+        tabPersonal: "شخصی",
+        tabPersonalCaption: "ارتباط مستقیم با مدیرعامل و بنیان‌گذار",
 
-    function getLangKey(code) {
-        if (code === "fa") return "fa";
-        if (code === "pl") return "pl";
-        // بقیه زبان‌ها متن انگلیسی را می‌گیرند
-        return "en";
+        companyDetailsTitle: "مشخصات شرکت",
+        companyDetailsSubtitle: "اطلاعات رسمی ثبت شرکت:",
+        labelCompany: "شرکت",
+        labelKRS: "KRS",
+        labelNIP: "NIP",
+        labelREGON: "REGON",
+        labelRegisteredSeat: "آدرس ثبت‌شده",
+        labelCorrAddress: "آدرس مکاتبات",
+        labelDirectContact: "ارتباط مستقیم / ۲۴ ساعته برای بارهای فوری",
+
+        personalTitle: "ارتباط مستقیم شخصی",
+        personalText: "برای ارتباط مستقیم با مدیرعامل و بنیان‌گذار می‌توانید از همان واتساپ، تلگرام و ایمیل زیر استفاده کنید.",
+        langLabel: "زبان"
+    },
+    pl: {
+        dir: "ltr",
+        tabCompany: "Firma",
+        tabCompanyCaption: "Profil firmy i dane rejestrowe",
+        tabPersonal: "Osobisty",
+        tabPersonalCaption: "Bezpośredni kontakt z CEO & Founder",
+
+        companyDetailsTitle: "Dane firmy",
+        companyDetailsSubtitle: "Oficjalne dane rejestracyjne spółki:",
+        labelCompany: "Spółka",
+        labelKRS: "KRS",
+        labelNIP: "NIP",
+        labelREGON: "REGON",
+        labelRegisteredSeat: "Siedziba zarejestrowana",
+        labelCorrAddress: "Adres korespondencyjny",
+        labelDirectContact: "Kontakt bezpośredni / 24h dla pilnych zleceń transportowych",
+
+        personalTitle: "Bezpośredni kontakt osobisty",
+        personalText: "Do bezpośredniego kontaktu z CEO & Founder możesz użyć tego samego WhatsAppa, Telegramu i Emaila poniżej.",
+        langLabel: "Język"
     }
+};
 
-    function applyTranslations(langCode) {
-        const key = getLangKey(langCode);
-        const dict = translations[key];
+// ===== ELEMENTS =====
+const pageWrapper = document.getElementById("page");
+const companyTab = document.getElementById("companyTab");
+const personalTab = document.getElementById("personalTab");
+const companySection = document.getElementById("companySection");
+const personalSection = document.getElementById("personalSection");
+const langSelect = document.getElementById("languageSelect");
 
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-            const token = el.getAttribute("data-i18n");
-            if (dict[token]) {
-                el.textContent = dict[token];
-            }
-        });
-
-        // RTL فقط برای فارسی
-        if (langCode === "fa") {
-            body.classList.add("rtl");
-        } else {
-            body.classList.remove("rtl");
-        }
-    }
-
-    function activateTab(tab) {
-        if (tab === "company") {
-            companyTabBtn.classList.add("active");
-            personalTabBtn.classList.remove("active");
-            companySection.classList.add("active");
-            personalSection.classList.remove("active");
-
-            // بک‌گراند روز
-            wrapper.classList.remove("night-bg");
-        } else {
-            personalTabBtn.classList.add("active");
-            companyTabBtn.classList.remove("active");
-            personalSection.classList.add("active");
-            companySection.classList.remove("active");
-
-            // بک‌گراند شب
-            wrapper.classList.add("night-bg");
-        }
-    }
-
-    // کلیک روی تب‌ها
-    companyTabBtn.addEventListener("click", () => activateTab("company"));
-    personalTabBtn.addEventListener("click", () => activateTab("personal"));
-
-    // تغییر زبان
-    languageSelect.addEventListener("change", (e) => {
-        applyTranslations(e.target.value);
+// ===== INIT LANGUAGE SELECT =====
+function initLanguageSelect() {
+    languageList.forEach(lang => {
+        const opt = document.createElement("option");
+        opt.value = lang.code;
+        opt.textContent = lang.label;
+        langSelect.appendChild(opt);
     });
 
-    // مقدار اولیه
-    applyTranslations(languageSelect.value || "en");
-    activateTab("company");
+    // پیش‌فرض: انگلیسی
+    langSelect.value = "en";
+    applyLanguage("en");
+
+    langSelect.addEventListener("change", () => {
+        const code = langSelect.value;
+        applyLanguage(code);
+    });
+}
+
+// ===== APPLY LANGUAGE =====
+function applyLanguage(code) {
+    const data = translations[code] || translations.en;
+
+    // جهت صفحه
+    if (data.dir === "rtl") {
+        document.body.classList.add("rtl");
+    } else {
+        document.body.classList.remove("rtl");
+    }
+
+    // برچسب‌های زبان
+    const map = {
+        tabCompany: "tabCompany",
+        tabCompanyCaption: "tabCompanyCaption",
+        tabPersonal: "tabPersonal",
+        tabPersonalCaption: "tabPersonalCaption",
+        companyDetailsTitle: "companyDetailsTitle",
+        companyDetailsSubtitle: "companyDetailsSubtitle",
+        labelCompany: "labelCompany",
+        labelKRS: "labelKRS",
+        labelNIP: "labelNIP",
+        labelREGON: "labelREGON",
+        labelRegisteredSeat: "labelRegisteredSeat",
+        labelCorrAddress: "labelCorrAddress",
+        labelDirectContact: "labelDirectContact",
+        personalTitle: "personalTitle",
+        personalText: "personalText"
+    };
+
+    Object.keys(map).forEach(key => {
+        const els = document.querySelectorAll(`[data-i18n="${key}"]`);
+        els.forEach(el => {
+            el.textContent = data[key] || translations.en[key] || "";
+        });
+    });
+
+    // برچسب "Language"
+    const langLabelEl = document.querySelector(".lang-label");
+    if (langLabelEl) {
+        langLabelEl.textContent = data.langLabel || "Language";
+    }
+}
+
+// ===== TAB HANDLERS =====
+function setCompanyMode() {
+    companyTab.classList.add("active");
+    personalTab.classList.remove("active");
+    companySection.classList.add("active");
+    personalSection.classList.remove("active");
+    pageWrapper.classList.add("company-mode");
+    pageWrapper.classList.remove("personal-mode");
+}
+
+function setPersonalMode() {
+    personalTab.classList.add("active");
+    companyTab.classList.remove("active");
+    personalSection.classList.add("active");
+    companySection.classList.remove("active");
+    pageWrapper.classList.add("personal-mode");
+    pageWrapper.classList.remove("company-mode");
+}
+
+companyTab.addEventListener("click", setCompanyMode);
+personalTab.addEventListener("click", setPersonalMode);
+
+// ===== INIT =====
+document.addEventListener("DOMContentLoaded", () => {
+    initLanguageSelect();
+    setCompanyMode(); // شروع روی شرکت
 });
