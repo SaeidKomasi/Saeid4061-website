@@ -1,381 +1,384 @@
-/* ====== GOOGLE FONTS ====== */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap");
+/* ===== GOOGLE FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
 
-/* ====== RESET ====== */
+/* ===== RESET ===== */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
 }
 
 body {
-    min-height: 100vh;
     font-family: "Montserrat", Arial, sans-serif;
     color: #f5f5f5;
-    background: #000;
 }
 
-/* ====== BACKGROUND MODES ====== */
-
+/* ===== PAGE WRAPPER + BACKGROUNDS ===== */
 .page-wrapper {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.85)),
-        url("assets/bg-truck-day.jpg") center center / cover no-repeat fixed;
+        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85)),
+        url("assets/bg-day.jpg") center center / cover no-repeat fixed;
 }
 
-/* حالت شب برای اکانت شخصی */
-body.mode-personal .page-wrapper {
+/* صفحه شروع – بک‌گراند روز */
+.page-wrapper.mode-home {
     background:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.9)),
+        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85)),
+        url("assets/bg-day.jpg") center center / cover no-repeat fixed;
+}
+
+/* Company – بک‌گراند شب */
+.page-wrapper.mode-company {
+    background:
+        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85)),
         url("assets/bg-night.jpg") center center / cover no-repeat fixed;
 }
 
-/* ====== HEADER ====== */
+/* Personal – عکس خودت */
+.page-wrapper.mode-personal {
+    background:
+        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.85)),
+        url("assets/bg-default.jpg") center center / cover no-repeat fixed;
+}
 
+/* ===== HEADER ===== */
 .site-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 24px;
-    background: linear-gradient(90deg, #0053b8, #0078ff);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
-}
-
-.header-left,
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.route-badge {
-    padding: 4px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-}
-
-.header-center {
-    text-align: center;
-}
-
-/* تایپوگرافی هدر – فونت قشنگ‌تر */
-.site-title {
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    font-size: 26px;
-    text-transform: uppercase;
-    color: #f9fafb;
-    margin: 2px 0 4px;
-}
-
-.company-name {
-    font-family: "Montserrat", Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #e5e7eb;
-    margin-top: 2px;
-}
-
-.tagline {
-    font-family: "Montserrat", Arial, sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #cbd5ff;
-    margin-top: 4px;
-    opacity: 0.95;
-}
-
-/* لوگو */
-.header-logo {
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
-    object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.75);
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
-}
-
-/* سوییچر زبان */
-.language-switcher {
-    position: relative;
-}
-
-.lang-btn {
-    background: rgba(0, 0, 0, 0.18);
-    color: #f9fafb;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 6px 14px;
-    font-size: 11px;
-    cursor: pointer;
-}
-
-.lang-menu {
-    list-style: none;
-    margin: 4px 0 0;
-    padding: 4px 0;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    min-width: 110px;
-    background: #0b1220;
-    border-radius: 10px;
-    border: 1px solid rgba(148, 163, 184, 0.5);
-    box-shadow: 0 8px 16px rgba(15, 23, 42, 0.6);
-    display: none;
+    padding: 10px 32px;
+    background: linear-gradient(90deg, #0053b8, #0077ff);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.45);
+    position: sticky;
+    top: 0;
     z-index: 20;
 }
 
-.lang-menu li {
-    padding: 6px 10px;
-    font-size: 12px;
-    cursor: pointer;
+.header-left,
+.header-center,
+.header-right {
+    display: flex;
+    align-items: center;
 }
 
-.lang-menu li:hover {
-    background: rgba(55, 65, 81, 0.7);
+.header-left {
+    flex: 0 0 auto;
 }
 
-/* ====== TOP TABS (Company / Personal) ====== */
+.header-center {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    flex: 1 1 auto;
+}
 
+.header-right {
+    gap: 16px;
+}
+
+.flag-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* هدر – فونت خاص */
+.headline-top {
+    font-family: "Playfair Display", serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.headline-sub {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+.headline-company {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.headline-route {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+/* زبان + لوگو */
+.lang-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.lang-label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+.lang-select {
+    border-radius: 999px;
+    padding: 3px 10px;
+    border: none;
+    font-size: 0.75rem;
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+.logo-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== TOP TABS (COMPANY / PERSONAL) ===== */
 .top-tabs {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin: 18px 0 8px;
-}
-
-.view-toggle__btn {
-    min-width: 110px;
-    padding: 6px 16px;
-    border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.8);
-    background: rgba(15, 23, 42, 0.85);
-    color: #e5e7eb;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.18s ease;
-}
-
-.view-toggle__btn.active {
-    background: #22c55e;
-    color: #052e16;
-    border-color: #16a34a;
-    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
-}
-
-.view-toggle__btn:hover:not(.active) {
-    background: rgba(30, 64, 175, 0.8);
-}
-
-/* ====== MAIN CONTENT ====== */
-
-.content-area {
-    flex: 1 1 auto;
-    padding: 0 24px 32px;
-}
-
-/* بخش‌های اصلی */
-.view-section {
-    display: none;
-    max-width: 1080px;
-    margin: 0 auto;
-}
-
-.view-section.active {
-    display: block;
-}
-
-/* ====== SUB TABS (داخل کمپانی) ====== */
-
-.sub-tabs {
-    display: flex;
-    flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 12px;
+    margin-top: 10px;
 }
 
-.sub-tab-btn {
-    padding: 6px 14px;
+.top-tab {
+    min-width: 110px;
+    padding: 6px 18px;
     border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.8);
-    background: rgba(15, 23, 42, 0.85);
-    color: #e5e7eb;
-    font-size: 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(0,0,0,0.55);
+    color: #f5f5f5;
+    font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.18s ease;
+    transition: all 0.2s ease;
 }
 
-.sub-tab-btn.active {
-    background: #22c55e;
-    color: #052e16;
-    border-color: #16a34a;
+.top-tab.active {
+    background: #00b36b;
+    border-color: #00b36b;
+    color: #fff;
 }
 
-.subview {
-    display: none;
+/* کپشن زیر تب‌ها */
+.mode-caption {
+    text-align: center;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    opacity: 0.9;
 }
 
-.subview.active {
-    display: block;
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    flex: 1 1 auto;
+    padding: 16px 24px 40px;
 }
 
-/* ====== PANELS ====== */
-
+/* کارت کلی */
 .card-panel {
-    background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.88));
+    max-width: 1100px;
+    margin: 14px auto;
+    background: rgba(0,0,0,0.72);
     border-radius: 18px;
-    padding: 18px 20px 20px;
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-    border: 1px solid rgba(148, 163, 184, 0.6);
-    backdrop-filter: blur(10px);
+    padding: 20px 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
 }
 
 .card-panel h2 {
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 18px;
 }
 
-/* ستون‌های اطلاعات شرکت */
-.company-columns {
+/* نمایش / عدم نمایش */
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+}
+
+/* HOME INTRO */
+.home-intro p {
+    max-width: 700px;
+}
+
+/* SUB TABS (داخل Company) */
+.sub-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
-    margin-top: 8px;
-}
-
-.company-col {
-    flex: 1 1 220px;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-/* سهام‌داران */
-.owners-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 14px;
-}
-
-.owner-card {
-    flex: 1 1 240px;
-    padding: 10px 12px;
-    border-radius: 14px;
-    background: rgba(15, 23, 42, 0.9);
-    border: 1px solid rgba(148, 163, 184, 0.6);
-    font-size: 13px;
-}
-
-/* فعالیت‌ها */
-.pkd-intro {
-    font-size: 13px;
+    gap: 8px;
     margin-bottom: 10px;
 }
 
-.pkd-list {
+.sub-tab {
+    padding: 5px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(0,0,0,0.55);
+    color: #f5f5f5;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sub-tab.active {
+    background: #ffb020;
+    border-color: #ffb020;
+    color: #000;
+}
+
+/* Company grid */
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    font-size: 0.9rem;
+}
+
+/* Activities */
+.activities-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-bottom: 14px;
+    margin: 10px 0 12px;
 }
 
-.pkd-pill {
-    padding: 4px 10px;
+.activity-btn {
     border-radius: 999px;
-    background: rgba(37, 99, 235, 0.8);
-    font-size: 11px;
+    border: 1px solid rgba(173,216,255,0.6);
+    background: rgba(0,0,0,0.55);
+    color: #e0f2ff;
+    padding: 4px 11px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
 }
 
-.pkd-details h3 {
-    margin-top: 0;
-    margin-bottom: 6px;
-    font-size: 15px;
+.activity-btn.active {
+    background: #2f7fff;
+    border-color: #2f7fff;
+    color: #fff;
 }
 
-/* شخصی */
-.personal-panel {
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: left;
+.activity-details {
+    margin-top: 8px;
+    font-size: 0.9rem;
 }
 
-/* دکمه‌های تماس */
+.muted {
+    font-size: 0.8rem;
+    opacity: 0.85;
+}
+
+/* Contact buttons (Personal) */
 .contact-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 14px;
+    margin-top: 16px;
 }
 
 .contact-btn {
-    flex: 1 1 180px;
-    text-align: center;
     text-decoration: none;
-    padding: 9px 12px;
+    padding: 9px 18px;
     border-radius: 999px;
-    font-size: 13px;
+    font-size: 0.9rem;
     font-weight: 500;
-    color: #0b1120;
-    border: none;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.contact-btn--whatsapp {
-    background: #22c55e;
+.contact-btn.whatsapp {
+    background: #25d366;
 }
 
-.contact-btn--telegram {
-    background: #0ea5e9;
+.contact-btn.telegram {
+    background: #229ed9;
 }
 
-.contact-btn--email {
-    background: #facc15;
+.contact-btn.email {
+    background: #ffb020;
+    color: #000;
 }
 
-/* ====== FOOTER ====== */
+/* floating contacts */
+.floating-contacts {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 30;
+}
 
+.floating-contacts a {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.75);
+    border: 1px solid rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* FOOTER */
 .site-footer {
     text-align: center;
-    font-size: 11px;
-    padding: 10px 0 14px;
-    color: #e5e7eb;
+    padding: 8px 10px 14px;
+    font-size: 0.75rem;
+    opacity: 0.85;
 }
 
-/* ====== RESPONSIVE ====== */
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .site-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
     }
-
     .header-center {
+        align-items: flex-start;
         text-align: left;
     }
-
-    .content-area {
-        padding: 0 12px 24px;
+    .main-content {
+        padding: 12px 10px 30px;
     }
-
     .card-panel {
-        padding: 14px 14px 16px;
+        margin: 12px 6px;
+        padding: 16px 14px;
     }
 }
