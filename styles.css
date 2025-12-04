@@ -1,336 +1,80 @@
-/* ===== GOOGLE FONTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
 
-/* ===== RESET ===== */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+/* RESET */
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{min-height:100vh;font-family:"Montserrat",Arial,sans-serif;color:#f5f5f5}
+body.rtl{direction:rtl}
+
+/* BACKGROUNDS */
+.page-wrapper{min-height:100vh;display:flex;flex-direction:column;
+  background:linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,.9)),
+  url("assets/bg-day.jpg") center/cover no-repeat fixed;
+  transition:background .6s ease
 }
+.page-wrapper.company-mode{background:
+  linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,.9)),
+  url("assets/bg-day.jpg") center/cover no-repeat fixed}
+.page-wrapper.personal-mode{background:
+  linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.95)),
+  url("assets/bg-night.jpg") center/cover no-repeat fixed}
 
-html, body {
-    margin: 0;
-    padding: 0;
-}
+/* HEADER */
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;
+  background:linear-gradient(90deg,#0053b8,#0077ff);box-shadow:0 2px 6px rgba(0,0,0,.45)}
+.header-left,.header-right{display:flex;align-items:center;gap:10px}
+.eu-ir-pl-badge{font-size:11px;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.8);background:rgba(0,0,0,.18)}
+.header-center{text-align:center;color:#fff}
+.site-title{margin:0;font-family:"Playfair Display",serif;font-size:22px;letter-spacing:2px}
+.site-subtitle{font-size:11px;text-transform:uppercase;opacity:.9}
+.site-company{font-size:11px;margin-top:2px;font-weight:600}
+.site-route{margin-top:4px;font-size:10px;letter-spacing:.5px}
+.logo-square{width:60px;height:60px;border-radius:12px;border:2px solid rgba(255,255,255,.9);object-fit:cover;background:#000;box-shadow:0 0 12px rgba(0,0,0,.6)}
+.lang-wrapper{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-left:8px}
+.lang-label{font-size:11px}
+.lang-select{padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.8);background:rgba(0,0,0,.28);color:#fff;font-size:11px}
 
-body {
-    min-height: 100vh;
-    font-family: "Montserrat", Arial, sans-serif;
-    color: #f5f5f5;
-}
+/* TOP TABS */
+.tab-switch{display:flex;justify-content:center;gap:8px;margin:10px auto}
+.tab-btn{position:relative;background:rgba(0,0,0,.5);border-radius:999px;padding:6px 16px;border:1px solid rgba(255,255,255,.3);color:#fff;cursor:pointer;font-size:11px;min-width:120px;transition:background .25s,transform .15s}
+.tab-btn .tab-title{display:block;font-weight:600}
+.tab-btn .tab-caption{display:block;font-size:10px;opacity:.8}
+.tab-btn.active{background:linear-gradient(90deg,#00c853,#64dd17);color:#021012;transform:translateY(-1px)}
 
-/* RTL for Persian */
-body.rtl {
-    direction: rtl;
-}
+/* CONTENT */
+.content-area{flex:1 1 auto;display:flex;justify-content:center;align-items:flex-start;padding:12px 16px 60px}
+.content-section{display:none;width:100%;max-width:1100px}
+.content-section.active{display:block}
 
-/* ===== PAGE WRAPPER & BACKGROUNDS ===== */
-.page-wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background:
-        linear-gradient(to bottom, rgba(0,0,0,0.40), rgba(0,0,0,0.85)),
-        url("assets/bg-day.jpg") center center / cover no-repeat fixed;
-    transition: background-image 0.6s ease, background 0.6s ease;
-}
+/* INNER TABS (Company panes) */
+.inner-tabs{display:flex;gap:8px;margin:0 0 10px 0;flex-wrap:wrap}
+.inner-tab{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:10px;padding:6px 12px;font-size:12px;cursor:pointer}
+.inner-tab.active{background:#2bd67b;color:#001c12;border-color:#2bd67b}
+.pane-wrapper{display:block}
+.pane{display:none;background:rgba(0,0,0,.65);border-radius:18px;padding:14px 18px;box-shadow:0 12px 30px rgba(0,0,0,.65);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.15)}
+.pane.active{display:block}
 
-/* Company (day) */
-.page-wrapper.company-mode {
-    background:
-        linear-gradient(to bottom, rgba(0,0,0,0.40), rgba(0,0,0,0.85)),
-        url("assets/bg-day.jpg") center center / cover no-repeat fixed;
-}
+/* Simple table-like blocks */
+.info-block{margin:6px 0}
+.info-title{font-family:"Playfair Display",serif;font-size:18px;margin:0 0 8px 0}
+.kv{display:grid;grid-template-columns:220px 1fr;gap:6px 20px;font-size:12px}
+.kv .k{opacity:.85}
+.kv .v{font-weight:600}
 
-/* Personal (night) */
-.page-wrapper.personal-mode {
-    background:
-        linear-gradient(to bottom, rgba(0,0,0,0.60), rgba(0,0,0,0.95)),
-        url("assets/bg-night.jpg") center center / cover no-repeat fixed;
-}
+/* FABs */
+.contact-fab-container{position:fixed;right:14px;bottom:18px;display:flex;flex-direction:column;gap:8px;z-index:30}
+.fab{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;color:#fff;box-shadow:0 6px 15px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.4)}
+.fab-whatsapp{background:#25d366}
+.fab-telegram{background:#0088cc}
+.fab-email{background:#ff9800}
 
-/* ===== HEADER ===== */
-.site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 18px;
-    background: linear-gradient(90deg, #0053b8, #0077ff);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.45);
-}
+/* FOOTER */
+.site-footer{text-align:center;font-size:10px;padding:6px 0 10px;color:#ddd}
 
-.header-left,
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* EU IR PL pill */
-.eu-ir-pl-badge {
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.8);
-    background: rgba(0,0,0,0.18);
-}
-
-/* Center title block */
-.header-center {
-    text-align: center;
-    color: #fff;
-}
-
-.site-title {
-    margin: 0;
-    font-family: "Playfair Display", serif;
-    font-size: 22px;
-    letter-spacing: 2px;
-}
-
-.site-subtitle {
-    font-size: 11px;
-    text-transform: uppercase;
-    opacity: 0.9;
-}
-
-.site-company {
-    font-size: 11px;
-    margin-top: 2px;
-    font-weight: 600;
-}
-
-.site-route {
-    margin-top: 4px;
-    font-size: 10px;
-    letter-spacing: 0.5px;
-}
-
-/* Logo */
-.logo-square {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    border: 2px solid rgba(255,255,255,0.9);
-    object-fit: cover;
-    background: #000;
-    box-shadow: 0 0 12px rgba(0,0,0,0.6);
-}
-
-/* Language select */
-.lang-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-    margin-left: 10px;
-}
-
-.lang-label {
-    font-size: 11px;
-}
-
-.lang-select {
-    padding: 4px 8px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.8);
-    background: rgba(0,0,0,0.28);
-    color: #fff;
-    font-size: 11px;
-}
-
-/* ===== TABS ===== */
-.tab-switch {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin: 10px auto;
-}
-
-.tab-btn {
-    position: relative;
-    background: rgba(0,0,0,0.5);
-    border-radius: 999px;
-    padding: 6px 16px;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: #fff;
-    cursor: pointer;
-    font-size: 11px;
-    min-width: 120px;
-    transition: background 0.25s, transform 0.15s;
-}
-
-.tab-btn .tab-title {
-    display: block;
-    font-weight: 600;
-}
-
-.tab-btn .tab-caption {
-    display: block;
-    font-size: 10px;
-    opacity: 0.8;
-}
-
-.tab-btn.active {
-    background: linear-gradient(90deg, #00c853, #64dd17);
-    color: #021012;
-    transform: translateY(-1px);
-}
-
-/* ===== MAIN CONTENT ===== */
-.content-area {
-    flex: 1 1 auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 12px 16px 60px;
-}
-
-.content-section {
-    display: none;
-    width: 100%;
-    max-width: 980px;
-}
-
-.content-section.active {
-    display: block;
-}
-
-/* Cards */
-.company-card,
-.personal-card {
-    background: rgba(0,0,0,0.65);
-    border-radius: 18px;
-    padding: 14px 18px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.65);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.15);
-}
-
-/* Typography */
-.company-card h2,
-.personal-card h2 {
-    margin: 0 0 6px 0;
-    font-family: "Playfair Display", serif;
-    font-size: 18px;
-}
-
-.card-sub {
-    margin: 0 0 8px 0;
-    font-size: 11px;
-    opacity: 0.9;
-}
-
-.company-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 40px;
-    font-size: 11px;
-}
-
-.company-grid .field span {
-    font-weight: 600;
-    font-size: 11px;
-}
-
-.company-grid .field {
-    line-height: 1.5;
-}
-
-/* Personal */
-.personal-card p {
-    margin: 0;
-    font-size: 11px;
-}
-
-/* ===== CONTACT FLOATING BUTTONS ===== */
-.contact-fab-container {
-    position: fixed;
-    right: 14px;
-    bottom: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    z-index: 30;
-}
-
-.fab {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 18px;
-    color: #fff;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.4);
-}
-
-.fab-whatsapp {
-    background: #25d366;
-}
-
-.fab-telegram {
-    background: #0088cc;
-}
-
-.fab-email {
-    background: #ff9800;
-}
-
-/* ===== FOOTER ===== */
-.site-footer {
-    text-align: center;
-    font-size: 10px;
-    padding: 6px 0 10px;
-    color: #ddd;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .site-header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 6px;
-    }
-
-    .header-center {
-        order: 1;
-    }
-
-    .header-left,
-    .header-right {
-        order: 2;
-        justify-content: space-between;
-    }
-
-    .logo-square {
-        width: 52px;
-        height: 52px;
-    }
-
-    .content-area {
-        padding: 10px 10px 70px;
-    }
-
-    .company-grid {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    .contact-fab-container {
-        right: 10px;
-        bottom: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-title {
-        font-size: 18px;
-    }
-    .site-route {
-        font-size: 9px;
-    }
+/* RESPONSIVE */
+@media (max-width:768px){
+  .site-header{flex-direction:column;gap:6px}
+  .logo-square{width:52px;height:52px}
+  .content-area{padding:10px 10px 70px}
+  .kv{grid-template-columns:1fr}
 }
