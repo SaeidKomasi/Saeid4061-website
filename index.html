@@ -14,10 +14,71 @@
   />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- استایل منوی زبان (فقط برای سوییچر) -->
+  <style>
+    .language-switcher {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 2000;
+    }
+    .language-switcher select {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #666;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 13px;
+      font-family: inherit;
+    }
+    .language-switcher select:focus {
+      outline: none;
+      box-shadow: 0 0 4px rgba(255, 200, 0, 0.9);
+    }
+  </style>
+
   <script defer src="main.js"></script>
 </head>
 
 <body>
+  <!-- سوییچر ۳۰ زبانه -->
+  <div class="language-switcher">
+    <select id="languageSelect">
+      <!-- ۳۰ زبان -->
+      <option value="en">English</option>
+      <option value="pl">Polski</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="it">Italiano</option>
+      <option value="pt">Português</option>
+      <option value="ru">Русский</option>
+      <option value="ar">العربية</option>
+      <option value="fa">فارسی</option>
+      <option value="tr">Türkçe</option>
+      <option value="zh">中文</option>
+      <option value="ja">日本語</option>
+      <option value="ko">한국어</option>
+      <option value="hi">हिन्दी</option>
+      <option value="nl">Nederlands</option>
+      <option value="sv">Svenska</option>
+      <option value="no">Norsk</option>
+      <option value="da">Dansk</option>
+      <option value="cs">Čeština</option>
+      <option value="sk">Slovenčina</option>
+      <option value="uk">Українська</option>
+      <option value="el">Ελληνικά</option>
+      <option value="hu">Magyar</option>
+      <option value="bg">Български</option>
+      <option value="sr">Српски</option>
+      <option value="hr">Hrvatski</option>
+      <option value="ro">Română</option>
+      <option value="he">עברית</option>
+      <option value="th">ไทย</option>
+    </select>
+  </div>
+
   <div class="page-wrapper mode-home">
     <!-- ===== HEADER (مشترک همه صفحه‌ها) ===== -->
     <header class="top-header">
